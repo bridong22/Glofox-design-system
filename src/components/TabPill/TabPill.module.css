@@ -1,0 +1,24 @@
+.tabPill {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: 9px var(--space-4);
+  border-radius: var(--radius-base);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-tiny);
+  line-height: var(--line-height-tiny);
+  cursor: pointer;
+  background: none;
+}
+
+.inactive {
+  background-color: var(--color-bg);
+  border: 1px solid #d9dbe0;
+  color: var(--color-fg);
+}
+
+.active {
+  background-color: var(--color-brand-subtle);
+  border: 1.5px solid var(--color-brand);
+  color: var(--color-fg);
+}

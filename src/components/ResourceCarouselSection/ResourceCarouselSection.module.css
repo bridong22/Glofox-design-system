@@ -1,0 +1,13 @@
+.resourceCarouselSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-8);
+  background-color: var(--color-bg);
+}
+
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+}

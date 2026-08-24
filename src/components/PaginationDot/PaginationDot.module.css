@@ -1,0 +1,16 @@
+.paginationDot {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--color-brand);
+}
+
+.inactive {
+  background-color: var(--color-border);
+}

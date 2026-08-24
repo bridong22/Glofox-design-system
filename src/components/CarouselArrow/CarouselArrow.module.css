@@ -1,0 +1,17 @@
+.carouselArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  border: 1px solid #ccd1d9;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  cursor: pointer;
+}
+
+.carouselArrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

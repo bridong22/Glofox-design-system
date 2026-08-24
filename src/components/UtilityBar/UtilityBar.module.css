@@ -1,0 +1,26 @@
+.utilityBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  height: 42px;
+  padding: 0 var(--space-6);
+  font-family: var(--font-family-base);
+}
+
+.link {
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: normal;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #ffffff;
+}
+
+.divider {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.4);
+}

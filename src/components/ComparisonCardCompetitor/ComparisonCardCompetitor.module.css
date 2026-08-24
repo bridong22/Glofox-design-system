@@ -1,0 +1,30 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 420px;
+  padding: var(--space-8);
+  background-color: #fbe9e4;
+  border-radius: 14px;
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: 600;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.description {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-fg);
+}

@@ -1,0 +1,7 @@
+.comparisonTable {
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+}

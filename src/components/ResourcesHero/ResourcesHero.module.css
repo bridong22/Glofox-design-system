@@ -1,0 +1,21 @@
+.resourcesHero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  background-color: var(--color-bg);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--color-fg);
+}
+
+.tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+}

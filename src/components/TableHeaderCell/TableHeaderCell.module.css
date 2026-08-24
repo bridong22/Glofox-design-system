@@ -1,0 +1,11 @@
+.headerCell {
+  padding: 20px var(--space-6);
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body);
+  text-align: left;
+  white-space: nowrap;
+}

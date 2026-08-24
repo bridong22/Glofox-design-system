@@ -1,0 +1,46 @@
+.promoBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  background-color: #eb836d;
+  border-radius: var(--radius-full);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.iconChip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-bg);
+  flex-shrink: 0;
+}
+
+.message {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-bg);
+}
+
+.cta {
+  background-color: var(--color-bg);
+  color: #eb836d;
+  flex-shrink: 0;
+}
+
+.cta:hover:not(:disabled) {
+  background-color: var(--color-bg);
+  opacity: 0.9;
+}

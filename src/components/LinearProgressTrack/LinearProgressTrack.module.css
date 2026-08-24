@@ -1,0 +1,17 @@
+.track {
+  position: relative;
+  width: 300px;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #e5e8ed;
+  overflow: hidden;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-radius: 2px;
+  background-color: var(--color-brand);
+}

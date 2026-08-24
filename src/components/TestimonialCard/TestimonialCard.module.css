@@ -1,0 +1,41 @@
+.testimonialCard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 400px;
+  max-width: 100%;
+  padding: var(--space-6);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.quote {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg);
+}
+
+.name {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-tiny);
+  line-height: var(--line-height-tiny);
+  color: var(--color-fg);
+}
+
+.role {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: 400;
+  line-height: var(--line-height-tiny);
+  color: var(--color-fg-muted);
+}

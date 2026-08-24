@@ -1,0 +1,12 @@
+.linkArrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-tiny);
+  line-height: var(--line-height-tiny);
+  color: var(--color-brand);
+  text-decoration: none;
+  white-space: nowrap;
+}
