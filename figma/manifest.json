@@ -31,7 +31,8 @@
       "nodeId": "157:217",
       "componentDir": "BlogResourceCard",
       "removedAt": "2026-09-15",
-      "note": "Node no longer exists in this Figma file (get_metadata returns 'invalid node selection'). Its former dependents (ResourceCardGrid, ResourceCarouselSection) now reference it as an external library dependency instead, so it was likely moved to a separate shared library file rather than deleted outright. Left src/components/BlogResourceCard/ and its Code Connect mapping in place per the resync policy — its Figma mapping is now stale until we learn the new file/nodeId to re-point it at."
+      "codeDeletedAt": "2026-09-15",
+      "note": "Node no longer exists in this Figma file, and by user request the code component and its Code Connect mapping have been deleted from the repo entirely (per explicit instruction — no longer needed). ResourceCardGrid and ResourceCarouselSection, which used to render it, now each carry their own small inlined card renderer (same markup/styles) instead of importing a shared BlogResourceCard, so they still work standalone. If a replacement design ever appears for these composites' cards, build it fresh rather than resurrecting this entry."
     }
   ],
   "components": [

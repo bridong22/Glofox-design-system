@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { SectionHeaderWithLink } from '../SectionHeaderWithLink';
-import { BlogResourceCard } from '../BlogResourceCard';
 import { CarouselControls } from '../CarouselControls';
+import { ImagePlaceholderBlock } from '../ImagePlaceholderBlock';
+import { LinkArrow } from '../LinkArrow';
+import { SectionHeaderWithLink } from '../SectionHeaderWithLink';
 import styles from './ResourceCarouselSection.module.css';
 
 export interface ResourceCarouselSectionCard {
@@ -18,6 +19,19 @@ export interface ResourceCarouselSectionProps {
   cards: ResourceCarouselSectionCard[];
 }
 
+function CarouselCard({ image, category = 'Business Tips', title, href = '#' }: ResourceCarouselSectionCard) {
+  return (
+    <div className={styles.card}>
+      <ImagePlaceholderBlock src={image} alt={title} aspectRatio="280 / 180" />
+      <p className={styles.cardCategory}>{category}</p>
+      <p className={styles.cardTitle}>{title}</p>
+      <LinkArrow href={href} className={styles.cardLink}>
+        See All
+      </LinkArrow>
+    </div>
+  );
+}
+
 export function ResourceCarouselSection({ title, href, linkLabel, cards }: ResourceCarouselSectionProps) {
   const [startIndex, setStartIndex] = useState(0);
   const visibleCount = 3;
@@ -30,13 +44,7 @@ export function ResourceCarouselSection({ title, href, linkLabel, cards }: Resou
       <SectionHeaderWithLink title={title} href={href} linkLabel={linkLabel} />
       <div className={styles.row}>
         {visibleCards.map((card) => (
-          <BlogResourceCard
-            key={card.title}
-            image={card.image}
-            category={card.category}
-            title={card.title}
-            href={card.href}
-          />
+          <CarouselCard key={card.title} {...card} />
         ))}
       </div>
       <CarouselControls

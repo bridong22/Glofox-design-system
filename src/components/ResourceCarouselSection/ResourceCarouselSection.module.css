@@ -11,3 +11,34 @@
   align-items: flex-start;
   gap: var(--space-6);
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 280px;
+  background-color: var(--color-bg);
+}
+
+.cardCategory {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: 700;
+  line-height: var(--line-height-tiny);
+  color: var(--color-brand);
+}
+
+.cardTitle {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.cardLink {
+  width: 100%;
+}

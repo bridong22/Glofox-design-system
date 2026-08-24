@@ -2,7 +2,6 @@ import './tokens/tokens.css';
 
 export * from './components/AvatarBadge';
 export * from './components/Badge';
-export * from './components/BlogResourceCard';
 export * from './components/Button';
 export * from './components/Card';
 export * from './components/Carousel';
