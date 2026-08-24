@@ -16,13 +16,15 @@ export function ResourcesHero({
 }: ResourcesHeroProps) {
   return (
     <div className={styles.resourcesHero}>
-      <p className={styles.heading}>{heading}</p>
-      <div className={styles.tabs}>
-        {tabs.map((tab) => (
-          <FilterTab key={tab} active={tab === activeTab} onClick={() => onTabChange?.(tab)}>
-            {tab}
-          </FilterTab>
-        ))}
+      <div className={styles.inner}>
+        <p className={styles.heading}>{heading}</p>
+        <div className={styles.tabs}>
+          {tabs.map((tab) => (
+            <FilterTab key={tab} active={tab === activeTab} onClick={() => onTabChange?.(tab)}>
+              {tab}
+            </FilterTab>
+          ))}
+        </div>
       </div>
     </div>
   );

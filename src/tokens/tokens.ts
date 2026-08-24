@@ -37,3 +37,8 @@ export const space = {
   12: 'var(--space-12)',
   16: 'var(--space-16)',
 } as const;
+
+export const container = {
+  maxWidth: 'var(--container-max-width)',
+  padding: 'var(--container-padding)',
+} as const;

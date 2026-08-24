@@ -18,18 +18,20 @@ const DEFAULT_LINKS: UtilityBarLink[] = [
 export function UtilityBar({ links = DEFAULT_LINKS }: UtilityBarProps) {
   return (
     <div className={styles.utilityBar}>
-      {links.map((link, index) => (
-        <Fragment key={link.label}>
-          {index > 0 && (
-            <span className={styles.divider} aria-hidden="true">
-              |
-            </span>
-          )}
-          <a href={link.href ?? '#'} className={styles.link}>
-            {link.label}
-          </a>
-        </Fragment>
-      ))}
+      <div className={styles.inner}>
+        {links.map((link, index) => (
+          <Fragment key={link.label}>
+            {index > 0 && (
+              <span className={styles.divider} aria-hidden="true">
+                |
+              </span>
+            )}
+            <a href={link.href ?? '#'} className={styles.link}>
+              {link.label}
+            </a>
+          </Fragment>
+        ))}
+      </div>
     </div>
   );
 }

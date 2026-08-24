@@ -41,19 +41,21 @@ export function ResourceCarouselSection({ title, href, linkLabel, cards }: Resou
 
   return (
     <div className={styles.resourceCarouselSection}>
-      <SectionHeaderWithLink title={title} href={href} linkLabel={linkLabel} />
-      <div className={styles.row}>
-        {visibleCards.map((card) => (
-          <CarouselCard key={card.title} {...card} />
-        ))}
+      <div className={styles.inner}>
+        <SectionHeaderWithLink title={title} href={href} linkLabel={linkLabel} />
+        <div className={styles.row}>
+          {visibleCards.map((card) => (
+            <CarouselCard key={card.title} {...card} />
+          ))}
+        </div>
+        <CarouselControls
+          progress={progress}
+          onPrev={() => setStartIndex((index) => Math.max(0, index - 1))}
+          onNext={() => setStartIndex((index) => Math.min(maxStartIndex, index + 1))}
+          prevDisabled={startIndex === 0}
+          nextDisabled={startIndex >= maxStartIndex}
+        />
       </div>
-      <CarouselControls
-        progress={progress}
-        onPrev={() => setStartIndex((index) => Math.max(0, index - 1))}
-        onNext={() => setStartIndex((index) => Math.min(maxStartIndex, index + 1))}
-        prevDisabled={startIndex === 0}
-        nextDisabled={startIndex >= maxStartIndex}
-      />
     </div>
   );
 }

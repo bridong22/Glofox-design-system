@@ -1,11 +1,16 @@
 .hero {
+  background-color: var(--color-bg);
+}
+
+.inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--space-6);
-  padding: var(--space-16) var(--space-6);
-  background-color: var(--color-bg);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-16) var(--container-padding);
   text-align: center;
 }
 

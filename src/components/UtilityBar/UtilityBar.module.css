@@ -1,11 +1,16 @@
 .utilityBar {
+  font-family: var(--font-family-base);
+}
+
+.inner {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 20px;
   height: 42px;
-  padding: 0 var(--space-6);
-  font-family: var(--font-family-base);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
 }
 
 .link {

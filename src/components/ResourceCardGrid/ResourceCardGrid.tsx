@@ -33,11 +33,13 @@ function GridCard({ image, category = 'Business Tips', title, href = '#' }: Reso
 export function ResourceCardGrid({ title, href, linkLabel, cards }: ResourceCardGridProps) {
   return (
     <div className={styles.resourceCardGrid}>
-      <SectionHeaderWithLink title={title} href={href} linkLabel={linkLabel} />
-      <div className={styles.grid}>
-        {cards.map((card) => (
-          <GridCard key={card.title} {...card} />
-        ))}
+      <div className={styles.inner}>
+        <SectionHeaderWithLink title={title} href={href} linkLabel={linkLabel} />
+        <div className={styles.grid}>
+          {cards.map((card) => (
+            <GridCard key={card.title} {...card} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -31,20 +31,22 @@ function GlofoxLogo() {
 export function NavBar({ theme = 'light' }: NavBarProps) {
   return (
     <header className={styles.navBar} data-theme={theme}>
-      <div className={styles.left}>
-        <span className={styles.logo}>
-          <GlofoxLogo />
-          <span className={styles.wordmark}>GLOFOX</span>
-        </span>
-        <nav className={styles.links} aria-label="Primary">
-          {NAV_LINKS.map((label) => (
-            <a key={label} href="#" className={styles.link}>
-              {label}
-            </a>
-          ))}
-        </nav>
+      <div className={styles.inner}>
+        <div className={styles.left}>
+          <span className={styles.logo}>
+            <GlofoxLogo />
+            <span className={styles.wordmark}>GLOFOX</span>
+          </span>
+          <nav className={styles.links} aria-label="Primary">
+            {NAV_LINKS.map((label) => (
+              <a key={label} href="#" className={styles.link}>
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <Button size="small">Get Free Demo</Button>
       </div>
-      <Button size="small">Get Free Demo</Button>
     </header>
   );
 }

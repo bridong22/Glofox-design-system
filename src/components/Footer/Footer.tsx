@@ -131,52 +131,54 @@ export function Footer({
 }: FooterProps) {
   return (
     <footer className={styles.footer}>
-      <div className={styles.cta}>
-        <div className={styles.ctaText}>
-          <p className={styles.ctaHeading}>{ctaHeading}</p>
-          <p className={styles.ctaSubtext}>{ctaSubtext}</p>
+      <div className={styles.inner}>
+        <div className={styles.cta}>
+          <div className={styles.ctaText}>
+            <p className={styles.ctaHeading}>{ctaHeading}</p>
+            <p className={styles.ctaSubtext}>{ctaSubtext}</p>
+          </div>
+          <Button variant="primary" size="large" onClick={onCtaClick}>
+            {ctaButtonLabel}
+          </Button>
         </div>
-        <Button variant="primary" size="large" onClick={onCtaClick}>
-          {ctaButtonLabel}
-        </Button>
-      </div>
-      <div className={styles.navGrid}>
-        {columns.map((column) => (
-          <div key={column.heading} className={styles.column}>
-            <p className={styles.columnHeading}>{column.heading}</p>
-            <ul className={styles.linkList}>
-              {column.links.map((link) => (
+        <div className={styles.navGrid}>
+          {columns.map((column) => (
+            <div key={column.heading} className={styles.column}>
+              <p className={styles.columnHeading}>{column.heading}</p>
+              <ul className={styles.linkList}>
+                {column.links.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className={styles.link}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+        <div className={styles.divider} />
+        <div className={styles.bottom}>
+          <div className={styles.social}>
+            {socialLinks.map((social) => (
+              <a key={social.name} href={social.href} aria-label={social.name} className={styles.socialLink}>
+                <Icon name={social.name} size={20} />
+              </a>
+            ))}
+          </div>
+          <div className={styles.utility}>
+            <p className={styles.wordmark}>GLOFOX</p>
+            <p className={styles.copyright}>{copyrightText}</p>
+            <ul className={styles.legalLinks}>
+              {legalLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className={styles.link}>
+                  <a href={link.href} className={styles.legalLink}>
                     {link.label}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
-        ))}
-      </div>
-      <div className={styles.divider} />
-      <div className={styles.bottom}>
-        <div className={styles.social}>
-          {socialLinks.map((social) => (
-            <a key={social.name} href={social.href} aria-label={social.name} className={styles.socialLink}>
-              <Icon name={social.name} size={20} />
-            </a>
-          ))}
-        </div>
-        <div className={styles.utility}>
-          <p className={styles.wordmark}>GLOFOX</p>
-          <p className={styles.copyright}>{copyrightText}</p>
-          <ul className={styles.legalLinks}>
-            {legalLinks.map((link) => (
-              <li key={link.label}>
-                <a href={link.href} className={styles.legalLink}>
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </footer>

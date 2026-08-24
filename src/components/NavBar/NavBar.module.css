@@ -1,8 +1,4 @@
 .navBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--space-4) var(--space-6);
   font-family: var(--font-family-base);
 }
 
@@ -13,6 +9,15 @@
 
 .navBar[data-theme='dark'] {
   background: linear-gradient(135deg, #1c1a33 0%, #0f0e1a 100%);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: var(--space-4) var(--container-padding);
 }
 
 .left {

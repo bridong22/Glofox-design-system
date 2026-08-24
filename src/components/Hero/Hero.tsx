@@ -25,22 +25,24 @@ export function Hero({
 
   return (
     <section className={styles.hero}>
-      <p className={styles.smallTitle}>{smallTitle}</p>
-      <h1 className={styles.headline}>{headline}</h1>
-      <p className={styles.subheadline}>{subheadline}</p>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <Input
-          type="email"
-          placeholder="Work email"
-          aria-label="Work email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-        <Button type="submit" size="medium">
-          Get Free Demo
-        </Button>
-      </form>
+      <div className={styles.inner}>
+        <p className={styles.smallTitle}>{smallTitle}</p>
+        <h1 className={styles.headline}>{headline}</h1>
+        <p className={styles.subheadline}>{subheadline}</p>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <Input
+            type="email"
+            placeholder="Work email"
+            aria-label="Work email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          />
+          <Button type="submit" size="medium">
+            Get Free Demo
+          </Button>
+        </form>
+      </div>
     </section>
   );
 }

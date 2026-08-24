@@ -80,4 +80,13 @@
 
   /* Elevation */
   --shadow-card: 0 10px 24px 0 rgba(17, 15, 20, 0.06);
+
+  /*
+   * Page container — confirmed from the live glofox.com grid (Dimensions
+   * page): every section, including NavBar and Footer, insets its content
+   * to this same width. A section may paint a full-bleed background, but
+   * its content never aligns to the section's own edge, only to this one.
+   */
+  --container-max-width: 1280px;
+  --container-padding: 16px;
 }

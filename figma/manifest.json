@@ -23,8 +23,24 @@
     "color/bg-subtle": "#f2f4f6",
     "color/bg-muted": "#efeef0",
     "color/brand": "#06a180",
-    "color/brand-hover": "#035745"
+    "color/brand-hover": "#035745",
+    "layout/container-max-width": "1280",
+    "layout/container-padding": "16"
   },
+  "pageRules": [
+    {
+      "page": "↕️ Dimensions",
+      "nodeId": "226:8",
+      "rule": "Page container",
+      "note": "Confirmed from the live glofox.com grid: max-width 1280px, 16px side padding, 1248px usable content width. Every section — including NavBar and Footer — aligns its inner content to this same width; a section may paint a full-bleed background, but its content never aligns to the section's own edge. Applied as --container-max-width/--container-padding tokens, wired into a `.inner` wrapper in every full-bleed page-section component: NavBar, Footer, Hero, UtilityBar, ResourcesHero, ResourceCardGrid, ResourceCarouselSection. The audit callout on this page found NavBar/Footer/dark-NavBar each using a different, non-matching width in the Figma file itself (1200px canvas with 64px/80px/24px padding) — none of those mismatched values were carried into code; this repo's NavBar/Footer now consistently use the confirmed 1280/16 rule. Excluded PromoBanner (a rounded pill widget, not an edge-to-edge section) and Carousel (a self-bounded, padded widget) — neither owns a full-bleed background the way the others do."
+    },
+    {
+      "page": "↕️ Dimensions",
+      "nodeId": "226:8",
+      "rule": "Hero image sizing",
+      "note": "Two Hero image layouts are documented: NO1 (50/50 split, image caps at max-width 590px / min-width 350px, drops below the title at tablet, never cropped — only scaled) and NO2 (image sits full-width below the title, matching the page container width at every breakpoint). NOT applied to code: src/components/Hero has no image slot at all currently, so there's nothing yet to size-constrain. Flagging this rather than inventing an image feature that wasn't asked for — if/when Hero gets an image prop, implement it under one of these two layouts rather than a new one."
+    }
+  ],
   "removedComponents": [
     {
       "figmaName": "ResourceCard",
