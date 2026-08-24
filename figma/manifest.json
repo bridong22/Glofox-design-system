@@ -1,7 +1,7 @@
 {
   "fileKey": "uQ9lsXJuQx9CVTdkJTVtCc",
   "fileName": "Glofox Web Design System",
-  "generatedAt": "2026-09-08",
+  "generatedAt": "2026-09-15",
   "styleVariables": {
     "note": "Figma text/radius styles aren't tied to a single nodeId, so they can't be diffed via the components list below. Re-check these values with get_variable_defs on a resync and update src/tokens/tokens.css if they've moved.",
     "Text/H1/medium": "48/500/1.0",
@@ -21,8 +21,19 @@
     "color/cta-hover": "#e35031",
     "color/cta-pressed": "#722819",
     "color/bg-subtle": "#f2f4f6",
-    "color/bg-muted": "#efeef0"
+    "color/bg-muted": "#efeef0",
+    "color/brand": "#06a180",
+    "color/brand-hover": "#035745"
   },
+  "removedComponents": [
+    {
+      "figmaName": "ResourceCard",
+      "nodeId": "157:217",
+      "componentDir": "BlogResourceCard",
+      "removedAt": "2026-09-15",
+      "note": "Node no longer exists in this Figma file (get_metadata returns 'invalid node selection'). Its former dependents (ResourceCardGrid, ResourceCarouselSection) now reference it as an external library dependency instead, so it was likely moved to a separate shared library file rather than deleted outright. Left src/components/BlogResourceCard/ and its Code Connect mapping in place per the resync policy — its Figma mapping is now stale until we learn the new file/nodeId to re-point it at."
+    }
+  ],
   "components": [
     { "figmaName": "Button", "nodeId": "42:26", "componentDir": "Button", "assetKey": "d7f045b39db29a53a3c16eac3f509a51fec9ec65", "instanceCount": 12, "note": "gained a State variant (Default/Hover/Pressed/Disabled/Focused) — mapped to CSS :hover/:active/:focus-visible/:disabled, not a React prop" },
     { "figmaName": "Tab Pill", "nodeId": "140:16", "componentDir": "TabPill", "assetKey": "533d9cddd341827eaa4aea43a15904d005715b8a", "instanceCount": 9 },
@@ -64,7 +75,6 @@
     { "figmaName": "UtilityBar", "nodeId": "139:17", "componentDir": "UtilityBar", "assetKey": "f11c936afa24ec61ccc1393b47c8a672f62b60b9", "instanceCount": 0 },
     { "figmaName": "Carousel", "nodeId": "139:184", "componentDir": "Carousel", "assetKey": "01123a19bcdfe6dce17a3ee954718578b469a86f", "instanceCount": 0 },
     { "figmaName": "ComparisonTable", "nodeId": "142:16", "componentDir": "ComparisonTable", "assetKey": "fc138eb69d1c556c761a22ea18f4742c4c430652", "instanceCount": 0 },
-    { "figmaName": "ResourceCard", "nodeId": "157:217", "componentDir": "BlogResourceCard", "assetKey": "b83b0addf4914a4d36d14262f1c3e509ce513e38", "instanceCount": 0, "note": "distinct from Card-page Resource Card (176:8); renamed to avoid collision" },
     { "figmaName": "SectionHeaderWithLink", "nodeId": "157:245", "componentDir": "SectionHeaderWithLink", "assetKey": "67b8af5882ec8e0bb89cfe15e5575f28e4536ad6", "instanceCount": 0 },
     { "figmaName": "Frame", "nodeId": "157:261", "componentDir": "CarouselControls", "assetKey": "4c1c323c22fdfd867826ba4ead9b29d1c249594c", "instanceCount": 0, "note": "page CarouselControls; renamed from generic 'Frame'" },
     { "figmaName": "Frame", "nodeId": "158:36", "componentDir": "PromoBanner", "assetKey": "941f708816d84ec7f290efa0ac68847abe26d2b6", "instanceCount": 0, "note": "page PromoBanner; renamed from generic 'Frame'" },

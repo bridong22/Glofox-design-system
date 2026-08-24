@@ -15,7 +15,7 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid var(--color-brand-hover);
   outline-offset: 2px;
 }
 
@@ -51,7 +51,7 @@
 }
 
 .outline:focus-visible {
-  border-color: var(--color-brand);
+  border-color: var(--color-brand-hover);
 }
 
 .ghost {
@@ -71,7 +71,7 @@
 }
 
 .ghost:focus-visible {
-  color: var(--color-brand);
+  color: var(--color-brand-hover);
 }
 
 /* Sizes */
