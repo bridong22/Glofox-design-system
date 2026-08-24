@@ -87,8 +87,11 @@
 }
 
 .large {
-  font-size: var(--font-size-body);
-  line-height: var(--line-height-body);
+  /* Not bound to --font-size-body in Figma (Button text is SemiBold at every
+     size, body/regular is a separate Regular-weight style) — kept literal so
+     it doesn't move if body/regular's size changes again. */
+  font-size: 18px;
+  line-height: 1.45;
 }
 
 .primary.small,

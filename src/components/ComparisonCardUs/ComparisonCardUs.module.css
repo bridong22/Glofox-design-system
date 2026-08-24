@@ -6,14 +6,16 @@
   width: 420px;
   padding: var(--space-8);
   background-color: var(--color-brand-subtle);
-  border-radius: 14px;
+  border-radius: var(--radius-xl);
 }
 
 .title {
   width: 100%;
   margin: 0;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-body);
+  /* Not confirmed bound to Text/body/regular in Figma (title is SemiBold,
+     body/regular is Regular weight) — kept literal at its prior size. */
+  font-size: 18px;
   font-weight: 600;
   line-height: normal;
   color: var(--color-fg);

@@ -37,8 +37,10 @@
 .subtitle {
   margin: 0;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-body);
-  font-weight: var(--font-weight-body);
-  line-height: var(--line-height-body);
+  /* Not confirmed bound to Text/body/regular in Figma — kept literal at its
+     prior rendered size so it doesn't move if body/regular's size changes. */
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.45;
   color: var(--color-fg-muted);
 }
