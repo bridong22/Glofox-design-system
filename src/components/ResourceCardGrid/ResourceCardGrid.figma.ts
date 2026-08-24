@@ -4,8 +4,13 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-const title = instance.findText('Blog', { traverseInstances: true }).textContent;
-const linkLabel = instance.findText('See All', { traverseInstances: true }).textContent;
+function readText(layerName: string, fallback: string): string {
+  const node = instance.findText(layerName, { traverseInstances: true });
+  return node && node.type === 'TEXT' ? node.textContent : fallback;
+}
+
+const title = readText('Blog', 'Blog');
+const linkLabel = readText('See All', 'See All');
 
 // `cards` is an array of { image, category, title, href } objects with no
 // single-property Figma correspondence — every nested ResourceCard instance

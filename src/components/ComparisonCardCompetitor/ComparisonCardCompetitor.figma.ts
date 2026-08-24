@@ -4,10 +4,16 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-const title = instance.findText('Competitor').textContent;
-const description = instance.findText(
-  'Glofox keeps your members inside your brand at every touchpoint — booking, payments, and communication all live in one app.'
-).textContent;
+function readText(layerName: string, fallback: string): string {
+  const node = instance.findText(layerName);
+  return node && node.type === 'TEXT' ? node.textContent : fallback;
+}
+
+const title = readText('Competitor', 'Competitor');
+const description = readText(
+  'Glofox keeps your members inside your brand at every touchpoint — booking, payments, and communication all live in one app.',
+  'Glofox keeps your members inside your brand at every touchpoint — booking, payments, and communication all live in one app.',
+);
 
 export default {
   example: figma.code`<ComparisonCardCompetitor title="${title}" description="${description}" />`,

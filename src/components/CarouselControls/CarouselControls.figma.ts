@@ -2,7 +2,6 @@
 // source=src/components/CarouselControls/CarouselControls.tsx
 // component=CarouselControls
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 // CarouselControls has no Figma component properties — the nested Linear
 // Progress Track and Carousel Arrow (prev/next) instances are fixed content

@@ -4,7 +4,12 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-const heading = instance.findText('Glofox Resources').textContent;
+function readText(layerName: string, fallback: string): string {
+  const node = instance.findText(layerName);
+  return node && node.type === 'TEXT' ? node.textContent : fallback;
+}
+
+const heading = readText('Glofox Resources', 'Glofox Resources');
 
 // `tabs` is a string[] prop with no single-property Figma correspondence —
 // every nested Filter Tab instance shares the same placeholder "Filter

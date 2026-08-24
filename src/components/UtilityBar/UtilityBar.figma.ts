@@ -2,7 +2,6 @@
 // source=src/components/UtilityBar/UtilityBar.tsx
 // component=UtilityBar
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 // UtilityBar has no Figma component properties — the "Customer login" /
 // "Support" links are static text layers in this node, matching the

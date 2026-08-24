@@ -2,7 +2,6 @@
 // source=src/components/NavBar/NavBar.tsx
 // component=NavBar
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 // NavBar has no Figma component properties: the nav links and the trailing
 // "Get Free Demo" Button are fixed content baked into the component, and the

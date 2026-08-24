@@ -2,7 +2,6 @@
 // source=src/components/Badge/Badge.tsx
 // component=Badge
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 export default {
   example: figma.code`<Badge>Solutions | Manage My Business</Badge>`,

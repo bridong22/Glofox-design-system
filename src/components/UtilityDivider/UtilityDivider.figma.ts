@@ -2,7 +2,6 @@
 // source=src/components/UtilityDivider/UtilityDivider.tsx
 // component=UtilityDivider
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 export default {
   example: figma.code`<UtilityDivider />`,

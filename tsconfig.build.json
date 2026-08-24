@@ -7,5 +7,5 @@
     "outDir": "dist"
   },
   "include": ["src"],
-  "exclude": ["src/**/*.stories.tsx", "src/**/*.figma.tsx"]
+  "exclude": ["src/**/*.stories.tsx", "src/**/*.figma.ts", "src/**/*.figma.tsx"]
 }

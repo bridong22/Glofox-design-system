@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [react(), dts({ include: ['src'], exclude: ['src/**/*.stories.tsx', 'src/**/*.figma.tsx'] })],
+  plugins: [react(), dts({ include: ['src'], exclude: ['src/**/*.stories.tsx', 'src/**/*.figma.ts', 'src/**/*.figma.tsx'] })],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),

@@ -8,7 +8,7 @@ const instance = figma.selectedInstance;
 // counterpart. The three value/label pairs are visible as named text layers
 // (not exposed as component properties), so we read them dynamically via
 // findText and assemble a representative array literal for the example.
-function readText(layerName, fallback) {
+function readText(layerName: string, fallback: string): string {
   const node = instance.findText(layerName);
   return node && node.type === 'TEXT' ? node.textContent : fallback;
 }

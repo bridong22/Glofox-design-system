@@ -2,7 +2,6 @@
 // source=src/components/LinearProgressTrack/LinearProgressTrack.tsx
 // component=LinearProgressTrack
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 export default {
   example: figma.code`<LinearProgressTrack value={30} />`,

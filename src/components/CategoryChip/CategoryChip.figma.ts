@@ -2,7 +2,6 @@
 // source=src/components/CategoryChip/CategoryChip.tsx
 // component=CategoryChip
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 export default {
   example: figma.code`<CategoryChip>Marketing</CategoryChip>`,

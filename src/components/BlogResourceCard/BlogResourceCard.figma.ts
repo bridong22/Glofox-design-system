@@ -4,12 +4,14 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
+function readText(layerName: string, fallback: string): string {
+  const node = instance.findText(layerName, { traverseInstances: true });
+  return node && node.type === 'TEXT' ? node.textContent : fallback;
+}
+
 const type = instance.getEnum('Type', { Blog: 'blog' });
-const category = instance.findText('Business Tips', { traverseInstances: true }).textContent;
-const title = instance.findText(
-  'How to Manage Gym Memberships Like a Pro',
-  { traverseInstances: true },
-).textContent;
+const category = readText('Business Tips', 'Business Tips');
+const title = readText('How to Manage Gym Memberships Like a Pro', 'How to Manage Gym Memberships Like a Pro');
 
 export default {
   example: figma.code`<BlogResourceCard type="${type}" category="${category}" title="${title}" />`,

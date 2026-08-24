@@ -2,7 +2,6 @@
 // source=src/components/Footer/Footer.tsx
 // component=Footer
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 // Footer has no Figma component properties — all nav-grid columns, social
 // icons, legal links and the copyright line are static content in this node,

@@ -2,7 +2,6 @@
 // source=src/components/Carousel/Carousel.tsx
 // component=Carousel
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 // Carousel takes a single `items` array prop (each with src/alt), which has
 // no single-property Figma correspondence — the nested Carousel Arrow,

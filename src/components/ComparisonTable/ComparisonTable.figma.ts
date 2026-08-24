@@ -2,7 +2,6 @@
 // source=src/components/ComparisonTable/ComparisonTable.tsx
 // component=ComparisonTable
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 // ComparisonTable takes `columns` (string[]) and `rows` (array of
 // { label, values }) props with no single-property Figma correspondence —

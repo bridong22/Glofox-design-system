@@ -2,7 +2,6 @@
 // source=src/components/LinkArrow/LinkArrow.tsx
 // component=LinkArrow
 import figma from 'figma';
-const instance = figma.selectedInstance;
 
 export default {
   example: figma.code`<LinkArrow href="#">See all</LinkArrow>`,

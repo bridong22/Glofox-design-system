@@ -4,10 +4,16 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-const title = instance.findText('Built for fitness, not retrofitted for it').textContent;
-const description = instance.findText(
-  'Purpose-built for studios and gyms, with workflows designed around bookings, memberships, waivers, payments, and member engagement.'
-).textContent;
+function readText(layerName: string, fallback: string): string {
+  const node = instance.findText(layerName);
+  return node && node.type === 'TEXT' ? node.textContent : fallback;
+}
+
+const title = readText('Built for fitness, not retrofitted for it', 'Built for fitness, not retrofitted for it');
+const description = readText(
+  'Purpose-built for studios and gyms, with workflows designed around bookings, memberships, waivers, payments, and member engagement.',
+  'Purpose-built for studios and gyms, with workflows designed around bookings, memberships, waivers, payments, and member engagement.',
+);
 
 export default {
   example: figma.code`<FeatureListCard title="${title}" description="${description}" />`,
