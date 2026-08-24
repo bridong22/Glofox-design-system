@@ -27,3 +27,16 @@ export const SimpleLabel: Story = {
     children: 'New',
   },
 };
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+    children: (
+      <>
+        <span style={{ color: 'var(--color-brand)' }}>Solutions</span>
+        <span>|</span>
+        <span>Manage My Business</span>
+      </>
+    ),
+  },
+};

@@ -3,10 +3,11 @@ import styles from './Badge.module.css';
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
   children: ReactNode;
+  size?: 'small' | 'large';
 }
 
-export function Badge({ children, className, ...rest }: BadgeProps) {
-  const classes = [styles.badge, className].filter(Boolean).join(' ');
+export function Badge({ children, size = 'large', className, ...rest }: BadgeProps) {
+  const classes = [styles.badge, styles[size], className].filter(Boolean).join(' ');
 
   return (
     <span className={classes} {...rest}>

@@ -1,3 +1,4 @@
+import { Button } from '../Button';
 import { Icon } from '../Icon';
 import styles from './Footer.module.css';
 
@@ -17,6 +18,10 @@ export interface FooterSocialLink {
 }
 
 export interface FooterProps {
+  ctaHeading?: string;
+  ctaSubtext?: string;
+  ctaButtonLabel?: string;
+  onCtaClick?: () => void;
   columns?: FooterColumn[];
   socialLinks?: FooterSocialLink[];
   legalLinks?: FooterLink[];
@@ -109,11 +114,16 @@ const DEFAULT_LEGAL_LINKS: FooterLink[] = [
   { label: 'Terms of Service', href: '#' },
   { label: 'Cookie Policy', href: '#' },
   { label: 'Legal Portal', href: '#' },
+  { label: 'Hey AI learn about us!', href: '#' },
 ];
 
 const DEFAULT_COPYRIGHT_TEXT = '© 2026 ABC Fitness Solutions, LLC or its affiliates. All rights reserved.';
 
 export function Footer({
+  ctaHeading = 'Ready to grow your business?',
+  ctaSubtext = 'See how Glofox runs your studio, gym or club in one platform',
+  ctaButtonLabel = 'Get Free Demo',
+  onCtaClick,
   columns = DEFAULT_COLUMNS,
   socialLinks = DEFAULT_SOCIAL_LINKS,
   legalLinks = DEFAULT_LEGAL_LINKS,
@@ -121,6 +131,15 @@ export function Footer({
 }: FooterProps) {
   return (
     <footer className={styles.footer}>
+      <div className={styles.cta}>
+        <div className={styles.ctaText}>
+          <p className={styles.ctaHeading}>{ctaHeading}</p>
+          <p className={styles.ctaSubtext}>{ctaSubtext}</p>
+        </div>
+        <Button variant="primary" size="large" onClick={onCtaClick}>
+          {ctaButtonLabel}
+        </Button>
+      </div>
       <div className={styles.navGrid}>
         {columns.map((column) => (
           <div key={column.heading} className={styles.column}>

@@ -14,6 +14,8 @@ export const colors = {
   brandSubtle: 'var(--color-brand-subtle)',
   cta: 'var(--color-cta)',
   ctaHover: 'var(--color-cta-hover)',
+  ctaPressed: 'var(--color-cta-pressed)',
+  bgMuted: 'var(--color-bg-muted)',
   danger: 'var(--color-danger)',
 } as const;
 

@@ -36,12 +36,6 @@
 
 .category {
   margin: 0;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-tiny);
-  font-weight: var(--font-weight-tiny);
-  line-height: var(--line-height-tiny);
-  color: var(--color-brand);
-  white-space: nowrap;
 }
 
 .title {

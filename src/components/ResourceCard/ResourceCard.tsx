@@ -1,3 +1,4 @@
+import { Badge } from '../Badge';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import styles from './ResourceCard.module.css';
@@ -27,7 +28,9 @@ export function ResourceCard({
         <div className={styles.thumbnail} />
       )}
       <div className={styles.content}>
-        <p className={styles.category}>{category}</p>
+        <Badge size="small" className={styles.category}>
+          {category}
+        </Badge>
         <p className={styles.title}>{title}</p>
         <Button
           variant="ghost"

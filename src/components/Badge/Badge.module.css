@@ -6,9 +6,18 @@
   background-color: var(--color-bg-subtle);
   border-radius: var(--radius-full);
   font-family: var(--font-family-base);
+  color: var(--color-fg);
+  white-space: nowrap;
+}
+
+.large {
   font-size: var(--font-size-tiny);
   font-weight: var(--font-weight-tiny);
   line-height: var(--line-height-tiny);
-  color: var(--color-fg);
-  white-space: nowrap;
+}
+
+.small {
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-2xs);
+  line-height: var(--line-height-2xs);
 }

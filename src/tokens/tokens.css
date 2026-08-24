@@ -15,7 +15,9 @@
   --color-brand: #06a180;
   --color-brand-subtle: #e6f5f1;
   --color-cta: #d33b1d;
-  --color-cta-hover: #b6300f;
+  --color-cta-hover: #e35031;
+  --color-cta-pressed: #722819;
+  --color-bg-muted: #efeef0;
   --color-danger: #e35031;
   --color-fg-dark: #110f14;
 
@@ -51,13 +53,28 @@
   --font-weight-body: 400;
   --line-height-body: 1.45;
 
+  /* Figma "medium/regular" */
   --font-size-small: 16px;
   --font-weight-small: 400;
   --line-height-small: 1.5;
 
+  /* Figma "small/bold" */
   --font-size-tiny: 14px;
   --font-weight-tiny: 600;
   --line-height-tiny: 1.5;
+
+  /* Figma "small/regular" — new */
+  --font-size-xs: 14px;
+  --font-weight-xs: 400;
+  --line-height-xs: 1;
+
+  /* Figma "tiny/regular" — new */
+  --font-size-2xs: 12px;
+  --font-weight-2xs: 400;
+  --line-height-2xs: 1;
+
+  /* Figma "tiny/medium" — new */
+  --font-weight-2xs-medium: 500;
 
   /* Elevation */
   --shadow-card: 0 10px 24px 0 rgba(17, 15, 20, 0.06);
