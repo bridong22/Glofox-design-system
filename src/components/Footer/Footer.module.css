@@ -14,6 +14,11 @@
   padding: var(--space-12) var(--container-padding);
 }
 
+.innerMobile {
+  gap: var(--space-6);
+  padding: var(--space-8) var(--space-6);
+}
+
 .cta {
   display: flex;
   align-items: center;
@@ -21,6 +26,12 @@
   gap: var(--space-8);
   width: 100%;
   flex-wrap: wrap;
+}
+
+.ctaMobile {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
 }
 
 .ctaText {
@@ -93,11 +104,55 @@
   background-color: var(--color-border-subtle);
 }
 
+.accordion {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.accordionItem {
+  width: 100%;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.accordionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  background: none;
+  border: none;
+  padding: var(--space-4) 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family-base);
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--color-fg-muted);
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.accordionItem .linkList {
+  padding-bottom: var(--space-4);
+}
+
 .bottom {
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
   width: 100%;
+}
+
+.bottomMobile {
+  align-items: center;
 }
 
 .social {
@@ -106,6 +161,10 @@
   align-items: center;
   gap: var(--space-3);
   width: 100%;
+}
+
+.socialMobile {
+  justify-content: center;
 }
 
 .socialLink {
@@ -122,6 +181,13 @@
   align-items: center;
   gap: 28px;
   flex-wrap: wrap;
+}
+
+.utilityMobile {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
 }
 
 .wordmark {
@@ -146,6 +212,18 @@
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+.legalLinksMobile {
+  justify-content: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.legalLinksMobile li:not(:last-child)::after {
+  content: '·';
+  margin-left: var(--space-2);
+  color: var(--color-fg-muted);
 }
 
 .legalLink {

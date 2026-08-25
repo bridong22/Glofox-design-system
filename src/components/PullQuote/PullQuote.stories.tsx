@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TestimonialCard } from './TestimonialCard';
+import { PullQuote } from './PullQuote';
 
-const meta: Meta<typeof TestimonialCard> = {
-  title: 'Components/TestimonialCard',
-  component: TestimonialCard,
+const meta: Meta<typeof PullQuote> = {
+  title: 'Components/PullQuote',
+  component: PullQuote,
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
@@ -11,7 +11,7 @@ const meta: Meta<typeof TestimonialCard> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof TestimonialCard>;
+type Story = StoryObj<typeof PullQuote>;
 
 export const Default: Story = {};
 

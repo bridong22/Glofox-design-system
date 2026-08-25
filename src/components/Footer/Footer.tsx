@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
 import styles from './Footer.module.css';
@@ -18,6 +19,8 @@ export interface FooterSocialLink {
 }
 
 export interface FooterProps {
+  /** Figma "Layout" variant — `desktop` shows the full nav grid, `mobile` collapses it into an accordion. */
+  layout?: 'desktop' | 'mobile';
   ctaHeading?: string;
   ctaSubtext?: string;
   ctaButtonLabel?: string;
@@ -120,6 +123,7 @@ const DEFAULT_LEGAL_LINKS: FooterLink[] = [
 const DEFAULT_COPYRIGHT_TEXT = '© 2026 ABC Fitness Solutions, LLC or its affiliates. All rights reserved.';
 
 export function Footer({
+  layout = 'desktop',
   ctaHeading = 'Ready to grow your business?',
   ctaSubtext = 'See how Glofox runs your studio, gym or club in one platform',
   ctaButtonLabel = 'Get Free Demo',
@@ -129,10 +133,30 @@ export function Footer({
   legalLinks = DEFAULT_LEGAL_LINKS,
   copyrightText = DEFAULT_COPYRIGHT_TEXT,
 }: FooterProps) {
+  const isMobile = layout === 'mobile';
+
+  // Mobile collapses each nav column into an accordion section; the first
+  // section starts expanded to match the Figma "Layout=Mobile" reference.
+  const [openSections, setOpenSections] = useState<Set<string>>(
+    () => new Set(columns.length > 0 ? [columns[0].heading] : []),
+  );
+
+  const toggleSection = (heading: string) => {
+    setOpenSections((prev) => {
+      const next = new Set(prev);
+      if (next.has(heading)) {
+        next.delete(heading);
+      } else {
+        next.add(heading);
+      }
+      return next;
+    });
+  };
+
   return (
     <footer className={styles.footer}>
-      <div className={styles.inner}>
-        <div className={styles.cta}>
+      <div className={`${styles.inner} ${isMobile ? styles.innerMobile : ''}`}>
+        <div className={`${styles.cta} ${isMobile ? styles.ctaMobile : ''}`}>
           <div className={styles.ctaText}>
             <p className={styles.ctaHeading}>{ctaHeading}</p>
             <p className={styles.ctaSubtext}>{ctaSubtext}</p>
@@ -141,35 +165,74 @@ export function Footer({
             {ctaButtonLabel}
           </Button>
         </div>
-        <div className={styles.navGrid}>
-          {columns.map((column) => (
-            <div key={column.heading} className={styles.column}>
-              <p className={styles.columnHeading}>{column.heading}</p>
-              <ul className={styles.linkList}>
-                {column.links.map((link) => (
-                  <li key={link.label}>
-                    <a href={link.href} className={styles.link}>
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
         <div className={styles.divider} />
-        <div className={styles.bottom}>
-          <div className={styles.social}>
+        {isMobile ? (
+          <div className={styles.accordion}>
+            {columns.map((column) => {
+              const isOpen = openSections.has(column.heading);
+              return (
+                <div key={column.heading} className={styles.accordionItem}>
+                  <button
+                    type="button"
+                    className={styles.accordionHeader}
+                    onClick={() => toggleSection(column.heading)}
+                    aria-expanded={isOpen}
+                  >
+                    <span className={styles.columnHeading}>{column.heading}</span>
+                    <Icon
+                      name="chevron-down"
+                      size={18}
+                      className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}
+                    />
+                  </button>
+                  {isOpen && (
+                    <ul className={styles.linkList}>
+                      {column.links.map((link) => (
+                        <li key={link.label}>
+                          <a href={link.href} className={styles.link}>
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <>
+            <div className={styles.navGrid}>
+              {columns.map((column) => (
+                <div key={column.heading} className={styles.column}>
+                  <p className={styles.columnHeading}>{column.heading}</p>
+                  <ul className={styles.linkList}>
+                    {column.links.map((link) => (
+                      <li key={link.label}>
+                        <a href={link.href} className={styles.link}>
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className={styles.divider} />
+          </>
+        )}
+        <div className={`${styles.bottom} ${isMobile ? styles.bottomMobile : ''}`}>
+          <div className={`${styles.social} ${isMobile ? styles.socialMobile : ''}`}>
             {socialLinks.map((social) => (
               <a key={social.name} href={social.href} aria-label={social.name} className={styles.socialLink}>
                 <Icon name={social.name} size={20} />
               </a>
             ))}
           </div>
-          <div className={styles.utility}>
+          <div className={`${styles.utility} ${isMobile ? styles.utilityMobile : ''}`}>
             <p className={styles.wordmark}>GLOFOX</p>
             <p className={styles.copyright}>{copyrightText}</p>
-            <ul className={styles.legalLinks}>
+            <ul className={`${styles.legalLinks} ${isMobile ? styles.legalLinksMobile : ''}`}>
               {legalLinks.map((link) => (
                 <li key={link.label}>
                   <a href={link.href} className={styles.legalLink}>

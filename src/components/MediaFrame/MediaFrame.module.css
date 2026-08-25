@@ -1,0 +1,39 @@
+.mediaFrame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-muted);
+}
+
+.mediaFrame[data-ratio='hero'] {
+  aspect-ratio: 16 / 9;
+}
+
+.mediaFrame[data-ratio='card'] {
+  aspect-ratio: 3 / 2;
+}
+
+.mediaFrame[data-ratio='square'] {
+  aspect-ratio: 1 / 1;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholderText {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  width: calc(100% - var(--space-8));
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: 10px;
+  line-height: normal;
+  color: var(--color-fg-muted);
+  word-break: break-word;
+}

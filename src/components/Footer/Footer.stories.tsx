@@ -15,6 +15,12 @@ type Story = StoryObj<typeof Footer>;
 
 export const Default: Story = {};
 
+export const Mobile: Story = {
+  args: {
+    layout: 'mobile',
+  },
+};
+
 export const MinimalColumns: Story = {
   args: {
     columns: [

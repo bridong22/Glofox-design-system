@@ -1,0 +1,61 @@
+.card {
+  display: flex;
+  /*
+   * Figma's variable defs bind this padding to the 24px (1.5rem) spacing
+   * variable on both variants (--space-6). The component's usage note text
+   * mentions "spacing/2xl (32px)" but that is stale — the value actually
+   * bound on the node is 24px, not 32px.
+   */
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+}
+
+.large {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 420px;
+  background-color: var(--color-brand-subtle);
+  word-break: break-word;
+}
+
+.small {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-3);
+  background-color: var(--color-bg-subtle);
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.large .title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.small .title {
+  width: auto;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.description {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.link {
+  flex-shrink: 0;
+}
