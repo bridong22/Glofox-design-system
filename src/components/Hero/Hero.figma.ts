@@ -7,6 +7,8 @@ const instance = figma.selectedInstance;
 const smallTitle = instance.getString('SmallTitle');
 const headline = instance.getString('Headline');
 const subheadline = instance.getString('Subheadline');
+const background = instance.getEnum('Background', { Solid: 'solid', Image: 'image', Video: 'video' });
+const content = instance.getEnum('Content', { 'With Form': 'with-form', 'CTA Only': 'cta-only' });
 
 // The nested Input and Button instances are not exposed as HeroProps —
 // Hero hardcodes the email Input (placeholder "Work email") and the
@@ -14,7 +16,7 @@ const subheadline = instance.getString('Subheadline');
 // extract from them for this example.
 
 export default {
-  example: figma.code`<Hero smallTitle="${smallTitle}" headline="${headline}" subheadline="${subheadline}" />`,
+  example: figma.code`<Hero background="${background}" content="${content}" smallTitle="${smallTitle}" headline="${headline}" subheadline="${subheadline}" />`,
   imports: ['import { Hero } from "src/components/Hero"'],
   id: 'hero',
   metadata: { nestable: true },

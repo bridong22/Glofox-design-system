@@ -1,8 +1,50 @@
 .hero {
+  position: relative;
   background-color: var(--color-bg);
+  overflow: hidden;
+}
+
+.hero[data-background='image'],
+.hero[data-background='video'] {
+  background-color: #131721;
+}
+
+.backgroundMedia {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.backgroundPlaceholder {
+  position: absolute;
+  inset: 0;
+  background-color: #131721;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(19, 23, 33, 0.4) 0%, rgba(19, 23, 33, 0.7) 100%);
+}
+
+.hero[data-background='image'] .smallTitle,
+.hero[data-background='video'] .smallTitle,
+.hero[data-background='image'] .headline,
+.hero[data-background='video'] .headline {
+  position: relative;
+  color: var(--color-bg);
+}
+
+.hero[data-background='image'] .subheadline,
+.hero[data-background='video'] .subheadline {
+  position: relative;
+  color: #d9dee3;
 }
 
 .inner {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
