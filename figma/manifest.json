@@ -2,6 +2,23 @@
   "fileKey": "uQ9lsXJuQx9CVTdkJTVtCc",
   "fileName": "Glofox Web Design System",
   "generatedAt": "2026-08-25",
+  "codeConnectGaps": [
+    {
+      "nodeId": "272:36",
+      "figmaName": "Hero",
+      "issue": "add_code_connect_map / send_code_connect_mappings both return 'Published component not found', despite the node being a confirmed published COMPONENT_SET. Retried twice on 2026-08-25 with the same result — looks like a Figma-side indexing gap for this node, not a client-side bug. Retry on next resync."
+    },
+    {
+      "nodeId": "293:8",
+      "figmaName": "NavBar",
+      "issue": "Same 'Published component not found' error as Hero (272:36) above, same retry outcome. Retry on next resync."
+    },
+    {
+      "nodeId": "44:2",
+      "figmaName": "Pull Quote",
+      "issue": "Still mapped to the old 'TestimonialCard' source path from before the Figma rename; add_code_connect_map returns 'This component is already mapped to code. To create a new mapping, please disconnect the existing mapping in the Figma UI first.' No MCP tool can force-overwrite an existing mapping — a human needs to disconnect it in Figma's Dev Mode UI once, after which a resync can re-map it to src/components/PullQuote/PullQuote.tsx."
+    }
+  ],
   "styleVariables": {
     "note": "Figma text/radius styles aren't tied to a single nodeId, so they can't be diffed via the components list below. Re-check these values with get_variable_defs on a resync and update src/tokens/tokens.css if they've moved.",
     "Text/H1/medium": "48/500/1.0",
