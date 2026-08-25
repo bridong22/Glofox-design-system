@@ -15,6 +15,11 @@
   text-align: left;
 }
 
+.right {
+  align-items: flex-end;
+  text-align: right;
+}
+
 .eyebrow {
   margin: 0;
   font-family: var(--font-family-base);
@@ -30,17 +35,47 @@
   font-family: var(--font-family-base);
   font-size: var(--font-size-h2);
   font-weight: var(--font-weight-h2);
-  line-height: var(--line-height-h2);
+  /* Figma-confirmed for this node's "Text/H2/medium" style: lineHeight 1.45.
+     Kept literal rather than the shared --line-height-h2 token (1.15), which
+     other components (Footer, SectionHeaderWithLink) still rely on. */
+  line-height: 1.45;
   color: var(--color-fg);
 }
 
 .subtitle {
   margin: 0;
   font-family: var(--font-family-base);
-  /* Not confirmed bound to Text/body/regular in Figma — kept literal at its
-     prior rendered size so it doesn't move if body/regular's size changes. */
+  /* No token at 18px; Figma confirms this size's line-height at 1.45,
+     shared with body/regular. */
   font-size: 18px;
   font-weight: 400;
   line-height: 1.45;
   color: var(--color-fg-muted);
+}
+
+/* Size: Small (Figma-confirmed at Align=Center; applied uniformly across
+   all alignments per the component's documented scaling pattern). */
+.sizeSmall .eyebrow {
+  font-size: var(--font-size-2xs); /* 12px */
+}
+
+.sizeSmall .title {
+  font-size: 24px; /* No matching token at 24px */
+  line-height: 1.15;
+}
+
+.sizeSmall .subtitle {
+  font-size: 15px; /* No matching token at 15px */
+}
+
+/* Size: Large (Figma-confirmed at Align=Center; applied uniformly across
+   all alignments per the component's documented scaling pattern). */
+.sizeLarge .title {
+  font-size: var(--font-size-h1); /* 48px */
+  line-height: 1.15; /* Figma-confirmed; distinct from --line-height-h1 (1) */
+}
+
+.sizeLarge .subtitle {
+  font-size: var(--font-size-body); /* 20px */
+  font-weight: var(--font-weight-body);
 }

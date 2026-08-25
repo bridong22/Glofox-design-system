@@ -31,3 +31,35 @@ export const Left: Story = {
     align: 'left',
   },
 };
+
+export const Right: Story = {
+  args: {
+    align: 'right',
+  },
+};
+
+export const Small: Story = {
+  args: {
+    size: 'small',
+  },
+};
+
+export const Large: Story = {
+  args: {
+    size: 'large',
+  },
+};
+
+export const LeftSmall: Story = {
+  args: {
+    align: 'left',
+    size: 'small',
+  },
+};
+
+export const RightLarge: Story = {
+  args: {
+    align: 'right',
+    size: 'large',
+  },
+};

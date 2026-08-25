@@ -5,6 +5,7 @@
   width: 100%;
   padding: var(--space-4) 0;
   border-bottom: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
 }
 
 .questionRow {
@@ -29,14 +30,13 @@
   color: var(--color-fg);
 }
 
-.chevron {
+.toggleGlyph {
   flex-shrink: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-tiny);
+  line-height: var(--line-height-tiny);
   color: var(--color-brand);
-  transition: transform 0.2s ease;
-}
-
-.chevronOpen {
-  transform: rotate(180deg);
 }
 
 .answer {

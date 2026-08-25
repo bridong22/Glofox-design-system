@@ -10,9 +10,16 @@ const meta: Meta<typeof AvatarBadge> = {
 export default meta;
 type Story = StoryObj<typeof AvatarBadge>;
 
+export const Logo: Story = {
+  args: {
+    type: 'logo',
+  },
+};
+
 export const Initials: Story = {
   args: {
-    initials: 'KO',
+    type: 'initials',
+    initials: 'MS',
   },
 };
 

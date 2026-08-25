@@ -7,7 +7,14 @@
   overflow: hidden;
   border: 1px solid #e5e8ed;
   border-radius: var(--radius-full);
-  background-color: var(--color-bg);
+}
+
+.logoVariant {
+  background-color: var(--color-bg-muted);
+}
+
+.initialsVariant {
+  background-color: var(--color-brand);
 }
 
 .image {
@@ -16,11 +23,20 @@
   object-fit: cover;
 }
 
-.initials {
+.logoLabel {
   font-family: var(--font-family-base);
-  font-size: 14px;
+  font-size: 9px;
   font-weight: 700;
   line-height: normal;
-  color: #808085;
+  color: var(--color-fg-muted);
+  text-align: center;
+}
+
+.initialsLabel {
+  font-family: var(--font-family-base);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+  color: #ffffff;
   text-align: center;
 }

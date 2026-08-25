@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Icon } from '../Icon';
 import styles from './FaqItem.module.css';
 
 export interface FaqItemProps {
@@ -24,11 +23,9 @@ export function FaqItem({
         aria-expanded={isOpen}
       >
         <span className={styles.question}>{question}</span>
-        <Icon
-          name="chevron-down"
-          size={20}
-          className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}
-        />
+        <span className={styles.toggleGlyph} aria-hidden="true">
+          {isOpen ? '–' : '+'}
+        </span>
       </button>
       {isOpen && <p className={styles.answer}>{answer}</p>}
     </div>
