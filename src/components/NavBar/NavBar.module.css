@@ -1,14 +1,25 @@
 .navBar {
   font-family: var(--font-family-base);
+  position: relative;
 }
 
-.navBar[data-theme='light'] {
+/*
+ * Light theme (and dark theme once scrolled — the live site's fixed dark nav
+ * swaps to the same solid look as the light nav past the hero) both render
+ * solid white with a hairline border.
+ */
+.navBar[data-theme='light'],
+.navBar[data-layout='desktop'][data-theme='dark'][data-scrolled] {
   background-color: var(--color-bg);
   border-bottom: 1px solid var(--color-border-subtle);
 }
 
-.navBar[data-theme='dark'] {
-  background: linear-gradient(135deg, #1c1a33 0%, #0f0e1a 100%);
+/*
+ * Dark theme, not yet scrolled: proposed transparent-over-hero treatment —
+ * no background of its own, it floats on the hero's own dark gradient.
+ */
+.navBar[data-layout='desktop'][data-theme='dark']:not([data-scrolled]) {
+  background: transparent;
 }
 
 .inner {
@@ -33,7 +44,7 @@
   color: var(--color-fg);
 }
 
-.navBar[data-theme='dark'] .logo {
+.navBar[data-layout='desktop'][data-theme='dark']:not([data-scrolled]) .logo {
   color: #ffffff;
 }
 
@@ -61,10 +72,69 @@
   color: var(--color-fg);
 }
 
-.navBar[data-theme='dark'] .link {
+.navBar[data-layout='desktop'][data-theme='dark']:not([data-scrolled]) .link {
   color: rgba(255, 255, 255, 0.85);
 }
 
-.navBar[data-theme='dark'] .link:hover {
+.navBar[data-layout='desktop'][data-theme='dark']:not([data-scrolled]) .link:hover {
   color: #ffffff;
+}
+
+/* Mobile: header row (logo + toggle) reuses .inner; the toggle button itself. */
+
+.menuToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--color-fg);
+  cursor: pointer;
+}
+
+.menuToggle:focus-visible {
+  outline: 2px solid var(--color-brand-hover);
+  outline-offset: 2px;
+}
+
+/*
+ * The mobile menu drawer renders full-bleed below the header row (outside
+ * .inner) so each row can carry its own hover fill edge-to-edge, matching
+ * the Figma drawer rows — .inner's container padding is only re-applied per
+ * row for horizontal alignment with the header above it.
+ */
+.mobileMenu {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.mobileLinks {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-2) 0;
+}
+
+.mobileLink {
+  padding: var(--space-4) var(--container-padding);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-fg);
+  text-decoration: none;
+}
+
+.mobileLink:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+.mobileCta {
+  padding: var(--space-2) var(--container-padding) var(--space-4);
+}
+
+.mobileCtaButton {
+  width: 100%;
 }
