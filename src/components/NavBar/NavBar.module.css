@@ -48,12 +48,6 @@
   color: #ffffff;
 }
 
-.wordmark {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
 .links {
   display: flex;
   align-items: center;
