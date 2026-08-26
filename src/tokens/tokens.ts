@@ -41,4 +41,5 @@ export const space = {
 export const container = {
   maxWidth: 'var(--container-max-width)',
   padding: 'var(--container-padding)',
+  narrowMaxWidth: 'var(--container-narrow-max-width)',
 } as const;
