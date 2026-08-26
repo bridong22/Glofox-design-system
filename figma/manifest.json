@@ -98,6 +98,14 @@
       "removedAt": "2026-08-26",
       "codeDeletedAt": "2026-08-26",
       "note": "See PromoBanner (158:36) above — one of the same four removed Resources-page Frame nodes. Code component deleted; nothing else in the codebase imported it."
+    },
+    {
+      "figmaName": "Category Icon Badge",
+      "nodeId": "157:17",
+      "componentDir": "CategoryIconBadge",
+      "removedAt": "2026-08-26",
+      "codeDeletedAt": "2026-08-26",
+      "note": "Node no longer appears in the 'Media & Badges' page (162:12) — get_metadata on that page now lists only Avatar Badge and Media Frame; Category Icon Badge is only mentioned in stale description text, not as an actual node. No replacement design. Code component deleted; nothing else in the codebase imported it."
     }
   ],
   "components": [
@@ -109,9 +117,10 @@
     { "figmaName": "Linear Progress Track", "nodeId": "157:23", "componentDir": "LinearProgressTrack", "assetKey": "be59300bbe0d36eeeb8e6cff1c6fba160cc4d0fc", "instanceCount": 0 },
     { "figmaName": "Link Arrow", "nodeId": "157:11", "componentDir": "LinkArrow", "assetKey": "c376ba74e760b24b91bdb46e56c26cf5426fd024", "instanceCount": 0 },
     { "figmaName": "Breadcrumb Trail", "nodeId": "240:15", "componentDir": "BreadcrumbTrail", "assetKey": "f9927598bf5f33d00e5c72219f129b61dbb0fc60", "instanceCount": 0, "note": "new component, no variants" },
-    { "figmaName": "Image Placeholder Block", "nodeId": "140:27", "componentDir": "ImagePlaceholderBlock", "assetKey": "f50b113aecaff4417cf9c0ffba24a4d15c274ea4", "instanceCount": 1 },
-    { "figmaName": "Category Icon Badge", "nodeId": "157:17", "componentDir": "CategoryIconBadge", "assetKey": "ef14e58f82df54b05be617b6df7e1d5b260d3e6f", "instanceCount": 0 },
+    { "figmaName": "Image Placeholder Block", "nodeId": "140:27", "componentDir": "ImagePlaceholderBlock", "assetKey": "f50b113aecaff4417cf9c0ffba24a4d15c274ea4", "instanceCount": 1, "note": "no longer a locally-published component in this file — list_file_components_for_code_connect now shows it only as an 'external' dependency of Carousel with the SAME assetKey (unchanged visual), meaning it moved to an external library rather than being redesigned. Kept the code component as-is (still imported by src/components/Carousel); nodeId above is stale (no longer independently addressable in this file) but retained for history." },
     { "figmaName": "Avatar Badge", "nodeId": "243:10", "componentDir": "AvatarBadge", "assetKey": "22237c9a850b9f4d284f5238aa173b459bc1319e", "instanceCount": 0, "note": "became a COMPONENT_SET with a Type variant (Logo default / Initials); old standalone node 157:19 is now the nested 'Logo' variant" },
+    { "figmaName": "Pagination", "nodeId": "337:41", "componentDir": "Pagination", "assetKey": "5d8e4bef15b75ea730676347f91644100c0f2222", "instanceCount": 0, "note": "new COMPONENT_SET, Position variant (First/Middle/Last) — static 3-frame disclosure in Figma, built as a real windowed numeric paginator (currentPage/totalPages/onPageChange) reusing CarouselArrow, per this repo's convention of making Figma's static references actually interactive" },
+    { "figmaName": "Container", "nodeId": "312:31", "componentDir": "Container", "assetKey": "37ee1930ee6cc2dbbbe525119388f99c4a94f885", "instanceCount": 0, "note": "new COMPONENT_SET, Width variant (Wide default/Narrow) — added by Figma specifically to fix container-width/padding bugs in AI-generated pages (e.g. Category Hub - Marketing.dc.html); Wide reuses the existing --container-max-width/--container-padding tokens, Narrow adds a new --container-narrow-max-width (760px) token" },
     { "figmaName": "Media Frame", "nodeId": "252:27", "componentDir": "MediaFrame", "assetKey": "70bdd475e8874b5d301184189f792761dc1505bd", "instanceCount": 0, "note": "new COMPONENT_SET, Ratio variant (Hero default 16/9, Card 3/2, Square 1/1) — a new primitive distinct from ImagePlaceholderBlock" },
     { "figmaName": "Table Header Cell", "nodeId": "141:30", "componentDir": "TableHeaderCell", "assetKey": "5782ba31110d0c173839c8f6952bdb9f5c1e3af9", "instanceCount": 0 },
     { "figmaName": "Table Cell", "nodeId": "141:35", "componentDir": "TableCell", "assetKey": "e384bbf3a6005d8fc0dcdb8317f6e09b06a04d85", "instanceCount": 0 },
@@ -125,6 +134,7 @@
     { "figmaName": "Card (Hover)", "nodeId": "182:8", "componentDir": "Card", "assetKey": "cf7348f2d801220dc34670f929dfb5c711321b61", "instanceCount": 0, "note": "hover/default state of Card (42:36), not a separate component" },
     { "figmaName": "Feature List Card (Default)", "nodeId": "183:14", "componentDir": "FeatureListCard", "assetKey": "943f3c8fd3f94a00dbc8db20bff9d11fb2826354", "instanceCount": 3, "note": "hover/default state of Feature List Card (174:8), not a separate component" },
     { "figmaName": "Feature List Card (Hover)", "nodeId": "182:12", "componentDir": "FeatureListCard", "assetKey": "9c5aba109ce374901971b4a43399065ab216c643", "instanceCount": 0, "note": "hover/default state of Feature List Card (174:8), not a separate component" },
+    { "figmaName": "Featured module row", "nodeId": "302:1032", "componentDir": "FeaturedModuleRow", "assetKey": "8284b78e82fd985c92b2c40ee8dc3c94c127c7f3", "instanceCount": 0, "note": "new COMPONENT_SET, page Card — 'Featured/Editor's Picks' pattern (Media Frame + 'Featured' Badge + title/description + ghost Button 'Read More'); State variant (Default/Hover) is a CSS :hover/:focus-within shadow, not a prop, matching ResourceCard's shadow value exactly" },
     { "figmaName": "Category Chip", "nodeId": "198:2070", "componentDir": "CategoryChip", "assetKey": "7148c0702fb3a507b5900d32d2f27b0c7c1095c4", "instanceCount": 0 },
     { "figmaName": "FaqItem", "nodeId": "244:18", "componentDir": "FaqItem", "assetKey": "6cda4466c27deb53430fda2232e2120f3a3a1fab", "instanceCount": 0, "note": "became a COMPONENT_SET with a State variant (Expanded default / Collapsed); old standalone node 44:6 is now the nested 'Expanded' variant. Collapse indicator is a literal –/+ glyph (Poppins SemiBold, brand color), not an icon" },
     { "figmaName": "Footer", "nodeId": "271:70", "componentDir": "Footer", "assetKey": "53be9782f635ec371ddc891de6800c18c9dffb45", "instanceCount": 0, "note": "became a COMPONENT_SET with a Layout variant (Desktop default / Mobile); old standalone node 44:1745 is now the nested 'Desktop' variant, still with the top CTA banner and 'Hey AI learn about us!' legal link. Mobile layout collapses the nav grid into an accordion" },
@@ -134,6 +144,7 @@
     { "figmaName": "Focus", "nodeId": "169:1954", "componentDir": "Input", "assetKey": "6b1277697affcf03d591625b207c4cdce4406651", "instanceCount": 0, "note": "state of Input (42:34), not a separate component" },
     { "figmaName": "Disabled", "nodeId": "169:1956", "componentDir": "Input", "assetKey": "1152a98e34630cfe2779edefebe1f40872d1cc9f", "instanceCount": 0, "note": "state of Input (42:34), not a separate component" },
     { "figmaName": "Error", "nodeId": "169:1958", "componentDir": "Input", "assetKey": "ae78f3930c1cbbd5ca4d34b40d08dbadce16df1b", "instanceCount": 0, "note": "state of Input (42:34), not a separate component" },
+    { "figmaName": "Select", "nodeId": "304:1070", "componentDir": "Select", "assetKey": "80a999cb97e8e21311afe90c34d9e71d97bcf123", "instanceCount": 0, "note": "new component, page Input — dropdown, built on a native <select> with a placeholder/selected text-color distinction and an overlaid chevron-down icon" },
     { "figmaName": "NavBar", "nodeId": "293:8", "componentDir": "NavBar", "assetKey": "64c32f0fd754eecfe943c34ba8177ddd9b8161b8", "instanceCount": 0, "note": "consolidated into a single COMPONENT_SET with 4 sparsely-populated properties: Layout (Desktop/Mobile), Theme (Light/Dark, desktop-only), Scroll (Default/Scrolled, desktop-only, tracked via a scroll listener not a prop), Menu (Closed/Open, mobile-only). Old standalone nodes 44:11 (light) and 139:158 (dark, proposed) are now nested Desktop variants." },
     { "figmaName": "SectionHeading", "nodeId": "287:241", "componentDir": "SectionHeading", "assetKey": "f18eed5eeaed985ce6c8115c91750ab2d0c91272", "instanceCount": 2, "note": "became a COMPONENT_SET with Align (Center default/Left/Right) and Size (Medium default/Small/Large) variants; old standalone node 42:48 is now the nested 'Center'+'Medium' variant" },
     { "figmaName": "StatStrip", "nodeId": "42:49", "componentDir": "StatStrip", "assetKey": "fdd9b598fe90f0643bce84f52b99950e13382ea3", "instanceCount": 1 },
