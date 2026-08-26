@@ -1,7 +1,7 @@
 {
   "fileKey": "uQ9lsXJuQx9CVTdkJTVtCc",
   "fileName": "Glofox Web Design System",
-  "generatedAt": "2026-08-25",
+  "generatedAt": "2026-08-26",
   "codeConnectGaps": [
     {
       "nodeId": "272:36",
@@ -49,7 +49,7 @@
       "page": "↕️ Dimensions",
       "nodeId": "226:8",
       "rule": "Page container",
-      "note": "Confirmed from the live glofox.com grid: max-width 1280px, 16px side padding, 1248px usable content width. Every section — including NavBar and Footer — aligns its inner content to this same width; a section may paint a full-bleed background, but its content never aligns to the section's own edge. Applied as --container-max-width/--container-padding tokens, wired into a `.inner` wrapper in every full-bleed page-section component: NavBar, Footer, Hero, UtilityBar, ResourcesHero, ResourceCardGrid, ResourceCarouselSection. The audit callout on this page found NavBar/Footer/dark-NavBar each using a different, non-matching width in the Figma file itself (1200px canvas with 64px/80px/24px padding) — none of those mismatched values were carried into code; this repo's NavBar/Footer now consistently use the confirmed 1280/16 rule. Excluded PromoBanner (a rounded pill widget, not an edge-to-edge section) and Carousel (a self-bounded, padded widget) — neither owns a full-bleed background the way the others do."
+      "note": "Confirmed from the live glofox.com grid: max-width 1280px, 16px side padding, 1248px usable content width. Every section — including NavBar and Footer — aligns its inner content to this same width; a section may paint a full-bleed background, but its content never aligns to the section's own edge. Applied as --container-max-width/--container-padding tokens, wired into a `.inner` wrapper in every full-bleed page-section component: NavBar, Footer, Hero, UtilityBar. The audit callout on this page found NavBar/Footer/dark-NavBar each using a different, non-matching width in the Figma file itself (1200px canvas with 64px/80px/24px padding) — none of those mismatched values were carried into code; this repo's NavBar/Footer now consistently use the confirmed 1280/16 rule. Excluded Carousel (a self-bounded, padded widget) — it doesn't own a full-bleed background the way the others do. (PromoBanner, ResourcesHero, ResourceCardGrid, ResourceCarouselSection — the other components this rule originally called out — were removed from Figma and deleted from the repo on 2026-08-26; see removedComponents.)"
     },
     {
       "page": "↕️ Dimensions",
@@ -65,7 +65,39 @@
       "componentDir": "BlogResourceCard",
       "removedAt": "2026-09-15",
       "codeDeletedAt": "2026-09-15",
-      "note": "Node no longer exists in this Figma file, and by user request the code component and its Code Connect mapping have been deleted from the repo entirely (per explicit instruction — no longer needed). ResourceCardGrid and ResourceCarouselSection, which used to render it, now each carry their own small inlined card renderer (same markup/styles) instead of importing a shared BlogResourceCard, so they still work standalone. If a replacement design ever appears for these composites' cards, build it fresh rather than resurrecting this entry."
+      "note": "Node no longer exists in this Figma file, and by user request the code component and its Code Connect mapping have been deleted from the repo entirely (per explicit instruction — no longer needed). ResourceCardGrid and ResourceCarouselSection, which used to render it, carried their own small inlined card renderer (same markup/styles) instead of importing a shared BlogResourceCard — moot now that both of those composites are themselves removed below. If a replacement design ever appears for a resources-listing card, build it fresh rather than resurrecting this entry."
+    },
+    {
+      "figmaName": "Frame (PromoBanner)",
+      "nodeId": "158:36",
+      "componentDir": "PromoBanner",
+      "removedAt": "2026-08-26",
+      "codeDeletedAt": "2026-08-26",
+      "note": "Node no longer exists in this Figma file — confirmed via get_design_context returning 'not found'. Along with ResourcesHero/ResourceCardGrid/ResourceCarouselSection below, this was one of four sibling Frame nodes composing a full 'Resources' page mockup that has been deleted from Figma wholesale; there is no replacement frame to rebuild against. The underlying atomic components it used (Resource Card, Filter Tab, Link Arrow, Media Frame, Linear Progress Track) all still exist and remain documented as 'used on the Resources page' — only the composed page-level mockups were removed, not the design language behind them. Code component deleted from the repo entirely; nothing else in the codebase imported it."
+    },
+    {
+      "figmaName": "Frame (ResourcesHero)",
+      "nodeId": "158:193",
+      "componentDir": "ResourcesHero",
+      "removedAt": "2026-08-26",
+      "codeDeletedAt": "2026-08-26",
+      "note": "See PromoBanner (158:36) above — one of the same four removed Resources-page Frame nodes. Code component deleted; nothing else in the codebase imported it."
+    },
+    {
+      "figmaName": "Frame (ResourceCardGrid)",
+      "nodeId": "158:249",
+      "componentDir": "ResourceCardGrid",
+      "removedAt": "2026-08-26",
+      "codeDeletedAt": "2026-08-26",
+      "note": "See PromoBanner (158:36) above — one of the same four removed Resources-page Frame nodes. Code component deleted; nothing else in the codebase imported it."
+    },
+    {
+      "figmaName": "Frame (ResourceCarouselSection)",
+      "nodeId": "158:305",
+      "componentDir": "ResourceCarouselSection",
+      "removedAt": "2026-08-26",
+      "codeDeletedAt": "2026-08-26",
+      "note": "See PromoBanner (158:36) above — one of the same four removed Resources-page Frame nodes. Code component deleted; nothing else in the codebase imported it."
     }
   ],
   "components": [
@@ -111,10 +143,6 @@
     { "figmaName": "ComparisonTable", "nodeId": "142:16", "componentDir": "ComparisonTable", "assetKey": "fc138eb69d1c556c761a22ea18f4742c4c430652", "instanceCount": 0 },
     { "figmaName": "SectionHeaderWithLink", "nodeId": "157:245", "componentDir": "SectionHeaderWithLink", "assetKey": "67b8af5882ec8e0bb89cfe15e5575f28e4536ad6", "instanceCount": 0 },
     { "figmaName": "Frame", "nodeId": "157:261", "componentDir": "CarouselControls", "assetKey": "4c1c323c22fdfd867826ba4ead9b29d1c249594c", "instanceCount": 0, "note": "page CarouselControls; renamed from generic 'Frame'" },
-    { "figmaName": "Frame", "nodeId": "158:36", "componentDir": "PromoBanner", "assetKey": "941f708816d84ec7f290efa0ac68847abe26d2b6", "instanceCount": 0, "note": "page PromoBanner; renamed from generic 'Frame'" },
-    { "figmaName": "Frame", "nodeId": "158:193", "componentDir": "ResourcesHero", "assetKey": "081d39b40a655e06d663e559d3c2230a0113c642", "instanceCount": 0, "note": "page ResourcesHero; renamed from generic 'Frame'" },
-    { "figmaName": "Frame", "nodeId": "158:249", "componentDir": "ResourceCardGrid", "assetKey": "14f16ba2e7a5206d2e495d6b01e7b2be0b58e508", "instanceCount": 0, "note": "page ResourceCardGrid; renamed from generic 'Frame'" },
-    { "figmaName": "Frame", "nodeId": "158:305", "componentDir": "ResourceCarouselSection", "assetKey": "5ac3f5b6cf25f37bd5c34b86db7081656cc45eab", "instanceCount": 0, "note": "page ResourceCarouselSection; renamed from generic 'Frame'" },
     { "figmaName": "Key Answer Box", "nodeId": "245:12", "componentDir": "KeyAnswerBox", "assetKey": "7b1204e1f40d8db26b7dcb86071126e065f0c9c8", "instanceCount": 0, "note": "new component, page BlogPost — blog-article callout box" },
     { "figmaName": "Mid-post CTA Card", "nodeId": "245:20", "componentDir": "MidPostCtaCard", "assetKey": "14903617727c4339e051879917d3dc26abb1d5f9", "instanceCount": 0, "note": "new component, page BlogPost" },
     { "figmaName": "TOC Sidebar", "nodeId": "245:2022", "componentDir": "TocSidebar", "assetKey": "9a68b5ddc0996143fc344b225cf52efdb261524c", "instanceCount": 0, "note": "new component, page BlogPost — table-of-contents nav list + email-capture form" },
