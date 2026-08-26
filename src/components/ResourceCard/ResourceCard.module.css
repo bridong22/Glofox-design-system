@@ -49,13 +49,3 @@
   word-break: break-word;
 }
 
-.buttonContent {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
-}
-
-.card:hover .button,
-.card:focus-within .button {
-  color: var(--color-cta);
-}

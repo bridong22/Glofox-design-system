@@ -1,6 +1,5 @@
 import { Badge } from '../Badge';
 import { Button } from '../Button';
-import { Icon } from '../Icon';
 import styles from './ResourceCard.module.css';
 
 export interface ResourceCardProps {
@@ -32,16 +31,8 @@ export function ResourceCard({
           {category}
         </Badge>
         <p className={styles.title}>{title}</p>
-        <Button
-          variant="ghost"
-          size="small"
-          className={styles.button}
-          onClick={onButtonClick}
-        >
-          <span className={styles.buttonContent}>
-            {buttonLabel}
-            <Icon name="arrow-up-right" size={16} />
-          </span>
+        <Button variant="ghost" size="small" className={styles.button} onClick={onButtonClick}>
+          {buttonLabel}
         </Button>
       </div>
     </div>

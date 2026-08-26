@@ -15,7 +15,7 @@
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--color-brand-hover);
+  outline: 2px solid var(--color-brand);
   outline-offset: 2px;
 }
 
@@ -50,10 +50,6 @@
   background-color: var(--color-bg-muted);
 }
 
-.outline:focus-visible {
-  border-color: var(--color-brand-hover);
-}
-
 .ghost {
   background-color: transparent;
   color: var(--color-fg);
@@ -63,15 +59,11 @@
 }
 
 .ghost:hover:not(:disabled) {
-  color: var(--color-cta);
+  color: var(--color-brand-hover);
 }
 
 .ghost:active:not(:disabled) {
   color: var(--color-cta-pressed);
-}
-
-.ghost:focus-visible {
-  color: var(--color-brand-hover);
 }
 
 /* Sizes */
