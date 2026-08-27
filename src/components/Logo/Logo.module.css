@@ -1,0 +1,19 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0 var(--space-4);
+  background-color: var(--color-bg-muted);
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+}
+
+.brand {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-tiny);
+  line-height: normal;
+  color: var(--color-fg-muted);
+  text-align: center;
+}
