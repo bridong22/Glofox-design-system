@@ -3,10 +3,13 @@
   align-items: center;
   justify-content: center;
   height: 50px;
+  white-space: nowrap;
+}
+
+.placeholder {
   padding: 0 var(--space-4);
   background-color: var(--color-bg-muted);
   border-radius: var(--radius-sm);
-  white-space: nowrap;
 }
 
 .brand {
