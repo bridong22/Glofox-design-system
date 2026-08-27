@@ -9,10 +9,13 @@ import { HelpCircle } from 'lucide-react';
  * Figma (layout helpers, "graph", "question") — those are mapped individually below.
  *
  * The 8 "card category" glyphs added 2026-08-26 (studio-management, retention-heart,
- * trend-data, marketing, rocket-launch, sales-funnel, product-news, flex-slot) are
+ * trend-data, marketing, dumbbell, sales-funnel, product-news, flex-slot) are
  * also custom-drawn, not part of Feather — mapped to the closest matching lucide
  * icon by concept rather than traced pixel-for-pixel (see each Style's Figma
- * description, e.g. "storefront/studio glyph", "megaphone glyph", "rocket glyph").
+ * description, e.g. "storefront/studio glyph", "megaphone glyph", "dumbbell glyph").
+ * `dumbbell` (node 414:13) replaced an earlier `rocket-launch` name on 2026-08-27 —
+ * same node, renamed per design feedback that it should read as clearly
+ * fitness-related rather than a generic "launch" metaphor.
  */
 const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   '2 Column': 'Columns2',
@@ -25,7 +28,7 @@ const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   'retention-heart': 'Heart',
   'trend-data': 'TrendingUp',
   marketing: 'Megaphone',
-  'rocket-launch': 'Rocket',
+  dumbbell: 'Dumbbell',
   'sales-funnel': 'Filter',
   'product-news': 'Bell',
   'flex-slot': 'Clock',
