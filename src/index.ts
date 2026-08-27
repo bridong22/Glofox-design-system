@@ -8,7 +8,6 @@ export * from './components/Button';
 export * from './components/Card';
 export * from './components/Carousel';
 export * from './components/CarouselArrow';
-export * from './components/CarouselControls';
 export * from './components/CategoryChip';
 export * from './components/ComparisonCard';
 export * from './components/ComparisonTable';

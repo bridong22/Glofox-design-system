@@ -7,6 +7,12 @@ import { HelpCircle } from 'lucide-react';
  * uses the Feather icon set, which is a 1:1 name match for lucide-react (lucide is
  * Feather's maintained fork). A handful of custom, non-Feather names were added in
  * Figma (layout helpers, "graph", "question") — those are mapped individually below.
+ *
+ * The 8 "card category" glyphs added 2026-08-26 (studio-management, retention-heart,
+ * trend-data, marketing, rocket-launch, sales-funnel, product-news, flex-slot) are
+ * also custom-drawn, not part of Feather — mapped to the closest matching lucide
+ * icon by concept rather than traced pixel-for-pixel (see each Style's Figma
+ * description, e.g. "storefront/studio glyph", "megaphone glyph", "rocket glyph").
  */
 const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   '2 Column': 'Columns2',
@@ -15,6 +21,14 @@ const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   Scan: 'Scan',
   graph: 'LineChart',
   question: 'HelpCircle',
+  'studio-management': 'Store',
+  'retention-heart': 'Heart',
+  'trend-data': 'TrendingUp',
+  marketing: 'Megaphone',
+  'rocket-launch': 'Rocket',
+  'sales-funnel': 'Filter',
+  'product-news': 'Bell',
+  'flex-slot': 'Clock',
 };
 
 export type IconName = string;
