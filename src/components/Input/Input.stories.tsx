@@ -38,3 +38,10 @@ export const Error: Story = {
     errorMessage: 'Please enter a valid work email address.',
   },
 };
+
+export const Textarea: Story = {
+  args: {
+    type: 'textarea',
+    placeholder: 'Tell us about your business',
+  },
+};

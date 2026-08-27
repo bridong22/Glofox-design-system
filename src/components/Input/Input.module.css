@@ -33,6 +33,11 @@
   cursor: not-allowed;
 }
 
+.textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
 .error {
   border-color: var(--color-danger);
 }
