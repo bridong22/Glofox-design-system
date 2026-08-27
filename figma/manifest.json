@@ -129,7 +129,7 @@
     }
   ],
   "components": [
-    { "figmaName": "Button", "nodeId": "42:26", "componentDir": "Button", "assetKey": "d7f045b39db29a53a3c16eac3f509a51fec9ec65", "instanceCount": 12, "note": "gained a State variant (Default/Hover/Pressed/Disabled/Focused) — mapped to CSS :hover/:active/:focus-visible/:disabled, not a React prop" },
+    { "figmaName": "Button", "nodeId": "42:26", "componentDir": "Button", "assetKey": "d7f045b39db29a53a3c16eac3f509a51fec9ec65", "instanceCount": 12, "note": "gained a State variant (Default/Hover/Pressed/Disabled/Focused) — mapped to CSS :hover/:active/:focus-visible/:disabled, not a React prop. Fixed 2026-08-27: Ghost/Default text color was incorrectly var(--color-fg) (black) in code; confirmed via direct get_design_context (Code Connect disabled) on all three master default nodes (42:20 Small, 42:22 Medium, 42:24 Large) that it's actually var(--color-brand) (teal). The earlier black reading came from a separate 'State' documentation/example frame (214:xxxx range) used to illustrate Hover/Pressed/Focused/Disabled, not from the master component itself — that frame's own Default reference tile is stale/inconsistent with the real master." },
     { "figmaName": "Tab Pill", "nodeId": "140:16", "componentDir": "TabPill", "assetKey": "533d9cddd341827eaa4aea43a15904d005715b8a", "instanceCount": 9 },
     { "figmaName": "Filter Tab", "nodeId": "157:16", "componentDir": "FilterTab", "assetKey": "a3bc7752a5fb0e77f6d5d667bcae39af6e653685", "instanceCount": 0 },
     { "figmaName": "Carousel Arrow", "nodeId": "140:21", "componentDir": "CarouselArrow", "assetKey": "6d64ad3d95aa0b2fb0f84fd3878f81c640d2e944", "instanceCount": 0 },

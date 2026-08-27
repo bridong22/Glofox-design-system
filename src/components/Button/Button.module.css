@@ -52,7 +52,7 @@
 
 .ghost {
   background-color: transparent;
-  color: var(--color-fg);
+  color: var(--color-brand);
   border: none;
   padding: 0;
   gap: var(--space-1);
