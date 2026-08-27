@@ -1,6 +1,0 @@
-.carouselControls {
-  display: flex;
-  align-items: center;
-  gap: var(--space-6);
-  background-color: var(--color-bg);
-}
