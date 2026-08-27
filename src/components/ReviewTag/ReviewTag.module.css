@@ -1,0 +1,93 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px; /* Figma spec; no --space-* token matches 14px exactly (--space-3 is 12px, --space-4 is 16px) */
+  padding: 10px var(--space-4); /* 10px vertical has no exact --space-* match; 16px horizontal matches --space-4 */
+  border-radius: var(--radius-base); /* Figma 8px corner radius */
+  font-family: var(--font-family-base);
+
+  /*
+   * Star fill color: a vivid amber/orange sampled visually from the Figma
+   * screenshot. The star is a rasterized "bi:star-fill" icon asset in the
+   * design (not an inline vector), so its fill isn't exposed as a Figma
+   * variable (confirmed via get_variable_defs) and it doesn't match any
+   * existing brand/cta token in tokens.css — so it's a literal one-off
+   * value here, following the same approach Hero.module.css uses for
+   * unbound hex values pulled straight from the design.
+   */
+  --review-tag-star-color: #ffa53d;
+}
+
+.tag[data-mode='dark'] {
+  background-color: rgba(255, 255, 255, 0.16);
+  --review-tag-muted-star-color: rgba(255, 255, 255, 0.4);
+}
+
+.tag[data-mode='light'] {
+  background-color: var(--color-bg-subtle);
+  --review-tag-muted-star-color: var(--color-border);
+}
+
+.stars {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 2.7px; /* exact Figma auto-layout gap between the 18px star icons */
+}
+
+.starSlot {
+  position: relative;
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.starFillClip {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* no --space-* token matches 6px exactly */
+}
+
+.value {
+  margin: 0;
+  font-family: var(--font-family-base);
+  /* Figma "Desktop/Body/Semi/Small": Poppins Medium 14px/22px. No token in
+     tokens.css matches this exact size+weight+line-height combination
+     (--font-size-tiny is also 14px but pairs with weight 600). */
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.tag[data-mode='dark'] .value {
+  color: #fff;
+}
+
+.tag[data-mode='light'] .value {
+  color: var(--color-fg-muted);
+}
+
+.count {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+  line-height: var(--line-height-small);
+  white-space: nowrap;
+}
+
+.tag[data-mode='dark'] .count {
+  /* Figma "Secondary/Shade - 1" — literal, no matching --color-fg-* token */
+  color: #d2d1d5;
+}
+
+.tag[data-mode='light'] .count {
+  color: var(--color-fg-subtle);
+}
