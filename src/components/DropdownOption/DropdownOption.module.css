@@ -1,0 +1,52 @@
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  width: 320px;
+  height: 40px;
+  box-sizing: border-box;
+  /* Figma: 16px horizontal / 10px vertical padding. 16px matches
+     --space-4; 10px has no match in the spacing scale (--space-2 is 8px,
+     --space-3 is 12px), so it's kept as a literal. */
+  padding: 10px var(--space-4);
+  border: none;
+  background-color: transparent;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  /* Figma's raw default/hover text color (#1a1a1f) isn't bound to any
+     variable, but it reads as the same "near-black" body text used
+     elsewhere in this system, so it's mapped to --color-fg rather than
+     introducing an unlisted one-off hex. */
+  color: var(--color-fg);
+  text-align: left;
+  cursor: pointer;
+}
+
+.option:hover,
+.option.forceHover {
+  background-color: var(--color-brand-subtle);
+}
+
+.selected {
+  /*
+   * Figma shows a literal #006b66 for selected text, and it isn't bound to
+   * any variable (get_variable_defs on this node/state returns nothing for
+   * it — --color-brand is #06a180, --color-brand-hover is #035745), so it's
+   * kept as a commented literal rather than forced onto a token that
+   * doesn't actually match.
+   */
+  color: #006b66;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.icon {
+  flex-shrink: 0;
+  /* Inherits `color` via currentColor, so the check mark matches the
+     selected-state teal text automatically. */
+}

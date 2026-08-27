@@ -1,0 +1,80 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  color: var(--color-fg);
+  cursor: pointer;
+}
+
+.control {
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/*
+ * Recreated in CSS rather than pixel-matched, since the Figma reference for
+ * this component only exposed three flattened raster/vector image assets
+ * (one per state) with no fetchable path data. The circle + centered dot use
+ * plain border/border-radius, per Figma's own written description: 1.5px
+ * color/border stroke when unselected, a 2px color/brand ring + centered
+ * color/brand dot when selected.
+ */
+.circle {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full);
+  pointer-events: none;
+}
+
+.circle::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand);
+  opacity: 0;
+}
+
+.input:checked + .circle {
+  border-width: 2px;
+  border-color: var(--color-brand);
+}
+
+.input:checked + .circle::after {
+  opacity: 1;
+}
+
+.input:focus-visible + .circle {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.input:disabled + .circle {
+  opacity: 0.4;
+}
+
+.input:disabled {
+  cursor: not-allowed;
+}
+
+.label {
+  user-select: none;
+}
