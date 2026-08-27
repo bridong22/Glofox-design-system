@@ -17,6 +17,11 @@
       "nodeId": "44:2",
       "figmaName": "Pull Quote",
       "issue": "Still mapped to the old 'TestimonialCard' source path from before the Figma rename; add_code_connect_map returns 'This component is already mapped to code. To create a new mapping, please disconnect the existing mapping in the Figma UI first.' No MCP tool can force-overwrite an existing mapping — a human needs to disconnect it in Figma's Dev Mode UI once, after which a resync can re-map it to src/components/PullQuote/PullQuote.tsx."
+    },
+    {
+      "nodeId": "398:14",
+      "figmaName": "Logo",
+      "issue": "Same 'Published component not found' error as Hero/NavBar above. Retried twice on 2026-08-27 with the same result. Retry on next resync."
     }
   ],
   "styleVariables": {
