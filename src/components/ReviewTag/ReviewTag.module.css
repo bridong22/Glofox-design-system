@@ -48,6 +48,21 @@
   overflow: hidden;
 }
 
+.starFull {
+  /* CSS `fill`/`color` here override lucide's default fill="none"/stroke
+     presentation attributes, since author stylesheet rules always win over
+     presentation attributes in the cascade. */
+  color: var(--review-tag-star-color);
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.starMuted {
+  color: var(--review-tag-muted-star-color);
+  fill: none;
+  flex-shrink: 0;
+}
+
 .meta {
   display: inline-flex;
   align-items: center;

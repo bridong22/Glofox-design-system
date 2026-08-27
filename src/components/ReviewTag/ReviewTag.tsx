@@ -28,34 +28,21 @@ export function ReviewTag({ rating = 4.5, reviewCount = 465, mode = 'dark', clas
           const isPartial = !isFull && index === fullStars && fraction > 0;
 
           if (isFull) {
-            return (
-              <Icon
-                key={index}
-                name="star"
-                size={18}
-                color="var(--review-tag-star-color)"
-                fill="var(--review-tag-star-color)"
-              />
-            );
+            return <Icon key={index} name="star" size={18} className={styles.starFull} />;
           }
 
           if (isPartial) {
             return (
               <span key={index} className={styles.starSlot}>
-                <Icon name="star" size={18} color="var(--review-tag-muted-star-color)" />
+                <Icon name="star" size={18} className={styles.starMuted} />
                 <span className={styles.starFillClip} style={{ width: `${fraction * 100}%` }}>
-                  <Icon
-                    name="star"
-                    size={18}
-                    color="var(--review-tag-star-color)"
-                    fill="var(--review-tag-star-color)"
-                  />
+                  <Icon name="star" size={18} className={styles.starFull} />
                 </span>
               </span>
             );
           }
 
-          return <Icon key={index} name="star" size={18} color="var(--review-tag-muted-star-color)" />;
+          return <Icon key={index} name="star" size={18} className={styles.starMuted} />;
         })}
       </div>
       <div className={styles.meta}>
