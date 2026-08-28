@@ -1,0 +1,19 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-brand);
+}
+
+.label {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg);
+  white-space: nowrap;
+}

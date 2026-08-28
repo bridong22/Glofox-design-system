@@ -10,6 +10,7 @@ export * from './components/Carousel';
 export * from './components/CarouselArrow';
 export * from './components/CategoryChip';
 export * from './components/Checkbox';
+export * from './components/ChecklistItem';
 export * from './components/ComparisonCard';
 export * from './components/ComparisonTable';
 export * from './components/Container';
