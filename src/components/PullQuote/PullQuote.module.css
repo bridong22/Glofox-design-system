@@ -1,41 +1,55 @@
 .pullQuote {
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-4);
-  width: 400px;
+  width: 700px;
   max-width: 100%;
-  padding: var(--space-6);
-  background-color: var(--color-bg);
-  border: 1px solid var(--color-border-subtle);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
+  padding: var(--space-6) 0;
+  text-align: center;
+  filter: drop-shadow(0 10px 24px rgba(17, 15, 20, 0.06));
+}
+
+.quoteGlyph {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--color-brand);
+  opacity: 0.2;
 }
 
 .quote {
   margin: 0;
   width: 100%;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-small);
-  font-weight: var(--font-weight-small);
-  line-height: var(--line-height-small);
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.45;
   color: var(--color-fg);
+}
+
+.attribution {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
 }
 
 .name {
   margin: 0;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-tiny);
-  font-weight: var(--font-weight-tiny);
-  line-height: var(--line-height-tiny);
-  color: var(--color-fg);
+  width: 100%;
+  font-weight: 400;
+  color: var(--color-fg-muted);
 }
 
 .role {
   margin: 0;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-tiny);
-  font-weight: 400;
-  line-height: var(--line-height-tiny);
-  color: var(--color-fg-muted);
+  width: 100%;
+  font-weight: 700;
+  color: var(--color-fg);
 }

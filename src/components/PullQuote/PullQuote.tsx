@@ -1,3 +1,4 @@
+import { Icon } from '../Icon';
 import styles from './PullQuote.module.css';
 
 export interface PullQuoteProps {
@@ -13,9 +14,12 @@ export function PullQuote({
 }: PullQuoteProps) {
   return (
     <div className={styles.pullQuote}>
+      <Icon name="quote" size={73} className={styles.quoteGlyph} aria-hidden="true" />
       <p className={styles.quote}>{quote}</p>
-      <p className={styles.name}>{name}</p>
-      <p className={styles.role}>{role}</p>
+      <div className={styles.attribution}>
+        <p className={styles.name}>{name}</p>
+        <p className={styles.role}>{role}</p>
+      </div>
     </div>
   );
 }

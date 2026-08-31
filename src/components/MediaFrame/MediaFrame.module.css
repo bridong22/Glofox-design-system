@@ -7,15 +7,15 @@
 }
 
 .mediaFrame[data-ratio='hero'] {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: var(--aspect-hero);
 }
 
 .mediaFrame[data-ratio='card'] {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: var(--aspect-card);
 }
 
 .mediaFrame[data-ratio='square'] {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: var(--aspect-square);
 }
 
 .image {

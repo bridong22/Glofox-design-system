@@ -82,6 +82,15 @@
   --shadow-card: 0 10px 24px 0 rgba(17, 15, 20, 0.06);
 
   /*
+   * Media aspect ratios — Figma's "Media" variable collection
+   * (aspect/hero, aspect/card, aspect/square). MediaFrame's width is
+   * always 100% of its parent; only the aspect ratio is fixed.
+   */
+  --aspect-hero: 16 / 9;
+  --aspect-card: 3 / 2;
+  --aspect-square: 1 / 1;
+
+  /*
    * Page container — confirmed from the live glofox.com grid (Dimensions
    * page): every section, including NavBar and Footer, insets its content
    * to this same width. A section may paint a full-bleed background, but
