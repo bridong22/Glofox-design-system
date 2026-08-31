@@ -30,14 +30,16 @@ export function NewsletterCapture({
         <p className={styles.subtitle}>{subtitle}</p>
       </div>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <Input
-          type="email"
-          placeholder="Work email"
-          aria-label="Work email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
+        <div className={styles.inputWrap}>
+          <Input
+            type="email"
+            placeholder="Work email"
+            aria-label="Work email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          />
+        </div>
         <Button type="submit" size="medium">
           {ctaLabel}
         </Button>

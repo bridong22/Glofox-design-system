@@ -7,7 +7,7 @@
   width: 100%;
   max-width: 900px;
   padding: var(--space-8);
-  background-color: var(--color-bg-subtle);
+  background: linear-gradient(90deg, #c7eae5, #d7d9f1);
   border-radius: var(--radius-lg);
 }
 
@@ -40,4 +40,8 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
+}
+
+.inputWrap {
+  width: 240px;
 }
