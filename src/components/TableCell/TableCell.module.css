@@ -3,9 +3,9 @@
   border: 1px solid var(--color-border-subtle);
   background-color: var(--color-bg);
   font-family: var(--font-family-base);
-  font-size: var(--font-size-tiny);
-  font-weight: var(--font-weight-tiny);
-  line-height: var(--line-height-tiny);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+  line-height: var(--line-height-small);
   color: #000;
   text-align: left;
   vertical-align: top;

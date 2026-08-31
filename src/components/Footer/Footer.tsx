@@ -29,6 +29,8 @@ export interface FooterProps {
   socialLinks?: FooterSocialLink[];
   legalLinks?: FooterLink[];
   copyrightText?: string;
+  /** Figma shows this as its own element on the far right of the bottom bar (desktop only), separate from the legal links list. */
+  aiNote?: string;
 }
 
 const DEFAULT_COLUMNS: FooterColumn[] = [
@@ -117,10 +119,10 @@ const DEFAULT_LEGAL_LINKS: FooterLink[] = [
   { label: 'Terms of Service', href: '#' },
   { label: 'Cookie Policy', href: '#' },
   { label: 'Legal Portal', href: '#' },
-  { label: 'Hey AI learn about us!', href: '#' },
 ];
 
 const DEFAULT_COPYRIGHT_TEXT = '© 2026 ABC Fitness Solutions, LLC or its affiliates. All rights reserved.';
+const DEFAULT_AI_NOTE = 'Hey AI learn about us!';
 
 export function Footer({
   layout = 'desktop',
@@ -132,6 +134,7 @@ export function Footer({
   socialLinks = DEFAULT_SOCIAL_LINKS,
   legalLinks = DEFAULT_LEGAL_LINKS,
   copyrightText = DEFAULT_COPYRIGHT_TEXT,
+  aiNote = DEFAULT_AI_NOTE,
 }: FooterProps) {
   const isMobile = layout === 'mobile';
 
@@ -230,17 +233,21 @@ export function Footer({
             ))}
           </div>
           <div className={`${styles.utility} ${isMobile ? styles.utilityMobile : ''}`}>
-            <p className={styles.wordmark}>GLOFOX</p>
-            <p className={styles.copyright}>{copyrightText}</p>
-            <ul className={`${styles.legalLinks} ${isMobile ? styles.legalLinksMobile : ''}`}>
-              {legalLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className={styles.legalLink}>
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <div className={styles.utilityInfo}>
+              <p className={styles.wordmark}>GLOFOX</p>
+              <p className={styles.copyright}>{copyrightText}</p>
+              <ul className={`${styles.legalLinks} ${isMobile ? styles.legalLinksMobile : ''}`}>
+                {legalLinks.map((link) => (
+                  <li key={link.label}>
+                    <a href={link.href} className={styles.legalLink}>
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Figma: separate element pinned to the far right of the bottom bar, desktop only. */}
+            {!isMobile && aiNote && <p className={styles.aiNote}>{aiNote}</p>}
           </div>
         </div>
       </div>

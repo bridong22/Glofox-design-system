@@ -3,14 +3,15 @@
 // component=Carousel
 import figma from 'figma';
 
-// Carousel takes a single `items` array prop (each with src/alt), which has
-// no single-property Figma correspondence — the nested Carousel Arrow,
-// Image Placeholder Block and Pagination Dot instances are all driven by
-// this array and internal slide state, not by exposed component properties.
-// This is a representative static example with the array inlined.
+// Carousel renders a title, subtitle, and an `items` array of ResourceCard
+// props, which has no single-property Figma correspondence — the nested
+// Carousel Arrow, Resource Card and Pagination Dot instances are all driven
+// by this array and internal slide state, not by exposed component
+// properties. This is a representative static example with the array
+// inlined.
 
 export default {
-  example: figma.code`<Carousel items={[{ src: '/images/placeholder-1.jpg', alt: 'Who We Serve' }, { src: '/images/placeholder-2.jpg', alt: 'Built for class-led fitness businesses of all kinds, from independent studios to growing gym brands.' }]} />`,
+  example: figma.code`<Carousel items={[{ category: 'Experience', title: 'The Best Gym Management Software 2026, Reviewed & Compared' }, { category: 'Studio', title: 'How Reform Studio Hit Break-Even in 14 Months' }]} />`,
   imports: ['import { Carousel } from "src/components/Carousel"'],
   id: 'carousel',
   metadata: { nestable: true },
