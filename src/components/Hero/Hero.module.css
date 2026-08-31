@@ -85,10 +85,3 @@
   line-height: var(--line-height-small);
   color: var(--color-fg-muted);
 }
-
-.form {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-3);
-  margin-top: var(--space-2);
-}

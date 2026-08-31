@@ -23,19 +23,6 @@ export const CustomCopy: Story = {
   },
 };
 
-export const WithSubmitHandler: Story = {
-  args: {
-    onSubmit: (email: string) => alert(`Submitted: ${email}`),
-  },
-};
-
-export const CtaOnly: Story = {
-  args: {
-    content: 'cta-only',
-    ctaLabel: 'Get Free Demo',
-  },
-};
-
 export const ImageBackground: Story = {
   args: {
     background: 'image',
@@ -45,6 +32,5 @@ export const ImageBackground: Story = {
 export const VideoBackground: Story = {
   args: {
     background: 'video',
-    content: 'cta-only',
   },
 };

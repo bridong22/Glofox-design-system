@@ -1,16 +1,12 @@
-import { useState, type FormEvent } from 'react';
 import { Button } from '../Button';
-import { Input } from '../Input';
 import styles from './Hero.module.css';
 
 export interface HeroProps {
   background?: 'solid' | 'image' | 'video';
   backgroundSrc?: string;
-  content?: 'with-form' | 'cta-only';
   smallTitle?: string;
   headline?: string;
   subheadline?: string;
-  onSubmit?: (email: string) => void;
   ctaLabel?: string;
   onCtaClick?: () => void;
 }
@@ -18,21 +14,13 @@ export interface HeroProps {
 export function Hero({
   background = 'solid',
   backgroundSrc,
-  content = 'with-form',
   smallTitle = 'FITNESS STUDIO AND GYM MANAGEMENT SOFTWARE',
   headline = 'All-in-one software to grow your gym or studio',
   subheadline = 'Manage bookings, payments, and members from one platform trusted by 30,000+ studios and gyms.',
-  onSubmit,
   ctaLabel = 'Get Free Demo',
   onCtaClick,
 }: HeroProps) {
-  const [email, setEmail] = useState('');
   const isMedia = background === 'image' || background === 'video';
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    onSubmit?.(email);
-  }
 
   return (
     <section className={styles.hero} data-background={background}>
@@ -61,25 +49,9 @@ export function Hero({
         <p className={styles.smallTitle}>{smallTitle}</p>
         <h1 className={styles.headline}>{headline}</h1>
         <p className={styles.subheadline}>{subheadline}</p>
-        {content === 'with-form' ? (
-          <form className={styles.form} onSubmit={handleSubmit}>
-            <Input
-              type="email"
-              placeholder="Work email"
-              aria-label="Work email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-            />
-            <Button type="submit" size="medium">
-              {ctaLabel}
-            </Button>
-          </form>
-        ) : (
-          <Button type="button" size="medium" className={styles.ctaOnlyButton} onClick={onCtaClick}>
-            {ctaLabel}
-          </Button>
-        )}
+        <Button type="button" size="medium" onClick={onCtaClick}>
+          {ctaLabel}
+        </Button>
       </div>
     </section>
   );

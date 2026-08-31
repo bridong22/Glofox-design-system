@@ -8,15 +8,14 @@ const smallTitle = instance.getString('SmallTitle');
 const headline = instance.getString('Headline');
 const subheadline = instance.getString('Subheadline');
 const background = instance.getEnum('Background', { Solid: 'solid', Image: 'image', Video: 'video' });
-const content = instance.getEnum('Content', { 'With Form': 'with-form', 'CTA Only': 'cta-only' });
 
-// The nested Input and Button instances are not exposed as HeroProps —
-// Hero hardcodes the email Input (placeholder "Work email") and the
-// "Get Free Demo" submit Button internally — so there is nothing to
-// extract from them for this example.
+// Content=CTAOnly is now the only variant (the With Form variant was
+// removed from Figma) — the nested Button is not exposed as a HeroProp,
+// Hero hardcodes the "Get Free Demo" button internally, so there is
+// nothing to extract from it for this example.
 
 export default {
-  example: figma.code`<Hero background="${background}" content="${content}" smallTitle="${smallTitle}" headline="${headline}" subheadline="${subheadline}" />`,
+  example: figma.code`<Hero background="${background}" smallTitle="${smallTitle}" headline="${headline}" subheadline="${subheadline}" />`,
   imports: ['import { Hero } from "src/components/Hero"'],
   id: 'hero',
   metadata: { nestable: true },
