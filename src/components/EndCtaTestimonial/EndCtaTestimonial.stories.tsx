@@ -18,8 +18,7 @@ export const Default: Story = {};
 export const CustomTestimonial: Story = {
   args: {
     title: 'Ready to fill every reformer class?',
-    quote: 'We hit our waitlist target in the first quarter after switching to Glofox.',
-    attribution: 'Sarah Kim, Owner, Pulse Studio',
+    subtitle: 'See how Glofox keeps your waitlists moving and your classes full.',
     ctaLabel: 'Talk to Sales',
   },
 };

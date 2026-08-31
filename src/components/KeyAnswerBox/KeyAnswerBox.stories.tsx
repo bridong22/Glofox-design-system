@@ -17,7 +17,6 @@ export const Default: Story = {};
 
 export const CustomAnswer: Story = {
   args: {
-    label: 'Ai Overview',
     lead: 'Bottom line:',
     body: 'most studios break even within their first two years when class utilization stays above 60%.',
   },

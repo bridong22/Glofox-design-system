@@ -38,6 +38,12 @@
   resize: vertical;
 }
 
+.textarea::placeholder {
+  /* Figma Type=Textarea placeholder is fg-muted (#5f5a69), not the fg-subtle
+     (#7c7884) used by Type=Text placeholders. */
+  color: var(--color-fg-muted);
+}
+
 .error {
   border-color: var(--color-danger);
 }

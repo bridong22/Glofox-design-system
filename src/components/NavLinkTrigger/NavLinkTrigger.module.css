@@ -1,0 +1,48 @@
+.trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 0 6px;
+  background: none;
+  /*
+   * Reserve the 3px underline's space in every state so switching to "Open"
+   * doesn't shift the row below it — transparent by default, brand-colored
+   * once open.
+   */
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-family-base);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-brand-hover);
+  outline-offset: 2px;
+}
+
+.label {
+  font-size: var(--font-size-tiny);
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg-muted);
+  white-space: nowrap;
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--color-fg-muted);
+  transition: transform 0.15s ease;
+}
+
+.trigger[data-state='open'] {
+  border-bottom-color: var(--color-brand);
+}
+
+.trigger[data-state='open'] .label,
+.trigger[data-state='open'] .chevron {
+  color: var(--color-brand);
+}
+
+.trigger[data-state='open'] .chevron {
+  transform: rotate(180deg);
+}

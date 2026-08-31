@@ -74,6 +74,175 @@
   color: #ffffff;
 }
 
+/*
+ * Desktop dropdowns (Platform / Business types / Resources) — hover-to-open,
+ * mouse-leave-to-close. `.navItemWrapper` is the shared mouseenter/mouseleave
+ * boundary for a trigger + its panel (Business Types Dropdown's Figma
+ * description: "the whole header+dropdown region shares one mouseleave
+ * boundary in code, so this panel and the nav trigger close together").
+ */
+.navItemWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/*
+ * The Platform trigger's panel is the one full-width mega panel (spans the
+ * whole 1280px container, not a card positioned under its own trigger), so
+ * its wrapper opts out of `position: relative` — its panel escalates up to
+ * `.navBar` (which is already positioned) to center on the full nav width.
+ */
+.navItemWrapper[data-fullwidth] {
+  position: static;
+}
+
+.dropdownPanel {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  z-index: 20;
+}
+
+.dropdownCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: 18px var(--space-3) var(--space-2);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 32px -16px rgba(11, 14, 29, 0.14);
+}
+
+.dropdownCardBusinessTypes {
+  width: 480px;
+}
+
+.dropdownCardResources {
+  width: 660px;
+}
+
+.dropdownKicker {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg-subtle);
+  letter-spacing: 0.88px;
+  white-space: nowrap;
+}
+
+.dropdownGrid {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.dropdownGroup {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.dropdownCol {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.dropdownFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-3) var(--space-2) 6px;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.dropdownFooterText {
+  font-family: var(--font-family-base);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-fg-muted);
+  white-space: nowrap;
+}
+
+/*
+ * Platform Mega Panel — the only dropdown that spans the full nav width
+ * rather than a positioned card (12 items vs. 9/7 for the other two).
+ */
+.platformPanelAnchor {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 20;
+}
+
+.platformPanel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--container-max-width);
+  padding: var(--space-8) var(--container-padding) 0;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border-subtle);
+  box-shadow: 0 20px 32px -16px rgba(11, 14, 29, 0.14);
+}
+
+.platformGrid {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+  width: 100%;
+}
+
+.platformByGoal {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 372px;
+  flex-shrink: 0;
+}
+
+.platformDivider {
+  align-self: stretch;
+  width: 1px;
+  background-color: var(--color-border-subtle);
+}
+
+.platformByFeature {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.platformFeatureGrid {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.platformFooter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  padding: 14px 0;
+  border-top: 1px solid var(--color-border-subtle);
+}
+
 /* Mobile: header row (logo + toggle) reuses .inner; the toggle button itself. */
 
 .menuToggle {
@@ -123,6 +292,88 @@
 
 .mobileLink:hover {
   background-color: var(--color-bg-subtle);
+}
+
+/*
+ * Mobile Nav Accordion Item (463:2661) — click-to-expand replacement for a
+ * plain link, used for Platform / Business types / Resources. Pricing has
+ * no accordion variant and stays a plain `.mobileLink` above.
+ */
+.mobileAccordionItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileAccordionButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-4) var(--container-padding);
+  background: none;
+  border: none;
+  font-family: var(--font-family-base);
+  text-align: left;
+  cursor: pointer;
+}
+
+.mobileAccordionButton:hover {
+  background-color: var(--color-bg-subtle);
+}
+
+.mobileAccordionLabel {
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.mobileAccordionChevron {
+  flex-shrink: 0;
+  color: var(--color-fg);
+  transition: transform 0.15s ease;
+}
+
+.mobileAccordionButton[data-state='expanded'] .mobileAccordionLabel {
+  color: var(--color-brand);
+}
+
+.mobileAccordionButton[data-state='expanded'] .mobileAccordionChevron {
+  color: var(--color-brand);
+  transform: rotate(180deg);
+}
+
+.mobileSubItemCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-4) var(--space-3);
+  margin: 0 var(--container-padding) var(--space-3);
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--radius-lg);
+}
+
+.mobileSubGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobileSubKicker {
+  font-family: var(--font-family-base);
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg-subtle);
+  letter-spacing: 0.735px;
+}
+
+.mobileSubItem {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg-muted);
 }
 
 .mobileCta {

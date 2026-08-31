@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Button } from '../Button';
 import { Icon } from '../Icon';
+import { LinkArrow } from '../LinkArrow';
+import { NavLinkTrigger } from '../NavLinkTrigger';
+import { NavMenuItem } from '../NavMenuItem';
 import styles from './NavBar.module.css';
 
 export interface NavBarProps {
@@ -24,7 +27,200 @@ export interface NavBarProps {
   onCtaClick?: () => void;
 }
 
-const NAV_LINKS = ['Platform', 'Business types', 'Pricing', 'Resources'];
+interface NavMenuItemData {
+  title: string;
+  description?: string;
+  icon: string;
+}
+
+interface NavItemConfig {
+  label: string;
+  key: string;
+  /** Pricing has no trigger/dropdown variant — it stays a plain text link. */
+  hasDropdown: boolean;
+}
+
+const NAV_ITEMS: NavItemConfig[] = [
+  { label: 'Platform', key: 'platform', hasDropdown: true },
+  { label: 'Business types', key: 'business-types', hasDropdown: true },
+  { label: 'Pricing', key: 'pricing', hasDropdown: false },
+  { label: 'Resources', key: 'resources', hasDropdown: true },
+];
+
+// Real content pulled from the "Business Types Dropdown" Figma node
+// (460:2515) — label-only rows (Show description=false), 2 columns.
+const BUSINESS_TYPES_COL1: NavMenuItemData[] = [
+  { title: 'Gym', icon: 'dumbbell' },
+  { title: 'PT studio', icon: 'user' },
+  { title: 'Yoga', icon: 'wind' },
+  { title: 'Spin & cycle', icon: 'rotate-cw' },
+  { title: 'Wellness', icon: 'heart' },
+];
+const BUSINESS_TYPES_COL2: NavMenuItemData[] = [
+  { title: 'Fitness studio', icon: 'activity' },
+  { title: 'Boxing studio', icon: 'zap' },
+  { title: 'Pilates', icon: 'circle' },
+  { title: 'Martial arts', icon: 'shield' },
+];
+
+// Real content pulled from the "Resources Dropdown" Figma node (460:2588) —
+// 2 columns, each row WITH a one-line description.
+const RESOURCES_LEARN: NavMenuItemData[] = [
+  { title: 'Blog', description: 'Playbooks and industry trends', icon: 'file-text' },
+  { title: 'Customer stories', description: 'How studios grow with Glofox', icon: 'award' },
+  { title: 'Ebooks', description: 'Free guides and templates', icon: 'book-open' },
+  { title: 'Compare alternatives', description: 'See how Glofox stacks up', icon: 'compass' },
+];
+const RESOURCES_CALCULATORS: NavMenuItemData[] = [
+  {
+    title: 'Payments ROI calculator',
+    description: "See where payment revenue is lost — and what you'd recover",
+    icon: 'dollar-sign',
+  },
+  {
+    title: 'Retention ROI calculator',
+    description: 'Put a number on reducing member churn',
+    icon: 'refresh-cw',
+  },
+  {
+    title: 'Growth ROI calculator',
+    description: 'Model revenue from new leads and conversions',
+    icon: 'trending-up',
+  },
+];
+
+// Real content pulled from the "Platform Mega Panel" Figma node (460:2714) —
+// "By goal" (4 items, with description) + "By feature" (8 items, 2 columns,
+// no description).
+const PLATFORM_BY_GOAL: NavMenuItemData[] = [
+  {
+    title: 'Manage my business',
+    description: 'Scheduling, payments and day-to-day admin in one place',
+    icon: 'settings',
+  },
+  {
+    title: 'Grow my business',
+    description: 'Fill classes, convert leads and win new members',
+    icon: 'trending-up',
+  },
+  {
+    title: 'Engage my members',
+    description: 'Branded app, messaging and community tools',
+    icon: 'users',
+  },
+  {
+    title: 'Scale my business',
+    description: 'Multi-location controls, reporting and insights',
+    icon: 'layers',
+  },
+];
+const PLATFORM_BY_FEATURE_COL1: NavMenuItemData[] = [
+  { title: 'Membership Management', icon: 'users' },
+  { title: 'Branded Member App', icon: 'smartphone' },
+  { title: 'CRM', icon: 'target' },
+  { title: 'Reporting', icon: 'bar-chart-3' },
+];
+const PLATFORM_BY_FEATURE_COL2: NavMenuItemData[] = [
+  { title: 'Scheduling & Booking', icon: 'calendar' },
+  { title: 'Billing & Payments', icon: 'credit-card' },
+  { title: 'Check-in & Access Control', icon: 'key-round' },
+  { title: 'Staff Management', icon: 'briefcase' },
+];
+
+// Mobile accordion "sub-item card" content (Mobile Nav Accordion Item,
+// 463:2661) — kicker + flat label list per trigger, no icons/descriptions,
+// per that node's description ("swap per trigger").
+const MOBILE_ACCORDION_GROUPS: Record<string, { kicker: string; items: string[] }[]> = {
+  platform: [{ kicker: 'BY GOAL', items: PLATFORM_BY_GOAL.map((item) => item.title) }],
+  'business-types': [
+    {
+      kicker: 'BUILT FOR YOUR BUSINESS',
+      items: [...BUSINESS_TYPES_COL1, ...BUSINESS_TYPES_COL2].map((item) => item.title),
+    },
+  ],
+  resources: [
+    { kicker: 'LEARN', items: RESOURCES_LEARN.map((item) => item.title) },
+    { kicker: 'CALCULATORS', items: RESOURCES_CALCULATORS.map((item) => item.title) },
+  ],
+};
+
+function DropdownColumn({ items }: { items: NavMenuItemData[] }) {
+  return (
+    <div className={styles.dropdownCol}>
+      {items.map((item) => (
+        <NavMenuItem
+          key={item.title}
+          href="#"
+          title={item.title}
+          description={item.description}
+          showDescription={Boolean(item.description)}
+          icon={item.icon}
+        />
+      ))}
+    </div>
+  );
+}
+
+function BusinessTypesDropdown() {
+  return (
+    <div className={`${styles.dropdownCard} ${styles.dropdownCardBusinessTypes}`}>
+      <p className={styles.dropdownKicker}>BUILT FOR YOUR BUSINESS</p>
+      <div className={styles.dropdownGrid}>
+        <DropdownColumn items={BUSINESS_TYPES_COL1} />
+        <DropdownColumn items={BUSINESS_TYPES_COL2} />
+      </div>
+      <div className={styles.dropdownFooter}>
+        <span className={styles.dropdownFooterText}>Need a different solution?</span>
+        <LinkArrow href="#">Contact sales</LinkArrow>
+      </div>
+    </div>
+  );
+}
+
+function ResourcesDropdown() {
+  return (
+    <div className={`${styles.dropdownCard} ${styles.dropdownCardResources}`}>
+      <div className={styles.dropdownGrid}>
+        <div className={styles.dropdownGroup}>
+          <p className={styles.dropdownKicker}>LEARN</p>
+          <DropdownColumn items={RESOURCES_LEARN} />
+        </div>
+        <div className={styles.dropdownGroup}>
+          <p className={styles.dropdownKicker}>CALCULATORS</p>
+          <DropdownColumn items={RESOURCES_CALCULATORS} />
+        </div>
+      </div>
+      <div className={styles.dropdownFooter}>
+        <LinkArrow href="#">View all resources</LinkArrow>
+      </div>
+    </div>
+  );
+}
+
+function PlatformMegaPanel() {
+  return (
+    <div className={styles.platformPanel}>
+      <div className={styles.platformGrid}>
+        <div className={styles.platformByGoal}>
+          <p className={styles.dropdownKicker}>BY GOAL</p>
+          <DropdownColumn items={PLATFORM_BY_GOAL} />
+        </div>
+        <div className={styles.platformDivider} aria-hidden="true" />
+        <div className={styles.platformByFeature}>
+          <p className={styles.dropdownKicker}>BY FEATURE</p>
+          <div className={styles.platformFeatureGrid}>
+            <DropdownColumn items={PLATFORM_BY_FEATURE_COL1} />
+            <DropdownColumn items={PLATFORM_BY_FEATURE_COL2} />
+          </div>
+        </div>
+      </div>
+      <div className={styles.platformFooter}>
+        <LinkArrow href="#">See full platform overview</LinkArrow>
+        <LinkArrow href="#">View all features</LinkArrow>
+      </div>
+    </div>
+  );
+}
 
 // Official ABC Glofox lockup, traced from the brand team's logo artwork.
 // The monogram keeps its fixed brand teal in both themes; the "GLOFOX"
@@ -118,6 +314,16 @@ export function NavBar({
   const isDesktop = layout === 'desktop';
   const isScrolled = isDesktop && scrolled;
 
+  // Desktop dropdown open state: hover-to-open, mouse-leave-to-close, per
+  // the Nav Link Trigger / Business Types Dropdown Figma descriptions — the
+  // trigger and its panel share one mouseenter/mouseleave boundary (the
+  // wrapper div below) so they open and close together.
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+
+  // Mobile accordion open section (Mobile Nav Accordion Item) — click to
+  // expand/collapse; only one section open at a time.
+  const [expandedMobileSection, setExpandedMobileSection] = useState<string | null>(null);
+
   return (
     <header
       className={styles.navBar}
@@ -133,11 +339,37 @@ export function NavBar({
                 <GlofoxLogo />
               </span>
               <nav className={styles.links} aria-label="Primary">
-                {NAV_LINKS.map((label) => (
-                  <a key={label} href="#" className={styles.link}>
-                    {label}
-                  </a>
-                ))}
+                {NAV_ITEMS.map((item) =>
+                  item.hasDropdown ? (
+                    <div
+                      key={item.key}
+                      className={styles.navItemWrapper}
+                      data-fullwidth={item.key === 'platform' ? '' : undefined}
+                      onMouseEnter={() => setOpenDropdown(item.key)}
+                      onMouseLeave={() => setOpenDropdown(null)}
+                    >
+                      <NavLinkTrigger label={item.label} open={openDropdown === item.key} />
+                      {openDropdown === item.key &&
+                        (item.key === 'platform' ? (
+                          <div className={styles.platformPanelAnchor}>
+                            <PlatformMegaPanel />
+                          </div>
+                        ) : (
+                          <div className={styles.dropdownPanel}>
+                            {item.key === 'business-types' ? (
+                              <BusinessTypesDropdown />
+                            ) : (
+                              <ResourcesDropdown />
+                            )}
+                          </div>
+                        ))}
+                    </div>
+                  ) : (
+                    <a key={item.key} href="#" className={styles.link}>
+                      {item.label}
+                    </a>
+                  ),
+                )}
               </nav>
             </div>
             <Button size="small" onClick={onCtaClick}>
@@ -165,11 +397,42 @@ export function NavBar({
       {!isDesktop && isMenuOpen && (
         <div className={styles.mobileMenu}>
           <nav className={styles.mobileLinks} aria-label="Primary">
-            {NAV_LINKS.map((label) => (
-              <a key={label} href="#" className={styles.mobileLink}>
-                {label}
-              </a>
-            ))}
+            {NAV_ITEMS.map((item) =>
+              item.hasDropdown ? (
+                <div key={item.key} className={styles.mobileAccordionItem}>
+                  <button
+                    type="button"
+                    className={styles.mobileAccordionButton}
+                    data-state={expandedMobileSection === item.key ? 'expanded' : 'collapsed'}
+                    aria-expanded={expandedMobileSection === item.key}
+                    onClick={() =>
+                      setExpandedMobileSection((current) => (current === item.key ? null : item.key))
+                    }
+                  >
+                    <span className={styles.mobileAccordionLabel}>{item.label}</span>
+                    <Icon name="chevron-down" size={18} className={styles.mobileAccordionChevron} />
+                  </button>
+                  {expandedMobileSection === item.key && (
+                    <div className={styles.mobileSubItemCard}>
+                      {MOBILE_ACCORDION_GROUPS[item.key].map((group) => (
+                        <div key={group.kicker} className={styles.mobileSubGroup}>
+                          <p className={styles.mobileSubKicker}>{group.kicker}</p>
+                          {group.items.map((label) => (
+                            <p key={label} className={styles.mobileSubItem}>
+                              {label}
+                            </p>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <a key={item.key} href="#" className={styles.mobileLink}>
+                  {item.label}
+                </a>
+              ),
+            )}
           </nav>
           <div className={styles.mobileCta}>
             <Button size="small" className={styles.mobileCtaButton} onClick={onCtaClick}>

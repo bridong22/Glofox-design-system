@@ -88,7 +88,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             );
           })}
         </select>
-        <Icon name="chevron-down" size={20} className={styles.icon} />
+        <Icon name="chevron-down" size={16} className={styles.icon} />
       </div>
     );
   },

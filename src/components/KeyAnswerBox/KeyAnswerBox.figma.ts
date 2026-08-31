@@ -9,8 +9,6 @@ function readText(layerName: string, fallback: string, opts?: { traverseInstance
   return node && node.type === 'TEXT' ? node.textContent : fallback;
 }
 
-const label = readText('Ai Overview', 'Ai Overview');
-
 const fullAnswerFallback =
   'The short answer: opening a boutique Pilates studio typically costs between $85,000 and $220,000, driven mostly by reformer equipment and buildout. Most owners recoup their startup costs within 18–24 months at a 65%+ member retention rate.';
 const fullAnswer = readText(fullAnswerFallback, fullAnswerFallback);
@@ -24,7 +22,7 @@ const lead = leadPrefix;
 const body = fullAnswer.startsWith(`${leadPrefix} `) ? fullAnswer.slice(leadPrefix.length + 1) : fullAnswer;
 
 export default {
-  example: figma.code`<KeyAnswerBox label="${label}" lead="${lead}" body="${body}" />`,
+  example: figma.code`<KeyAnswerBox lead="${lead}" body="${body}" />`,
   imports: ['import { KeyAnswerBox } from "src/components/KeyAnswerBox"'],
   id: 'key-answer-box',
   metadata: { nestable: true },

@@ -70,6 +70,16 @@
 
 /* Size: Large (Figma-confirmed at Align=Center; applied uniformly across
    all alignments per the component's documented scaling pattern). */
+.sizeLarge .eyebrow {
+  /* Figma: at Large size the eyebrow switches to Poppins Medium 16px with no
+     letter-spacing/normal line-height — distinct from the SemiBold 14px +
+     1px tracking used at Medium/Small. */
+  font-size: 16px;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
 .sizeLarge .title {
   font-size: var(--font-size-h1); /* 48px */
   line-height: 1.15; /* Figma-confirmed; distinct from --line-height-h1 (1) */

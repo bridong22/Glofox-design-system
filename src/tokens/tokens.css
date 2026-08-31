@@ -19,7 +19,7 @@
   --color-cta-hover: #e35031;
   --color-cta-pressed: #722819;
   --color-bg-muted: #efeef0;
-  --color-danger: #e35031;
+  --color-danger: #b32d13;
   --color-fg-dark: #110f14;
 
   /* Radius */
@@ -49,7 +49,7 @@
 
   --font-size-h2: 36px;
   --font-weight-h2: 500;
-  --line-height-h2: 1.15;
+  --line-height-h2: 1.45;
 
   --font-size-body: 20px;
   --font-weight-body: 400;

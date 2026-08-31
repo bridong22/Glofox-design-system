@@ -4,36 +4,27 @@
   align-items: center;
   gap: var(--space-4);
   width: 100%;
-  max-width: 900px;
+  max-width: var(--container-max-width);
   padding: var(--space-12);
-  background-color: var(--color-bg-subtle);
+  background: linear-gradient(90deg, #c7eae5, #d7d9f1);
   text-align: center;
 }
 
 .title {
   margin: 0;
   font-family: var(--font-family-base);
-  font-size: 28px;
+  font-size: var(--font-size-h2);
   font-weight: 700;
   line-height: normal;
   color: var(--color-fg);
 }
 
-.quote {
+.subtitle {
   margin: 0;
-  max-width: 520px;
+  max-width: 640px;
   font-family: var(--font-family-base);
-  font-size: 15px;
-  font-weight: 400;
-  line-height: normal;
-  color: var(--color-fg-muted);
-}
-
-.attribution {
-  margin: 0;
-  font-family: var(--font-family-base);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: normal;
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+  line-height: var(--line-height-small);
   color: var(--color-fg-muted);
 }

@@ -33,6 +33,8 @@ export * from './components/LogoBar';
 export * from './components/MediaFrame';
 export * from './components/MidPostCtaCard';
 export * from './components/NavBar';
+export * from './components/NavLinkTrigger';
+export * from './components/NavMenuItem';
 export * from './components/NewsletterCapture';
 export * from './components/Pagination';
 export * from './components/PaginationDot';

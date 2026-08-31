@@ -13,7 +13,12 @@
   border: none;
   background-color: transparent;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-small);
+  /* Figma's option label is a raw, unbound 14px/Regular text node (not the
+     16px "medium/regular" style --font-size-small maps to) — --font-size-tiny
+     is also 14px but pairs with weight 600, so the weight is overridden here. */
+  font-size: var(--font-size-tiny);
+  font-weight: 400;
+  line-height: normal;
   /* Figma's raw default/hover text color (#1a1a1f) isn't bound to any
      variable, but it reads as the same "near-black" body text used
      elsewhere in this system, so it's mapped to --color-fg rather than

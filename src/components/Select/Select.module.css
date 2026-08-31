@@ -51,6 +51,7 @@
   top: 50%;
   right: var(--space-4);
   transform: translateY(-50%);
-  color: var(--color-brand);
+  /* Figma's chevron renders as a muted gray, not the brand teal. */
+  color: var(--color-fg-muted);
   pointer-events: none;
 }
