@@ -10,6 +10,7 @@ function readText(layerName: string, fallback: string, opts?: { traverseInstance
 }
 
 const category = readText('Experience', 'Experience');
+const meta = readText('24 Jun 2025 • 10 min read', '24 Jun 2025 • 10 min read');
 const title = readText(
   'The Best Gym Management Software 2026, Reviewed & Compared',
   'The Best Gym Management Software 2026, Reviewed & Compared',
@@ -17,7 +18,7 @@ const title = readText(
 const buttonLabel = readText('Get Free Demo', 'Get Free Demo', { traverseInstances: true });
 
 export default {
-  example: figma.code`<ResourceCard category="${category}" title="${title}" buttonLabel="${buttonLabel}" />`,
+  example: figma.code`<ResourceCard category="${category}" meta="${meta}" title="${title}" buttonLabel="${buttonLabel}" />`,
   imports: ['import { ResourceCard } from "src/components/ResourceCard"'],
   id: 'resource-card',
   metadata: { nestable: true },

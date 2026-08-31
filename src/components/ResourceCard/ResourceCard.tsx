@@ -6,6 +6,7 @@ export interface ResourceCardProps {
   imageUrl?: string;
   imageAlt?: string;
   category?: string;
+  meta?: string;
   title?: string;
   buttonLabel?: string;
   onButtonClick?: () => void;
@@ -15,6 +16,7 @@ export function ResourceCard({
   imageUrl,
   imageAlt = '',
   category = 'Experience',
+  meta = '24 Jun 2025 • 10 min read',
   title = 'The Best Gym Management Software 2026, Reviewed & Compared',
   buttonLabel = 'Read More',
   onButtonClick,
@@ -27,9 +29,10 @@ export function ResourceCard({
         <div className={styles.thumbnail} />
       )}
       <div className={styles.content}>
-        <Badge size="small" className={styles.category}>
-          {category}
-        </Badge>
+        <div className={styles.metaRow}>
+          <Badge size="small">{category}</Badge>
+          <span className={styles.meta}>{meta}</span>
+        </div>
         <p className={styles.title}>{title}</p>
         <Button variant="ghost" size="small" className={styles.button} onClick={onButtonClick}>
           {buttonLabel}
