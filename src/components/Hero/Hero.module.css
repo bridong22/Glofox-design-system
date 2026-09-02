@@ -85,3 +85,137 @@
   line-height: var(--line-height-small);
   color: var(--color-fg-muted);
 }
+
+/* Background=Solid, Content=TwoColumn — confirmed live on business-type
+   pages (e.g. /business-types/gym-management-software/). Stacks below
+   1280px per the component's own Figma description; image moves below
+   the text column, spacing tokens stay the same. */
+
+.heroTwoColumn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 40px var(--container-padding);
+}
+
+@media (max-width: 1279px) {
+  .heroTwoColumn {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.twoColumnContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  flex: 1 1 460px;
+  min-width: 0;
+}
+
+.eyebrowCategory {
+  font-weight: var(--font-weight-tiny);
+  color: var(--color-brand);
+}
+
+.eyebrowDivider {
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-2xs-medium);
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+  color: var(--color-fg);
+}
+
+.eyebrowSubcategory {
+  /* Figma's raw instance is 14px/400/1.5 — doesn't match an existing
+     tiny-family token (--font-size-xs is 14px/400 but line-height 1). */
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-fg);
+}
+
+.twoColumnHeadline {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-h1);
+  line-height: var(--line-height-h1);
+  color: var(--color-fg);
+}
+
+.twoColumnSubheadline {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  /* Figma's raw instance is 1.6 here, distinct from the 1.8 sampled
+     elsewhere for this same named text style — kept literal. */
+  line-height: 1.6;
+  color: var(--color-fg-muted);
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.twoColumnCta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.ctaHelperText {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  font-weight: var(--font-weight-2xs);
+  line-height: normal;
+  color: var(--color-fg-muted);
+}
+
+.imagePlaceholderBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
+  width: 380px;
+  height: 416px;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-muted);
+  color: var(--color-fg-muted);
+  overflow: hidden;
+}
+
+@media (max-width: 1279px) {
+  .imagePlaceholderBox {
+    width: 100%;
+  }
+}
+
+.imagePlaceholderIcon {
+  color: var(--color-fg-muted);
+}
+
+.imagePlaceholderText {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-fg-muted);
+}
+
+.twoColumnImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
