@@ -23,7 +23,6 @@ export * from './components/FilterTab';
 export * from './components/Footer';
 export * from './components/Hero';
 export * from './components/Icon';
-export * from './components/ImagePlaceholderBlock';
 export * from './components/Input';
 export * from './components/KeyAnswerBox';
 export * from './components/LinearProgressTrack';
