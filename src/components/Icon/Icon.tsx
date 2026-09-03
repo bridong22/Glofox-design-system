@@ -16,6 +16,11 @@ import { HelpCircle } from 'lucide-react';
  * `dumbbell` (node 414:13) replaced an earlier `rocket-launch` name on 2026-08-27 —
  * same node, renamed per design feedback that it should read as clearly
  * fitness-related rather than a generic "launch" metaphor.
+ *
+ * 4 more class-type glyphs (yoga, spin-cycle, fist, pilates) were added 2026-09-03,
+ * same custom-drawn/non-Feather pattern — mapped by nearest lucide concept
+ * (yoga -> person-in-a-pose, spin-cycle -> stationary bike, fist -> hand,
+ * pilates -> mat-stretch), not traced pixel-for-pixel.
  */
 const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   '2 Column': 'Columns2',
@@ -32,6 +37,10 @@ const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   'sales-funnel': 'Filter',
   'product-news': 'Bell',
   'flex-slot': 'Clock',
+  yoga: 'PersonStanding',
+  'spin-cycle': 'Bike',
+  fist: 'Hand',
+  pilates: 'StretchHorizontal',
 };
 
 export type IconName = string;
