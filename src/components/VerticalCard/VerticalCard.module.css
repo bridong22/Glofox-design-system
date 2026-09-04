@@ -1,0 +1,51 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 390px;
+  padding: var(--space-6);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--color-border-subtle);
+  box-shadow: 0 12px 17px rgba(0, 21, 43, 0.05);
+}
+
+.card:hover .title,
+.card:focus-within .title {
+  color: var(--color-brand-hover);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-body);
+  /* Figma's raw instance is 1.6 here, distinct from the 1.8 sampled
+     elsewhere for this same named text style — kept literal (same
+     documented discrepancy as Hero's two-column subheadline). */
+  line-height: 1.6;
+  color: var(--color-fg);
+  word-break: break-word;
+}
+
+.button {
+  flex-shrink: 0;
+}

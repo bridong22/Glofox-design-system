@@ -14,6 +14,9 @@
 }
 
 .link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-size: 12.5px;
   font-weight: 500;
   line-height: normal;
@@ -28,4 +31,20 @@
 .divider {
   font-size: 12.5px;
   color: rgba(255, 255, 255, 0.4);
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.utilityBar[data-type='light'] .link {
+  color: var(--color-fg);
+}
+
+.utilityBar[data-type='light'] .link:hover {
+  color: var(--color-fg);
+}
+
+.utilityBar[data-type='light'] .divider {
+  color: var(--color-fg);
 }

@@ -16,6 +16,15 @@ type Story = StoryObj<typeof UtilityBar>;
 
 export const Default: Story = {};
 
+export const Light: Story = {
+  args: {
+    type: 'light',
+  },
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
+};
+
 export const CustomLinks: Story = {
   args: {
     links: [

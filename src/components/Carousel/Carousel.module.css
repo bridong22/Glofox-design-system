@@ -38,3 +38,10 @@
   align-items: center;
   gap: var(--space-2);
 }
+
+.cta {
+  /* Figma measures 112px from the dots row to this button — larger than the
+     space-6 gap already applied by .carousel's flex layout between every
+     other row, so the difference (88px) is added here as a literal. */
+  margin-top: 88px;
+}

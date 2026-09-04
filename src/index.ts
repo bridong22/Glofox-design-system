@@ -51,3 +51,4 @@ export * from './components/TableHeaderCell';
 export * from './components/TocSidebar';
 export * from './components/UtilityBar';
 export * from './components/UtilityDivider';
+export * from './components/VerticalCard';

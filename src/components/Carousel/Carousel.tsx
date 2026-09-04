@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Button } from '../Button';
 import { CarouselArrow } from '../CarouselArrow';
 import { ResourceCard, type ResourceCardProps } from '../ResourceCard';
 import { PaginationDot } from '../PaginationDot';
@@ -10,12 +11,16 @@ export interface CarouselProps {
   title?: string;
   subtitle?: string;
   items: CarouselItem[];
+  ctaLabel?: string;
+  onCtaClick?: () => void;
 }
 
 export function Carousel({
   title = 'Who We Serve',
   subtitle = 'Built for class-led fitness businesses of all kinds, from independent studios to growing gym brands.',
   items,
+  ctaLabel = 'See all customer stories',
+  onCtaClick,
 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentItem = items[currentIndex];
@@ -41,6 +46,9 @@ export function Carousel({
           />
         ))}
       </div>
+      <Button variant="outline" size="large" className={styles.cta} onClick={onCtaClick}>
+        {ctaLabel}
+      </Button>
     </div>
   );
 }
