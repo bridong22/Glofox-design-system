@@ -1,19 +1,26 @@
 .item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-3);
 }
 
 .icon {
   flex-shrink: 0;
+  /* Optically align with the first line of a wrapped multi-line label. */
+  margin-top: 2px;
   color: var(--color-brand);
 }
 
 .label {
+  min-width: 0;
+  margin: 0;
   font-family: var(--font-family-base);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-small);
   line-height: var(--line-height-small);
   color: var(--color-fg);
-  white-space: nowrap;
+  /* Confirmed live feature-list items (Pricing tier cards) run well past one
+     line ("ABC Glofox Mobile app for iOS and Android") — nowrap forced these
+     onto a single line and overflowed the containing card. */
+  word-break: break-word;
 }

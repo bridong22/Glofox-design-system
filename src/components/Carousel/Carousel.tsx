@@ -7,6 +7,15 @@ import styles from './Carousel.module.css';
 
 export type CarouselItem = ResourceCardProps;
 
+/**
+ * Generic card carousel: heading + subtitle, prev/next arrow buttons around
+ * one active ResourceCard, pagination dots, and an optional "see all" CTA
+ * button. This is the reusable pattern for ANY resource/story-card carousel
+ * section (e.g. "Who We Serve", "Customer Stories", "Proven results...") —
+ * reuse this component with your own `title`/`subtitle`/`items` rather than
+ * hand-building a static card grid, or the section will be missing the
+ * prev/next navigation this component already provides.
+ */
 export interface CarouselProps {
   title?: string;
   subtitle?: string;

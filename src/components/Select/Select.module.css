@@ -1,7 +1,9 @@
 .wrapper {
   position: relative;
   display: inline-block;
-  width: 320px;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
 }
 
 .select {

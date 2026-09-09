@@ -1,5 +1,10 @@
 .tag {
   display: inline-flex;
+  /* Figma sizing is "hug contents" — defend against a naive flex-column
+     parent (e.g. a card's content stack) that would otherwise stretch this
+     to the full column width via the default align-items: stretch. */
+  align-self: flex-start;
+  flex-shrink: 0;
   align-items: center;
   gap: 14px; /* Figma spec; no --space-* token matches 14px exactly (--space-3 is 12px, --space-4 is 16px) */
   padding: 10px var(--space-4); /* 10px vertical has no exact --space-* match; 16px horizontal matches --space-4 */

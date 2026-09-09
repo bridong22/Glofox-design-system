@@ -1,5 +1,10 @@
 .chip {
   display: inline-flex;
+  /* Figma sizing is "hug contents" — defend against a naive flex-column
+     parent (e.g. a card's content stack) that would otherwise stretch this
+     to the full column width via the default align-items: stretch. */
+  align-self: flex-start;
+  flex-shrink: 0;
   align-items: center;
   gap: var(--space-1);
   padding: var(--space-1) var(--space-3);

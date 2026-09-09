@@ -18,6 +18,14 @@ export interface FooterSocialLink {
   href: string;
 }
 
+/**
+ * Full site footer. IMPORTANT: this already renders its own "Ready to grow
+ * your business?" CTA banner (heading + subtext + primary Button) above the
+ * nav grid — do not add a separate CTA/banner section immediately before
+ * this component, or the CTA will visually repeat back-to-back. Customize
+ * the built-in banner via `ctaHeading`/`ctaSubtext`/`ctaButtonLabel`/`onCtaClick`
+ * instead of composing a second one.
+ */
 export interface FooterProps {
   /** Figma "Layout" variant — `desktop` shows the full nav grid, `mobile` collapses it into an accordion. */
   layout?: 'desktop' | 'mobile';
