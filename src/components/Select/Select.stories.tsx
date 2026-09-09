@@ -44,3 +44,12 @@ export const Disabled: Story = {
     disabled: true,
   },
 };
+
+export const WithTitle: Story = {
+  args: {
+    showTitle: true,
+    title: 'Business type',
+    placeholder: 'Please select one',
+    options: BUSINESS_TYPE_OPTIONS,
+  },
+};

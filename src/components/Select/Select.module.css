@@ -1,8 +1,23 @@
-.wrapper {
-  position: relative;
-  display: inline-block;
+.outer {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 320px;
+}
+
+.title {
+  margin: 0 0 var(--space-2) 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
   box-sizing: border-box;
 }
 

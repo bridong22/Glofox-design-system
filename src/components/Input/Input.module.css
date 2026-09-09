@@ -1,9 +1,17 @@
 .wrapper {
   display: inline-flex;
   flex-direction: column;
-  gap: var(--space-1);
   width: 100%;
   max-width: 320px;
+}
+
+.title {
+  margin: 0 0 var(--space-2) 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  line-height: normal;
+  color: var(--color-fg);
 }
 
 .input {
@@ -50,6 +58,7 @@
 }
 
 .errorMessage {
+  margin-top: var(--space-1);
   font-family: var(--font-family-base);
   font-size: var(--font-size-tiny);
   line-height: var(--line-height-tiny);

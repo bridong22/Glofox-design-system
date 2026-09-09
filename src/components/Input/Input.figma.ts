@@ -5,6 +5,8 @@ import figma from 'figma';
 const instance = figma.selectedInstance;
 
 const placeholder = instance.getString('Placeholder');
+const showTitle = instance.getBoolean('Show title');
+const title = instance.getString('Title');
 
 // `Type=Select` is intentionally left unmapped here — it corresponds to the
 // separate `src/components/Select` component, not this one. If an instance
@@ -13,7 +15,7 @@ const placeholder = instance.getString('Placeholder');
 const type = instance.getEnum('Type', { Text: 'text', Textarea: 'textarea' });
 
 export default {
-  example: figma.code`<Input type="${type}" placeholder="${placeholder}" />`,
+  example: figma.code`<Input type="${type}" placeholder="${placeholder}" showTitle={${showTitle}} title="${title}" />`,
   imports: ['import { Input } from "src/components/Input"'],
   id: 'input',
   metadata: { nestable: true },

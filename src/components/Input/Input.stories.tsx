@@ -45,3 +45,11 @@ export const Textarea: Story = {
     placeholder: 'Tell us about your business',
   },
 };
+
+export const WithTitle: Story = {
+  args: {
+    showTitle: true,
+    title: 'Work email',
+    placeholder: 'Work email',
+  },
+};

@@ -15,6 +15,14 @@ export interface SelectProps
   onChange?: (value: string) => void;
   disabled?: boolean;
   className?: string;
+  /**
+   * Figma `Show title` / `Title` properties (added 2026-09-09) — an optional
+   * label rendered above the field, same treatment as Input. Figma's own
+   * default is `showTitle: true`, but this repo defaults to `false` to
+   * preserve existing bare-field consumers; opt in per-instance instead.
+   */
+  showTitle?: boolean;
+  title?: string;
 }
 
 function normalizeOption(option: SelectOption): { label: string; value: string } {
@@ -32,6 +40,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
       disabled = false,
       className,
       id,
+      showTitle = false,
+      title = 'Label',
       ...rest
     },
     ref,
@@ -59,36 +69,43 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
     const selectClasses = [styles.select, isPlaceholder && styles.placeholder]
       .filter(Boolean)
       .join(' ');
-    const wrapperClasses = [styles.wrapper, className].filter(Boolean).join(' ');
+    const outerClasses = [styles.outer, className].filter(Boolean).join(' ');
 
     return (
-      <div className={wrapperClasses}>
-        <select
-          ref={ref}
-          id={selectId}
-          className={selectClasses}
-          value={currentValue}
-          onChange={handleChange}
-          disabled={disabled}
-          data-placeholder={isPlaceholder || undefined}
-          {...rest}
-        >
-          {/* Disabled placeholder option: selectable by default (native selects
-              always show the first option until a real choice is made) but not
-              re-selectable once a real option is chosen. */}
-          <option value="" disabled>
-            {placeholder}
-          </option>
-          {options.map((option) => {
-            const { label, value: optionValue } = normalizeOption(option);
-            return (
-              <option key={optionValue} value={optionValue}>
-                {label}
-              </option>
-            );
-          })}
-        </select>
-        <Icon name="chevron-down" size={16} className={styles.icon} />
+      <div className={outerClasses}>
+        {showTitle && (
+          <label htmlFor={selectId} className={styles.title}>
+            {title}
+          </label>
+        )}
+        <div className={styles.wrapper}>
+          <select
+            ref={ref}
+            id={selectId}
+            className={selectClasses}
+            value={currentValue}
+            onChange={handleChange}
+            disabled={disabled}
+            data-placeholder={isPlaceholder || undefined}
+            {...rest}
+          >
+            {/* Disabled placeholder option: selectable by default (native selects
+                always show the first option until a real choice is made) but not
+                re-selectable once a real option is chosen. */}
+            <option value="" disabled>
+              {placeholder}
+            </option>
+            {options.map((option) => {
+              const { label, value: optionValue } = normalizeOption(option);
+              return (
+                <option key={optionValue} value={optionValue}>
+                  {label}
+                </option>
+              );
+            })}
+          </select>
+          <Icon name="chevron-down" size={16} className={styles.icon} />
+        </div>
       </div>
     );
   },
