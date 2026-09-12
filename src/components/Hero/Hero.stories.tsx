@@ -35,8 +35,14 @@ export const VideoBackground: Story = {
   },
 };
 
-export const TwoColumn: Story = {
+export const TwoColumnRight: Story = {
   args: {
-    content: 'two-column',
+    content: 'two-column-right',
+  },
+};
+
+export const TwoColumnLeft: Story = {
+  args: {
+    content: 'two-column-left',
   },
 };

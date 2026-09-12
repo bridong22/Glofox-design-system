@@ -7,8 +7,16 @@ import styles from './Hero.module.css';
 export interface HeroProps {
   background?: 'solid' | 'image' | 'video';
   backgroundSrc?: string;
-  /** Figma "Content" property. "two-column" only exists for background="solid". */
-  content?: 'cta-only' | 'two-column';
+  /**
+   * Figma "Content" property. The two-column variants only exist for
+   * background="solid". 2026-09-12: Figma split the single "TwoColumn"
+   * option into "TwoColumn - Left" and "TwoColumn - Right" (image position);
+   * the original "TwoColumn" master was renamed to "TwoColumn - Right" (image
+   * placeholder on the right, unchanged) and a new "TwoColumn - Left" sibling
+   * (image on the left) was added alongside it — same content/spacing,
+   * mirrored image position.
+   */
+  content?: 'cta-only' | 'two-column-left' | 'two-column-right';
   smallTitle?: string;
   headline?: string;
   subheadline?: string;
@@ -43,9 +51,12 @@ export function Hero({
   imageUrl,
   imageAlt = '',
 }: HeroProps) {
-  if (content === 'two-column') {
+  if (content === 'two-column-left' || content === 'two-column-right') {
     return (
-      <section className={styles.heroTwoColumn}>
+      <section
+        className={styles.heroTwoColumn}
+        data-image-position={content === 'two-column-left' ? 'left' : 'right'}
+      >
         <div className={styles.twoColumnContent}>
           <Badge size="small">
             <span className={styles.eyebrowCategory}>{eyebrowCategory}</span>

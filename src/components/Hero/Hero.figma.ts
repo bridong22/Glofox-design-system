@@ -8,9 +8,13 @@ const smallTitle = instance.getString('SmallTitle');
 const headline = instance.getString('Headline');
 const subheadline = instance.getString('Subheadline');
 const background = instance.getEnum('Background', { Solid: 'solid', Image: 'image', Video: 'video' });
-const content = instance.getEnum('Content', { CTAOnly: 'cta-only', TwoColumn: 'two-column' });
+const content = instance.getEnum('Content', {
+  CTAOnly: 'cta-only',
+  'TwoColumn - Left': 'two-column-left',
+  'TwoColumn - Right': 'two-column-right',
+});
 
-// Content=CTAOnly's nested Button, and Content=TwoColumn's nested Badge
+// Content=CTAOnly's nested Button, and the TwoColumn variants' nested Badge
 // eyebrow/Checklist Items/CTA-helper-text/image, are not exposed as
 // top-level component properties — Hero hardcodes their defaults
 // internally, so there is nothing further to extract for this example.

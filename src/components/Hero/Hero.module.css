@@ -86,10 +86,13 @@
   color: var(--color-fg-muted);
 }
 
-/* Background=Solid, Content=TwoColumn — confirmed live on business-type
-   pages (e.g. /business-types/gym-management-software/). Stacks below
-   1280px per the component's own Figma description; image moves below
-   the text column, spacing tokens stay the same. */
+/* Background=Solid, Content=TwoColumn - Left/Right — confirmed live on
+   business-type pages (e.g. /business-types/gym-management-software/).
+   Stacks below 1280px per the component's own Figma description; image
+   moves below the text column for BOTH left/right variants when stacked,
+   spacing tokens stay the same. Desktop image position (left/right of the
+   text column) is controlled with `order` via [data-image-position] rather
+   than DOM order, so both variants can share this one stacking rule. */
 
 .heroTwoColumn {
   display: flex;
@@ -100,10 +103,23 @@
   padding: 40px var(--container-padding);
 }
 
+.heroTwoColumn[data-image-position='left'] .twoColumnContent {
+  order: 2;
+}
+
+.heroTwoColumn[data-image-position='left'] .imagePlaceholderBox {
+  order: 1;
+}
+
 @media (max-width: 1279px) {
   .heroTwoColumn {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .heroTwoColumn[data-image-position='left'] .twoColumnContent,
+  .heroTwoColumn[data-image-position='left'] .imagePlaceholderBox {
+    order: initial;
   }
 }
 
