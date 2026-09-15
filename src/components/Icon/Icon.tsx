@@ -21,6 +21,9 @@ import { HelpCircle } from 'lucide-react';
  * same custom-drawn/non-Feather pattern — mapped by nearest lucide concept
  * (yoga -> person-in-a-pose, spin-cycle -> stationary bike, fist -> hand,
  * pilates -> mat-stretch), not traced pixel-for-pixel.
+ *
+ * `ai-agent` (node 703:10) added 2026-09-14 — a rounded-square robot-head glyph,
+ * mapped to lucide's `Bot` icon (closest conceptual/visual match).
  */
 const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   '2 Column': 'Columns2',
@@ -41,6 +44,7 @@ const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   'spin-cycle': 'Bike',
   fist: 'Hand',
   pilates: 'StretchHorizontal',
+  'ai-agent': 'Bot',
 };
 
 export type IconName = string;
