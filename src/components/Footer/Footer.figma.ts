@@ -4,7 +4,7 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-const layout = instance.getEnum('Layout', { Desktop: 'desktop', Mobile: 'mobile' });
+const layout = instance.getEnum('Layout', { Desktop: 'desktop', Mobile: 'mobile', Tablet: 'tablet' });
 
 // Aside from `Layout`, Footer has no other Figma component properties — all
 // nav-grid columns, social icons, legal links and the copyright line are

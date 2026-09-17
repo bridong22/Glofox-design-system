@@ -62,3 +62,22 @@ export const MobileMenuOpen: Story = {
     viewport: { defaultViewport: 'mobile1' },
   },
 };
+
+export const Tablet: Story = {
+  args: {
+    layout: 'tablet',
+  },
+  parameters: {
+    viewport: { defaultViewport: 'tablet' },
+  },
+};
+
+export const TabletMenuOpen: Story = {
+  args: {
+    layout: 'tablet',
+    defaultMenuOpen: true,
+  },
+  parameters: {
+    viewport: { defaultViewport: 'tablet' },
+  },
+};

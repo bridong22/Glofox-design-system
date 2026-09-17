@@ -243,7 +243,18 @@
   border-top: 1px solid var(--color-border-subtle);
 }
 
-/* Mobile: header row (logo + toggle) reuses .inner; the toggle button itself. */
+/*
+ * Mobile/Tablet: header row (logo + collapsedRight) reuses .inner. Tablet's
+ * collapsedRight also shows the CTA Button next to the toggle; mobile's has
+ * only the toggle (the wrapper adds no visible width in that case since gap
+ * only applies between children).
+ */
+
+.collapsedRight {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
 
 .menuToggle {
   display: inline-flex;

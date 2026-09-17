@@ -7,8 +7,15 @@ import { NavMenuItem } from '../NavMenuItem';
 import styles from './NavBar.module.css';
 
 export interface NavBarProps {
-  /** Figma "Layout" property. */
-  layout?: 'desktop' | 'mobile';
+  /**
+   * Figma "Layout" property. 2026-09-17: gained a third option, `tablet`
+   * (768px, node 810:307) — like `mobile` it collapses the full nav into a
+   * hamburger menu, but unlike `mobile` the CTA button stays visible in the
+   * collapsed header bar next to the toggle (not tucked inside the drawer).
+   * Only `Menu=Closed` was sampled for tablet in Figma, so the open-drawer
+   * content reuses the same accordion menu as `mobile`.
+   */
+  layout?: 'desktop' | 'mobile' | 'tablet';
   /**
    * Figma "Theme" property. Only meaningful when `layout="desktop"` —
    * Figma has no Mobile+Dark combination, so this is ignored on mobile.
@@ -312,6 +319,7 @@ export function NavBar({
   }, [layout]);
 
   const isDesktop = layout === 'desktop';
+  const isTablet = layout === 'tablet';
   const isScrolled = isDesktop && scrolled;
 
   // Desktop dropdown open state: hover-to-open, mouse-leave-to-close, per
@@ -381,15 +389,22 @@ export function NavBar({
             <span className={styles.logo}>
               <GlofoxLogo />
             </span>
-            <button
-              type="button"
-              className={styles.menuToggle}
-              aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-              onClick={toggleMenu}
-            >
-              <Icon name={isMenuOpen ? 'x' : 'menu'} size={24} />
-            </button>
+            <div className={styles.collapsedRight}>
+              {isTablet && (
+                <Button size="small" onClick={onCtaClick}>
+                  {ctaLabel}
+                </Button>
+              )}
+              <button
+                type="button"
+                className={styles.menuToggle}
+                aria-expanded={isMenuOpen}
+                aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                onClick={toggleMenu}
+              >
+                <Icon name={isMenuOpen ? 'x' : 'menu'} size={24} />
+              </button>
+            </div>
           </>
         )}
       </div>
@@ -434,11 +449,13 @@ export function NavBar({
               ),
             )}
           </nav>
-          <div className={styles.mobileCta}>
-            <Button size="small" className={styles.mobileCtaButton} onClick={onCtaClick}>
-              {ctaLabel}
-            </Button>
-          </div>
+          {layout === 'mobile' && (
+            <div className={styles.mobileCta}>
+              <Button size="small" className={styles.mobileCtaButton} onClick={onCtaClick}>
+                {ctaLabel}
+              </Button>
+            </div>
+          )}
         </div>
       )}
     </header>

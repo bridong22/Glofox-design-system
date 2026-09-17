@@ -19,6 +19,10 @@
   padding: var(--space-8) var(--space-6);
 }
 
+.innerTablet {
+  padding: var(--space-12) var(--space-8);
+}
+
 .cta {
   display: flex;
   align-items: center;
@@ -151,6 +155,7 @@
   width: 100%;
 }
 
+/* Shared by layout=mobile and layout=tablet (both center this block; only the nav grid/social row differ between them). */
 .bottomMobile {
   align-items: center;
 }

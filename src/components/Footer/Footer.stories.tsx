@@ -21,6 +21,15 @@ export const Mobile: Story = {
   },
 };
 
+export const Tablet: Story = {
+  args: {
+    layout: 'tablet',
+  },
+  parameters: {
+    viewport: { defaultViewport: 'tablet' },
+  },
+};
+
 export const MinimalColumns: Story = {
   args: {
     columns: [

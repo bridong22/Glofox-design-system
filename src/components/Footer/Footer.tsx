@@ -27,8 +27,17 @@ export interface FooterSocialLink {
  * instead of composing a second one.
  */
 export interface FooterProps {
-  /** Figma "Layout" variant — `desktop` shows the full nav grid, `mobile` collapses it into an accordion. */
-  layout?: 'desktop' | 'mobile';
+  /**
+   * Figma "Layout" variant — `desktop` shows the full nav grid, `mobile`
+   * collapses it into an accordion. 2026-09-17: gained a third option,
+   * `tablet` (768px, node 810:2778) — keeps the full nav grid like desktop
+   * (it just wraps onto more rows at this width via the grid's existing
+   * flex-wrap), but centers the bottom utility block (wordmark/copyright/
+   * legal links) like mobile does, keeps the social row right-aligned like
+   * desktop, and shows `aiNote` (unlike mobile, which hides it) centered
+   * below the utility block instead of inline at its far right.
+   */
+  layout?: 'desktop' | 'mobile' | 'tablet';
   ctaHeading?: string;
   ctaSubtext?: string;
   ctaButtonLabel?: string;
@@ -145,6 +154,8 @@ export function Footer({
   aiNote = DEFAULT_AI_NOTE,
 }: FooterProps) {
   const isMobile = layout === 'mobile';
+  const isTablet = layout === 'tablet';
+  const isStackedBottom = isMobile || isTablet;
 
   // Mobile collapses each nav column into an accordion section; the first
   // section starts expanded to match the Figma "Layout=Mobile" reference.
@@ -166,7 +177,11 @@ export function Footer({
 
   return (
     <footer className={styles.footer}>
-      <div className={`${styles.inner} ${isMobile ? styles.innerMobile : ''}`}>
+      <div
+        className={`${styles.inner} ${isMobile ? styles.innerMobile : ''} ${
+          isTablet ? styles.innerTablet : ''
+        }`}
+      >
         <div className={`${styles.cta} ${isMobile ? styles.ctaMobile : ''}`}>
           <div className={styles.ctaText}>
             <p className={styles.ctaHeading}>{ctaHeading}</p>
@@ -232,7 +247,7 @@ export function Footer({
             <div className={styles.divider} />
           </>
         )}
-        <div className={`${styles.bottom} ${isMobile ? styles.bottomMobile : ''}`}>
+        <div className={`${styles.bottom} ${isStackedBottom ? styles.bottomMobile : ''}`}>
           <div className={`${styles.social} ${isMobile ? styles.socialMobile : ''}`}>
             {socialLinks.map((social) => (
               <a key={social.name} href={social.href} aria-label={social.name} className={styles.socialLink}>
@@ -240,7 +255,7 @@ export function Footer({
               </a>
             ))}
           </div>
-          <div className={`${styles.utility} ${isMobile ? styles.utilityMobile : ''}`}>
+          <div className={`${styles.utility} ${isStackedBottom ? styles.utilityMobile : ''}`}>
             <div className={styles.utilityInfo}>
               <p className={styles.wordmark}>GLOFOX</p>
               <p className={styles.copyright}>{copyrightText}</p>
@@ -255,8 +270,10 @@ export function Footer({
               </ul>
             </div>
             {/* Figma: separate element pinned to the far right of the bottom bar, desktop only. */}
-            {!isMobile && aiNote && <p className={styles.aiNote}>{aiNote}</p>}
+            {layout === 'desktop' && aiNote && <p className={styles.aiNote}>{aiNote}</p>}
           </div>
+          {/* Tablet shows aiNote too, but centered below the whole utility block instead of inline at its far right. */}
+          {isTablet && aiNote && <p className={styles.aiNote}>{aiNote}</p>}
         </div>
       </div>
     </footer>
