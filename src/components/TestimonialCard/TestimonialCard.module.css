@@ -1,0 +1,87 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  gap: var(--space-3);
+  width: 360px;
+  padding: var(--space-6);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-base);
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stars {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-1);
+}
+
+.star {
+  /* Overrides lucide's default fill="none" presentation attribute — same
+     pattern as ReviewTag's filled stars. */
+  color: #ffa53d;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.verified {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg-subtle);
+  white-space: nowrap;
+}
+
+.quote {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-fg);
+  word-break: break-word;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.authorInfo {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.authorName {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.authorRole {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-fg-muted);
+}

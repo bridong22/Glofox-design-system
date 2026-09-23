@@ -24,6 +24,14 @@ import { HelpCircle } from 'lucide-react';
  *
  * `ai-agent` (node 703:10) added 2026-09-14 — a rounded-square robot-head glyph,
  * mapped to lucide's `Bot` icon (closest conceptual/visual match).
+ *
+ * `star-fill` (node 1212:154) added 2026-09-22 for Card=Testimonial's rating
+ * row — a deliberate solid-fill exception to the otherwise outline icon
+ * system (conventional for star ratings). Mapped to lucide's `Star`; callers
+ * must set `fill="currentColor"` themselves (author CSS overriding lucide's
+ * default `fill="none"` presentation attribute, same pattern already used by
+ * ReviewTag's full/partial stars) since this component doesn't hardcode fill
+ * per icon name.
  */
 const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   '2 Column': 'Columns2',
@@ -45,6 +53,7 @@ const CUSTOM_ICON_MAP: Record<string, keyof typeof icons> = {
   fist: 'Hand',
   pilates: 'StretchHorizontal',
   'ai-agent': 'Bot',
+  'star-fill': 'Star',
 };
 
 export type IconName = string;

@@ -48,6 +48,7 @@ export * from './components/StatStrip';
 export * from './components/TabPill';
 export * from './components/TableCell';
 export * from './components/TableHeaderCell';
+export * from './components/TestimonialCard';
 export * from './components/TocSidebar';
 export * from './components/UtilityBar';
 export * from './components/UtilityDivider';
