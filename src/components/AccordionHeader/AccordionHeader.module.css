@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  margin: 0;
+  background-color: var(--color-bg-subtle);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-family-base);
+}
+
+.label {
+  font-size: var(--font-size-body);
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--color-fg);
+}

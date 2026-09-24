@@ -1,0 +1,36 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.labelCell {
+  display: flex;
+  align-items: center;
+  flex: 1 0 0;
+  min-width: 0;
+  padding: var(--space-4) var(--space-6);
+}
+
+.label {
+  margin: 0;
+  min-width: 0;
+  flex: 1 0 0;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg);
+  /* Figma's raw spec is 18px Medium — no matching size token, so
+     typography/size/medium (16px) is used as the closest existing value. */
+  font-size: var(--font-size-small);
+}
+
+.checks {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding-right: var(--space-6);
+}

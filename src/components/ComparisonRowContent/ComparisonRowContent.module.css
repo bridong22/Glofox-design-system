@@ -1,0 +1,25 @@
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 0 0;
+  min-width: 0;
+  height: 64px;
+  padding: var(--space-4) var(--space-6);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-success);
+}
+
+.text {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-fg);
+  text-align: center;
+  white-space: nowrap;
+}

@@ -1,0 +1,41 @@
+/*
+ * Raw asset dimensions weren't recoverable (Figma serves this state set as
+ * flattened SVGs, no fetchable vector path data — same constraint hit
+ * before on Radio/LogoBar) — 24px is a reasonable approximation matching
+ * the visual weight of the sampled screenshot, not a pixel-measured value.
+ */
+.step {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  box-sizing: border-box;
+}
+
+.upcoming {
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+}
+
+.active {
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-success);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-success);
+}
+
+.completed {
+  background-color: var(--color-success);
+}
+
+.check {
+  color: var(--color-bg);
+}

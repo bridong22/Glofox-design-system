@@ -1,0 +1,68 @@
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+.number {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  line-height: normal;
+  color: var(--color-fg-subtle);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-fg);
+}
+
+.title {
+  margin: 0;
+  min-width: 0;
+  flex: 1 0 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+  /* Figma's raw spec is a literal 26px line-height (its own named variable,
+     no matching token in this repo's line-height scale). */
+  line-height: 26px;
+  color: var(--color-fg);
+  word-break: break-word;
+}
+
+.description {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-fg-muted);
+  word-break: break-word;
+}

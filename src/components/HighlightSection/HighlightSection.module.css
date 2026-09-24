@@ -1,0 +1,15 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  width: 100%;
+  padding: var(--space-8) var(--space-6);
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--radius-base);
+  box-sizing: border-box;
+}
+
+.badge {
+  margin: 0;
+}

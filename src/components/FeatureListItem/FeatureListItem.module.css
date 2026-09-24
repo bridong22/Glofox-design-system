@@ -1,0 +1,40 @@
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-success);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg);
+  word-break: break-word;
+}
+
+.description {
+  margin: 0;
+  font-family: var(--font-family-base);
+  /* Figma's raw spec is 14px/400/1.0 — --font-size-tiny is also 14px but
+     pairs with weight 600 in this token set, so weight/line-height are
+     overridden literally here (same pattern already used by ReviewTag). */
+  font-size: var(--font-size-tiny);
+  font-weight: 400;
+  line-height: normal;
+  color: var(--color-fg-muted);
+  word-break: break-word;
+}
