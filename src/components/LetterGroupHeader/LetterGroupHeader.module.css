@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.letter {
+  margin: 0;
+  flex-shrink: 0;
+  font-family: var(--font-family-base);
+  /* Figma's raw text style is 30px SemiBold ("typography/size/h3") — no
+     matching token in tokens.css (--font-size-h1/h2 exist, no h3), so kept
+     as a literal per this component's own scope. */
+  font-size: 30px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.divider {
+  flex: 1 0 0;
+  height: 1px;
+  min-width: 1px;
+  background-color: var(--color-border-subtle);
+}

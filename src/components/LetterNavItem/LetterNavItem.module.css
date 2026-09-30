@@ -1,0 +1,30 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background-color: transparent;
+  cursor: pointer;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  /* Figma's bound line-height for this text style resolves to a literal
+     150px, not 150% — clearly a broken token (same class of bug flagged on
+     TermEntry's definition text) — using `normal` instead for a single
+     centered letter. */
+  line-height: normal;
+}
+
+.active {
+  background-color: var(--color-brand-subtle);
+  color: var(--color-brand);
+}
+
+.inactive {
+  color: var(--color-fg-subtle);
+  cursor: default;
+}

@@ -1,0 +1,57 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-6);
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-base);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-family-base);
+  /* Figma "Poppins SemiBold 20px" — no matching size+weight token combo
+     (--font-size-body is 20px but weight 400/line-height 1.8), so kept as a
+     literal, same gap class as LetterGroupHeader's 30px heading. */
+  font-size: 20px;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--color-fg);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* Figma spec; no --space-* token matches 6px exactly */
+  flex-shrink: 0;
+  padding: 10px var(--space-4); /* 10px vertical has no exact --space-* match, same gap as ReviewTag's chip padding */
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+}
+
+.label {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  line-height: normal;
+  color: var(--color-fg);
+  white-space: nowrap;
+}
+
+.icon {
+  flex-shrink: 0;
+  color: var(--color-brand);
+}
