@@ -2,11 +2,18 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { tokenValue } from './tokenValue';
 
 const TYPE_SCALE = [
+  { name: 'display', sample: 'Grow your fitness business' },
   { name: 'h1', sample: 'Grow your fitness business' },
   { name: 'h2', sample: 'Grow your fitness business' },
+  { name: 'h3', sample: 'Grow your fitness business' },
+  { name: 'h4', sample: 'Grow your fitness business' },
+  { name: 'h5', sample: 'Grow your fitness business' },
+  { name: 'h6', sample: 'Grow your fitness business' },
   { name: 'body', sample: 'The quick brown fox jumps over the lazy dog.' },
   { name: 'small', sample: 'The quick brown fox jumps over the lazy dog.' },
   { name: 'tiny', sample: 'The quick brown fox jumps over the lazy dog.' },
+  { name: 'xs', sample: 'The quick brown fox jumps over the lazy dog.' },
+  { name: '2xs', sample: 'The quick brown fox jumps over the lazy dog.' },
 ];
 
 const meta: Meta = {

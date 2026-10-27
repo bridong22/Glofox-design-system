@@ -1,8 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { tokenValue } from './tokenValue';
 
-const SPACE_TOKENS = ['--space-1', '--space-2', '--space-3', '--space-4', '--space-6', '--space-8', '--space-12', '--space-16'];
-const RADIUS_TOKENS = ['--radius-sm', '--radius-base', '--radius-md', '--radius-lg', '--radius-full'];
+const SPACE_TOKENS = [
+  '--space-xs',
+  '--space-sm',
+  '--space-md',
+  '--space-lg',
+  '--space-xl',
+  '--space-2xl',
+  '--space-3xl',
+  '--space-4xl',
+  '--space-5xl',
+  '--space-6xl',
+  '--space-7xl',
+  '--space-8xl',
+];
+const RADIUS_TOKENS = ['--radius-sm', '--radius-base', '--radius-md', '--radius-lg', '--radius-xl', '--radius-full'];
 
 const meta: Meta = {
   title: 'Foundations/Spacing & Radius',
