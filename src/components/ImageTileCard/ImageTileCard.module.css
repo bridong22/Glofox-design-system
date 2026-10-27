@@ -1,0 +1,92 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  width: 300px;
+  padding: var(--space-2);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-md);
+  cursor: default;
+  transition: box-shadow 0.2s ease;
+}
+
+.card[role='button'] {
+  cursor: pointer;
+}
+
+.card[role='button']:hover,
+.card[role='button']:focus-visible {
+  box-shadow: 0 2px 23px rgba(0, 0, 0, 0.08);
+}
+
+.card[role='button']:hover .caption,
+.card[role='button']:focus-visible .caption {
+  text-decoration: underline;
+}
+
+.card[role='button']:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.imagePlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-border-subtle);
+}
+
+.imagePlaceholderLabel {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.arrowBadge {
+  position: absolute;
+  top: var(--space-2, 8px);
+  right: var(--space-2, 8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-fg);
+}
+
+.caption {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg);
+  word-break: break-word;
+}

@@ -26,3 +26,24 @@ export const CustomContent: Story = {
     buttonLabel: 'Read the guide',
   },
 };
+
+export const WithDescription: Story = {
+  args: {
+    description: 'Short supporting description, one to three lines. Explain the benefit, not the feature.',
+  },
+};
+
+export const Plain: Story = {
+  args: {
+    surface: 'plain',
+    description: 'Short supporting description, one to three lines. Explain the benefit, not the feature.',
+  },
+};
+
+export const NoEyebrowNoLink: Story = {
+  args: {
+    showEyebrow: false,
+    showLink: false,
+    description: 'Short supporting description, one to three lines. Explain the benefit, not the feature.',
+  },
+};

@@ -1,0 +1,103 @@
+.card {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+  width: 440px;
+  padding: var(--space-4);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  border-color: var(--color-border);
+  box-shadow: 0 2px 23px rgba(0, 0, 0, 0.08);
+}
+
+.photo {
+  width: 155px;
+  height: 180px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+}
+
+.photoPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 155px;
+  height: 180px;
+  flex-shrink: 0;
+  background-color: var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.photoPlaceholderLabel {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
+.text {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex: 1 0 0;
+  min-width: 0;
+  align-self: stretch;
+  padding: var(--space-2) 0;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.name {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+  color: var(--color-fg);
+  word-break: break-word;
+}
+
+.role {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg);
+  word-break: break-word;
+}
+
+.intro {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg-muted);
+  word-break: break-word;
+}
+
+.link {
+  margin-top: var(--space-2);
+}

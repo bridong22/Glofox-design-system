@@ -27,16 +27,34 @@
   color: var(--color-brand-hover);
 }
 
+.plain {
+  background-color: transparent;
+  border-color: transparent;
+}
+
 .thumbnail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 200px;
   flex-shrink: 0;
-  background-color: #efeef0;
+  background-color: var(--color-bg-muted);
   object-fit: cover;
   border: 0;
 }
 
+.thumbnailLabel {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-muted);
+}
+
 .content {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -77,6 +95,17 @@
   font-weight: var(--font-weight-body);
   line-height: var(--line-height-body);
   color: var(--color-fg);
+  word-break: break-word;
+}
+
+.description {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-tiny);
+  line-height: var(--line-height-small);
+  color: var(--color-fg-muted);
   word-break: break-word;
 }
 
