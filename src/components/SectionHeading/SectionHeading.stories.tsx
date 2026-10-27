@@ -63,3 +63,15 @@ export const RightLarge: Story = {
     size: 'large',
   },
 };
+
+export const NoEyebrow: Story = {
+  args: {
+    showEyebrow: false,
+  },
+};
+
+export const NoSubtitle: Story = {
+  args: {
+    showSubtitle: false,
+  },
+};

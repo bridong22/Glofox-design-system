@@ -2,8 +2,10 @@ import styles from './SectionHeading.module.css';
 
 export interface SectionHeadingProps {
   eyebrow?: string;
+  showEyebrow?: boolean;
   title?: string;
   subtitle?: string;
+  showSubtitle?: boolean;
   align?: 'center' | 'left' | 'right';
   size?: 'medium' | 'small' | 'large';
 }
@@ -22,8 +24,10 @@ const sizeClasses = {
 
 export function SectionHeading({
   eyebrow = 'PLATFORM',
+  showEyebrow = true,
   title = 'Run your entire fitness business',
   subtitle = 'Everything you need to manage, grow, and retain your members.',
+  showSubtitle = true,
   align = 'center',
   size = 'medium',
 }: SectionHeadingProps) {
@@ -33,9 +37,9 @@ export function SectionHeading({
 
   return (
     <div className={className}>
-      <p className={styles.eyebrow}>{eyebrow}</p>
+      {showEyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
       <h2 className={styles.title}>{title}</h2>
-      <p className={styles.subtitle}>{subtitle}</p>
+      {showSubtitle && <p className={styles.subtitle}>{subtitle}</p>}
     </div>
   );
 }

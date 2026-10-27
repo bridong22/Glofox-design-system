@@ -871,6 +871,22 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-10-27 resync of the '\u2705 Hero' page (40:1754) \u2014 page reorganization only, the underlying component-set node (272:36) and all 5 symbol ids are unchanged, so Hero.figma.ts's url stays valid. Real fidelity fix found via direct get_design_context (Code Connect disabled) on all three Content=CTAOnly symbols (44:1735 Solid, 272:10 Image, 272:18 Video): despite the property value literally being named 'CTAOnly', all three actually render an inline email-capture form (Label + 'Work email' field + CTA button), not a bare button \u2014 the component's own description admits this is a leftover naming mismatch ('Renamed original to Background=Solid, Content=WithForm' was never applied to the actual enum). Hero.tsx previously rendered only a bare Button for this content mode; rebuilt to render the Input+Button form (wired to a controlled `email` state and a new `onEmailSubmit` prop, `onCtaClick` kept for the button's own click). Also fixed: Background=Image/Video renders the headline at Display size (56px/68px, --font-size-display/--line-height-display) rather than H1 (44px) \u2014 added a `.headlineDisplay` variant. ACCESSIBILITY CORRECTION (not a literal reproduction): Figma's raw Image/Video Form instances render the 'Label' caption in the same dark --color-fg used on the white Solid variant, making it nearly illegible against the dark background in the actual rendered screenshot \u2014 since both backgrounds are explicitly flagged PROPOSED (not sampled from a live page), treated this as an unintentional contrast bug in the source rather than something to reproduce, and lightened the label color for both dark variants instead."
+    },
+    {
+      "figmaName": "SectionHeading",
+      "nodeId": "287:241",
+      "componentDir": "SectionHeading",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-10-27 resync of the '\u2705 SectionHeading' page (40:1749) \u2014 page reorg only, same node ids as before (unchanged since the 2026-08-25 Align=Right/Size=Small+Large addition this repo already implements). New find via direct get_design_context on 42:40: a 2026-10-23 proposal added 'Show eyebrow' and 'Show subheadline' boolean properties that the component didn't expose yet (always rendered both). Added `showEyebrow`/`showSubtitle` props (default true, preserving existing behavior for every current consumer) and wired them into SectionHeading.figma.ts."
+    },
+    {
+      "figmaName": "Footer",
+      "nodeId": "271:70",
+      "componentDir": "Footer",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-10-27 resync of the '\u2705 Footer' page (40:1755) \u2014 page reorg only; Desktop/Mobile/Tablet symbol ids (44:1745/271:69/810:2778) all unchanged from the prior session's build, no code changes needed. Found a new, separate 'LP Footer (page)' (2026:235) on the same canvas: a minimal landing-page footer (logo, divider, legal line, no link grid) explicitly flagged 'PROPOSED \u2014 not yet in the Glofox-design-system code repo', used on /lp/ templates instead of the full Footer, paired with an 'LP Header' per its usage note (LP Header not located/built this session). Built as a new LpFooter component (Breakpoint=Desktop|Mobile \u2014 one row with a divider vs. stacked without one). Code Connect mapped to node 2026:234. Followed Footer's own existing convention of a plain-text 'GLOFOX' wordmark rather than the full icon+wordmark lockup (which only exists as a private, non-exported component inside NavBar.tsx) \u2014 sized and colored (24px, --color-brand) to carry more visual weight than Footer's small bottom-bar text, matching its role as the page's primary footer branding instead of a minor detail."
     }
   ]
 }

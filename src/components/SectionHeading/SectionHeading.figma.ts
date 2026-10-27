@@ -5,8 +5,10 @@ import figma from 'figma';
 const instance = figma.selectedInstance;
 
 const eyebrow = instance.getString('Eyebrow');
+const showEyebrow = instance.getBoolean('Show eyebrow');
 const title = instance.getString('Title');
 const subtitle = instance.getString('Subtitle');
+const showSubtitle = instance.getBoolean('Show subheadline');
 const align = instance.getEnum('Align', {
   Center: 'center',
   Left: 'left',
@@ -19,7 +21,7 @@ const size = instance.getEnum('Size', {
 });
 
 export default {
-  example: figma.code`<SectionHeading eyebrow="${eyebrow}" title="${title}" subtitle="${subtitle}" align="${align}" size="${size}" />`,
+  example: figma.code`<SectionHeading eyebrow="${eyebrow}" showEyebrow={${showEyebrow}} title="${title}" subtitle="${subtitle}" showSubtitle={${showSubtitle}} align="${align}" size="${size}" />`,
   imports: ['import { SectionHeading } from "src/components/SectionHeading"'],
   id: 'section-heading',
   metadata: { nestable: true },

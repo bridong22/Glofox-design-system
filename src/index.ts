@@ -42,6 +42,7 @@ export * from './components/LinkArrow';
 export * from './components/Logo';
 export * from './components/LogoBar';
 export * from './components/LogoStatCard';
+export * from './components/LpFooter';
 export * from './components/MediaFrame';
 export * from './components/MidPostCtaCard';
 export * from './components/MostPopularBanner';
