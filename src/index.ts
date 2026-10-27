@@ -53,6 +53,7 @@ export * from './components/Radio';
 export * from './components/RelatedTerms';
 export * from './components/ResourceCard';
 export * from './components/ReviewTag';
+export * from './components/ScrollIndicator';
 export * from './components/SectionHeaderWithLink';
 export * from './components/SectionHeading';
 export * from './components/Select';

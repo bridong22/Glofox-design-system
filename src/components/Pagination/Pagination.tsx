@@ -1,4 +1,4 @@
-import { CarouselArrow } from '../CarouselArrow';
+import { Icon } from '../Icon';
 import styles from './Pagination.module.css';
 
 export interface PaginationProps {
@@ -8,59 +8,88 @@ export interface PaginationProps {
   totalPages: number;
   /** Called with the new page number when a page or arrow is clicked. */
   onPageChange?: (page: number) => void;
+  /** Figma "Layout" variant. 'compact' shows a "Page X of Y" label with just Prev/Next, for narrow layouts. */
+  layout?: 'full' | 'compact';
   className?: string;
 }
 
+type PageItem = number | 'ellipsis';
+
 /**
- * Builds a sliding 3-number window centered on `currentPage`, clamped to the
- * valid page range. Reproduces the same First/Middle/Last visual patterns
- * the Figma component mocks as three static frames, driven by real page math:
- *  - page 1 of N       -> [1, 2, 3]              (Figma "First")
- *  - page in the middle -> [page - 1, page, page + 1] (Figma "Middle")
- *  - last page of N     -> [N - 2, N - 1, N]      (Figma "Last")
+ * Builds the page-number list with a single ellipsis collapsing whichever
+ * side is far from `currentPage` — always pins the first and last page.
+ * Reproduces the exact windowing observed across Figma's 12-page examples.
  */
-function getPageWindow(currentPage: number, totalPages: number): number[] {
-  if (totalPages <= 3) {
+function getPageItems(currentPage: number, totalPages: number): PageItem[] {
+  if (totalPages <= 7) {
     return Array.from({ length: totalPages }, (_, index) => index + 1);
   }
 
-  const start = Math.min(Math.max(currentPage - 1, 1), totalPages - 2);
-  return [start, start + 1, start + 2];
+  if (currentPage <= 4) {
+    return [1, 2, 3, 4, 5, 'ellipsis', totalPages];
+  }
+
+  if (currentPage >= totalPages - 3) {
+    return [1, 'ellipsis', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+  }
+
+  return [1, 'ellipsis', currentPage - 1, currentPage, currentPage + 1, 'ellipsis', totalPages];
 }
 
-export function Pagination({ currentPage, totalPages, onPageChange, className }: PaginationProps) {
+export function Pagination({ currentPage, totalPages, onPageChange, layout = 'full', className }: PaginationProps) {
   const safeTotalPages = Math.max(totalPages, 1);
   const safeCurrentPage = Math.min(Math.max(currentPage, 1), safeTotalPages);
-  const pages = getPageWindow(safeCurrentPage, safeTotalPages);
+  const isPrevDisabled = safeCurrentPage <= 1;
+  const isNextDisabled = safeCurrentPage >= safeTotalPages;
 
-  const showPrev = safeCurrentPage > 1;
-  const showNext = safeCurrentPage < safeTotalPages;
-
-  const classes = className ? `${styles.pagination} ${className}` : styles.pagination;
+  const classes = [styles.pagination, className].filter(Boolean).join(' ');
 
   return (
     <nav className={classes} aria-label="Pagination">
-      {showPrev && (
-        <CarouselArrow direction="prev" onClick={() => onPageChange?.(safeCurrentPage - 1)} />
+      <button
+        type="button"
+        className={styles.arrowItem}
+        disabled={isPrevDisabled}
+        onClick={() => onPageChange?.(safeCurrentPage - 1)}
+        aria-label="Previous page"
+      >
+        <Icon name="chevron-left" size={16} />
+      </button>
+
+      {layout === 'compact' ? (
+        <p className={styles.compactLabel}>
+          Page {safeCurrentPage} of {safeTotalPages}
+        </p>
+      ) : (
+        getPageItems(safeCurrentPage, safeTotalPages).map((item, index) =>
+          item === 'ellipsis' ? (
+            <span key={`ellipsis-${index}`} className={styles.ellipsis}>
+              …
+            </span>
+          ) : (
+            <button
+              key={item}
+              type="button"
+              className={item === safeCurrentPage ? styles.numberItemActive : styles.numberItem}
+              onClick={() => onPageChange?.(item)}
+              aria-current={item === safeCurrentPage ? 'page' : undefined}
+              aria-label={`Page ${item}`}
+            >
+              {item}
+            </button>
+          ),
+        )
       )}
-      {pages.map((page) => {
-        const isActive = page === safeCurrentPage;
-        return (
-          <button
-            key={page}
-            type="button"
-            className={isActive ? styles.pageActive : styles.pageInactive}
-            onClick={() => onPageChange?.(page)}
-            aria-current={isActive ? 'page' : undefined}
-            aria-label={`Page ${page}`}
-          >
-            {page}
-          </button>
-        );
-      })}
-      {showNext && (
-        <CarouselArrow direction="next" onClick={() => onPageChange?.(safeCurrentPage + 1)} />
-      )}
+
+      <button
+        type="button"
+        className={styles.arrowItem}
+        disabled={isNextDisabled}
+        onClick={() => onPageChange?.(safeCurrentPage + 1)}
+        aria-label="Next page"
+      >
+        <Icon name="chevron-right" size={16} />
+      </button>
     </nav>
   );
 }

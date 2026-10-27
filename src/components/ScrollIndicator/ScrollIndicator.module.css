@@ -1,0 +1,60 @@
+.scrollIndicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.segment {
+  display: flex;
+  padding: var(--space-xs);
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.dash {
+  display: block;
+  width: 32px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border);
+}
+
+/*
+ * Figma's raw export has every dash bound to the same literal gray
+ * (--color-border) regardless of its Active state — no color difference is
+ * actually defined there. Filling the active segment with --color-brand
+ * follows the conventional carousel-progress pattern (and matches the Dot
+ * style, which DOES ship two distinct swatch assets for default vs. active)
+ * rather than reproducing what looks like an incomplete source state.
+ */
+.dash.active {
+  background-color: var(--color-brand);
+}
+
+.dot {
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border);
+}
+
+.dot.active {
+  background-color: var(--color-brand);
+}
+
+.countLabel {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  font-weight: 600;
+  color: var(--color-fg);
+  white-space: nowrap;
+}

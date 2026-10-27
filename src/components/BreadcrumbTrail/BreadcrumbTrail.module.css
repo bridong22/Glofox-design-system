@@ -28,7 +28,9 @@
 }
 
 a.link:hover {
-  color: var(--color-fg);
+  /* 2026-10-27: Figma formalized a Hover state (node 1676:7144) using
+     --color-brand-hover with an underline, not --color-fg. */
+  color: var(--color-brand-hover);
   text-decoration: underline;
 }
 

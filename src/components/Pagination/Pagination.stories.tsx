@@ -11,40 +11,45 @@ const meta: Meta<typeof Pagination> = {
 export default meta;
 type Story = StoryObj<typeof Pagination>;
 
-// Figma "First": active page 1 of a 3-number window, Next arrow only.
-export const First: Story = {
+export const Start: Story = {
   args: {
     currentPage: 1,
-    totalPages: 9,
+    totalPages: 12,
   },
 };
 
-// Figma "Middle": active page centered with one neighbor on each side, both arrows shown.
 export const Middle: Story = {
   args: {
-    currentPage: 5,
-    totalPages: 9,
+    currentPage: 6,
+    totalPages: 12,
   },
 };
 
-// Figma "Last": active page anchored at the end of the window, Prev arrow only.
-export const Last: Story = {
+export const End: Story = {
   args: {
-    currentPage: 9,
-    totalPages: 9,
+    currentPage: 12,
+    totalPages: 12,
   },
 };
 
 export const FewPages: Story = {
   args: {
     currentPage: 2,
-    totalPages: 3,
+    totalPages: 5,
+  },
+};
+
+export const Compact: Story = {
+  args: {
+    currentPage: 1,
+    totalPages: 12,
+    layout: 'compact',
   },
 };
 
 export const Interactive: Story = {
   render: () => {
-    const totalPages = 9;
+    const totalPages = 12;
     const [currentPage, setCurrentPage] = useState(1);
 
     return <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />;
