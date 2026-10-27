@@ -895,6 +895,14 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-10-27 resync of the 'StatStrip' page (40:1750, not emoji-status-prefixed like the other Foundation pages). The master symbol (42:49) is a single stat COLUMN meant to be placed several-up in a row ('Inner column fills the instance width \u2014 resize or set FILL in a row'), with a per-stat 'Props (added 2026-10-23, proposal): Prefix, Value, Label, Description (TEXT); Show prefix, Show description (BOOLEAN)' \u2014 richer than this repo's previous {value, label} pair at a smaller, centered 30px size. Rebuilt: `Stat` now carries optional `prefix`/`showPrefix`/`description`/`showDescription`; each stat column is left-aligned (was centered) with the value promoted to H1 size (44px, was a hardcoded 30px) and the label to 16px (was 14px/tiny), matching the actual current symbol. Existing 2-3 plain {value,label} consumers keep rendering identically (prefix/description sections only render when provided). The page's own 'Gap callout' ('Not yet in this system: Single fixed layout only \u2014 no documented responsive/mobile stacking behavior or variable stat-count spacing') is unaddressed in Figma; kept the existing flex-wrap behavior as this repo's own reasonable default, not a Figma-specified one."
+    },
+    {
+      "figmaName": "Pricing Card",
+      "nodeId": "1314:4729",
+      "componentDir": "PricingCard",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-10-27 resync of the '\u2705 Pricing' page (1313:8) \u2014 confirmed unchanged. Direct get_design_context on the Default style (1314:4499) matches PricingCard.tsx's current defaults and structure field-for-field (Essential/$275/mo/8x 'Item 1' features/'Book a Demo', add-ons-via-`extras`-slot pattern) \u2014 no code changes needed. This page was already fully and carefully built out in a prior session, gaps-flagged-not-improvised (price/description color with no matching token, 36px internal gap rounded to spacing/2xl, add-on Badge gradient simplified to a solid color/brand-subtle fill) and that work holds."
     }
   ]
 }
