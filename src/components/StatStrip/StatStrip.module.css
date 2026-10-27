@@ -1,6 +1,6 @@
 .statStrip {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap: var(--space-12);
   flex-wrap: wrap;
@@ -8,28 +8,48 @@
 
 .stat {
   display: flex;
+  flex: 1 0 200px;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-1);
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.prefix {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg);
+  white-space: nowrap;
 }
 
 .value {
   margin: 0;
   font-family: var(--font-family-base);
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-h1);
+  line-height: var(--line-height-h1);
+  letter-spacing: -0.02em;
   color: var(--color-brand);
   white-space: nowrap;
 }
 
 .label {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg);
+}
+
+.description {
+  width: 100%;
   margin: 0;
   font-family: var(--font-family-base);
   font-size: var(--font-size-tiny);
-  font-weight: 400;
   line-height: var(--line-height-tiny);
   color: var(--color-fg-muted);
-  white-space: nowrap;
 }

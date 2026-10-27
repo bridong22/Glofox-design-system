@@ -3,6 +3,10 @@ import styles from './StatStrip.module.css';
 export interface Stat {
   value: string;
   label: string;
+  prefix?: string;
+  showPrefix?: boolean;
+  description?: string;
+  showDescription?: boolean;
 }
 
 export interface StatStripProps {
@@ -18,12 +22,20 @@ const DEFAULT_STATS: Stat[] = [
 export function StatStrip({ stats = DEFAULT_STATS }: StatStripProps) {
   return (
     <div className={styles.statStrip}>
-      {stats.map((stat) => (
-        <div className={styles.stat} key={`${stat.value}-${stat.label}`}>
-          <p className={styles.value}>{stat.value}</p>
-          <p className={styles.label}>{stat.label}</p>
-        </div>
-      ))}
+      {stats.map((stat) => {
+        const showPrefix = stat.showPrefix ?? Boolean(stat.prefix);
+        const showDescription = stat.showDescription ?? Boolean(stat.description);
+        return (
+          <div className={styles.stat} key={`${stat.value}-${stat.label}`}>
+            {showPrefix && stat.prefix && <p className={styles.prefix}>{stat.prefix}</p>}
+            <p className={styles.value}>{stat.value}</p>
+            <p className={styles.label}>{stat.label}</p>
+            {showDescription && stat.description && (
+              <p className={styles.description}>{stat.description}</p>
+            )}
+          </div>
+        );
+      })}
     </div>
   );
 }

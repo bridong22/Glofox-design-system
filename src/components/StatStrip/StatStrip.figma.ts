@@ -4,23 +4,28 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-// StatStrip's `stats` prop is an array, which has no direct Figma property
-// counterpart. The three value/label pairs are visible as named text layers
-// (not exposed as component properties), so we read them dynamically via
-// findText and assemble a representative array literal for the example.
+// Figma's master symbol (42:49) represents a single stat column — "Inner
+// column fills the instance width — resize or set FILL in a row" — meant to
+// be placed several-up in a row. StatStrip's `stats` array prop has no
+// direct Figma property counterpart, so this example reads this one
+// instance's fields and wraps them in a single-item array literal.
+const showPrefix = instance.getBoolean('Show prefix');
+const showDescription = instance.getBoolean('Show description');
+
 function readText(layerName: string, fallback: string): string {
   const node = instance.findText(layerName);
   return node && node.type === 'TEXT' ? node.textContent : fallback;
 }
 
-const stat1Value = readText('30k+', '30k+');
-const stat1Label = readText('Studios & gyms', 'Studios & gyms');
-const stat2Value = readText('4.5/5', '4.5/5');
-const stat2Label = readText('Capterra rating', 'Capterra rating');
-const stat3Value = readText('4.4/5', '4.4/5');
-const stat3Label = readText('G2 rating', 'G2 rating');
+const prefix = readText('up to', 'up to');
+const value = readText('97%+', '97%+');
+const label = readText('Collection Rates', 'Collection Rates');
+const description = readText(
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+);
 
-const stats = `[{ value: '${stat1Value}', label: '${stat1Label}' }, { value: '${stat2Value}', label: '${stat2Label}' }, { value: '${stat3Value}', label: '${stat3Label}' }]`;
+const stats = `[{ prefix: '${prefix}', showPrefix: ${showPrefix}, value: '${value}', label: '${label}', description: '${description}', showDescription: ${showDescription} }]`;
 
 export default {
   example: figma.code`<StatStrip stats={${stats}} />`,

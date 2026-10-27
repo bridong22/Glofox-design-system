@@ -23,3 +23,16 @@ export const CustomStats: Story = {
     ],
   },
 };
+
+export const WithPrefixAndDescription: Story = {
+  args: {
+    stats: [
+      {
+        prefix: 'up to',
+        value: '97%+',
+        label: 'Collection Rates',
+        description: 'Automated billing and payment recovery keep revenue on track.',
+      },
+    ],
+  },
+};

@@ -887,6 +887,14 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-10-27 resync of the '\u2705 Footer' page (40:1755) \u2014 page reorg only; Desktop/Mobile/Tablet symbol ids (44:1745/271:69/810:2778) all unchanged from the prior session's build, no code changes needed. Found a new, separate 'LP Footer (page)' (2026:235) on the same canvas: a minimal landing-page footer (logo, divider, legal line, no link grid) explicitly flagged 'PROPOSED \u2014 not yet in the Glofox-design-system code repo', used on /lp/ templates instead of the full Footer, paired with an 'LP Header' per its usage note (LP Header not located/built this session). Built as a new LpFooter component (Breakpoint=Desktop|Mobile \u2014 one row with a divider vs. stacked without one). Code Connect mapped to node 2026:234. Followed Footer's own existing convention of a plain-text 'GLOFOX' wordmark rather than the full icon+wordmark lockup (which only exists as a private, non-exported component inside NavBar.tsx) \u2014 sized and colored (24px, --color-brand) to carry more visual weight than Footer's small bottom-bar text, matching its role as the page's primary footer branding instead of a minor detail."
+    },
+    {
+      "figmaName": "StatStrip",
+      "nodeId": "42:49",
+      "componentDir": "StatStrip",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-10-27 resync of the 'StatStrip' page (40:1750, not emoji-status-prefixed like the other Foundation pages). The master symbol (42:49) is a single stat COLUMN meant to be placed several-up in a row ('Inner column fills the instance width \u2014 resize or set FILL in a row'), with a per-stat 'Props (added 2026-10-23, proposal): Prefix, Value, Label, Description (TEXT); Show prefix, Show description (BOOLEAN)' \u2014 richer than this repo's previous {value, label} pair at a smaller, centered 30px size. Rebuilt: `Stat` now carries optional `prefix`/`showPrefix`/`description`/`showDescription`; each stat column is left-aligned (was centered) with the value promoted to H1 size (44px, was a hardcoded 30px) and the label to 16px (was 14px/tiny), matching the actual current symbol. Existing 2-3 plain {value,label} consumers keep rendering identically (prefix/description sections only render when provided). The page's own 'Gap callout' ('Not yet in this system: Single fixed layout only \u2014 no documented responsive/mobile stacking behavior or variable stat-count spacing') is unaddressed in Figma; kept the existing flex-wrap behavior as this repo's own reasonable default, not a Figma-specified one."
     }
   ]
 }
