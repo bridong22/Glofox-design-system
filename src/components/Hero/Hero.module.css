@@ -31,8 +31,8 @@
 
 .hero[data-background='image'] .smallTitle,
 .hero[data-background='video'] .smallTitle,
-.hero[data-background='image'] .headline,
-.hero[data-background='video'] .headline {
+.hero[data-background='image'] .headlineDisplay,
+.hero[data-background='video'] .headlineDisplay {
   position: relative;
   color: var(--color-bg);
 }
@@ -76,6 +76,18 @@
   color: var(--color-fg);
 }
 
+/* Background=Image/Video renders the headline at the larger Display size
+   (56px/68px) rather than H1 (44px) — confirmed on both proposed variants. */
+.headlineDisplay {
+  margin: 0;
+  max-width: 900px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-display);
+  font-weight: var(--font-weight-h1);
+  line-height: var(--line-height-display);
+  color: var(--color-fg);
+}
+
 .subheadline {
   margin: 0;
   max-width: 640px;
@@ -84,6 +96,29 @@
   font-weight: var(--font-weight-small);
   line-height: var(--line-height-small);
   color: var(--color-fg-muted);
+}
+
+.form {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.form > div:first-child {
+  width: 320px;
+}
+
+/* Figma's raw Image/Video Form instances render this label in the same dark
+   --color-fg used on the Solid/white variant, making it nearly invisible
+   against the dark background — not sampled from a live page (both
+   backgrounds are PROPOSED), so treated as an unintentional contrast bug
+   in the source rather than reproduced; lightened for both variants here
+   instead of leaving an illegible label. */
+.hero[data-background='image'] .form label,
+.hero[data-background='video'] .form label {
+  color: var(--color-bg);
 }
 
 /* Background=Solid, Content=TwoColumn - Left/Right — confirmed live on

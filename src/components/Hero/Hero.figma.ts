@@ -14,10 +14,11 @@ const content = instance.getEnum('Content', {
   'TwoColumn - Right': 'two-column-right',
 });
 
-// Content=CTAOnly's nested Button, and the TwoColumn variants' nested Badge
-// eyebrow/Checklist Items/CTA-helper-text/image, are not exposed as
-// top-level component properties — Hero hardcodes their defaults
-// internally, so there is nothing further to extract for this example.
+// Content=CTAOnly's nested inline email-capture form (Label/Field/Button),
+// and the TwoColumn variants' nested Badge eyebrow/Checklist Items/CTA-helper
+// text/image, are not exposed as top-level component properties — Hero
+// hardcodes their defaults internally, so there is nothing further to
+// extract for this example.
 
 export default {
   example: figma.code`<Hero background="${background}" content="${content}" smallTitle="${smallTitle}" headline="${headline}" subheadline="${subheadline}" />`,

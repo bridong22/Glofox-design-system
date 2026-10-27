@@ -863,6 +863,14 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-10-27 NEW component, no prior equivalent. Wide (800px) tinted card for product-pillar rows: a big single-word keyword in success-green, a subtitle, a description and a Read More link beside a square image, with Image position = Right|Left (alternate down a stacked list). Content limits: keyword 1 word <=12 chars, subtitle <=50 chars, description <=220 chars; width 800 default, stretches to fill a 1200 container."
+    },
+    {
+      "figmaName": "Hero",
+      "nodeId": "272:36",
+      "componentDir": "Hero",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-10-27 resync of the '\u2705 Hero' page (40:1754) \u2014 page reorganization only, the underlying component-set node (272:36) and all 5 symbol ids are unchanged, so Hero.figma.ts's url stays valid. Real fidelity fix found via direct get_design_context (Code Connect disabled) on all three Content=CTAOnly symbols (44:1735 Solid, 272:10 Image, 272:18 Video): despite the property value literally being named 'CTAOnly', all three actually render an inline email-capture form (Label + 'Work email' field + CTA button), not a bare button \u2014 the component's own description admits this is a leftover naming mismatch ('Renamed original to Background=Solid, Content=WithForm' was never applied to the actual enum). Hero.tsx previously rendered only a bare Button for this content mode; rebuilt to render the Input+Button form (wired to a controlled `email` state and a new `onEmailSubmit` prop, `onCtaClick` kept for the button's own click). Also fixed: Background=Image/Video renders the headline at Display size (56px/68px, --font-size-display/--line-height-display) rather than H1 (44px) \u2014 added a `.headlineDisplay` variant. ACCESSIBILITY CORRECTION (not a literal reproduction): Figma's raw Image/Video Form instances render the 'Label' caption in the same dark --color-fg used on the white Solid variant, making it nearly illegible against the dark background in the actual rendered screenshot \u2014 since both backgrounds are explicitly flagged PROPOSED (not sampled from a live page), treated this as an unintentional contrast bug in the source rather than something to reproduce, and lightened the label color for both dark variants instead."
     }
   ]
 }
