@@ -9,6 +9,7 @@ export * from './components/Button';
 export * from './components/Card';
 export * from './components/Carousel';
 export * from './components/CarouselArrow';
+export * from './components/CarouselTag';
 export * from './components/Checkbox';
 export * from './components/ChecklistItem';
 export * from './components/ComparisonCard';

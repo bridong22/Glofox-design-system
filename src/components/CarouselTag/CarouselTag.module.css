@@ -1,0 +1,35 @@
+.carouselTag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-bg-subtle);
+  border-radius: var(--radius-sm);
+}
+
+.score {
+  display: flex;
+  padding: var(--space-md);
+  background-color: var(--color-brand);
+  border-radius: var(--radius-sm);
+}
+
+.scoreValue {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-h4);
+  font-weight: 500;
+  line-height: 28px; /* Figma's literal "line-height-medium-regular" pairing for this size */
+  color: var(--color-bg);
+  white-space: nowrap;
+}
+
+.description {
+  margin: 0;
+  padding: var(--space-xs) var(--space-lg);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  font-weight: 500;
+  line-height: 28px;
+  color: var(--color-fg);
+  white-space: nowrap;
+}
