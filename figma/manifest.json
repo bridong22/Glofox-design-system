@@ -1060,6 +1060,22 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-11-04 NEW component. SectionHeading + LogoCarousel (carousel enabled), `grayscale` prop matching Figma's Grayscale=On/Off variant."
+    },
+    {
+      "figmaName": "Testimonial Carousel",
+      "nodeId": "2029:637",
+      "componentDir": "TestimonialCarouselCard",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED (not yet in code per Figma's own note, built 2026-10-21). 'Section with heading, scrolling partner-logo marquee and a media + quote carousel card.' Reuses LogoBar, CarouselTag (the 'Improvement chip' = score+description), CarouselArrow, ScrollIndicator (dot style) \u2014 all already built. Implemented as a real single-slide-at-a-time carousel (controlled index, Prev/Next + clickable ScrollIndicator dots) rather than Figma's per-variant Smart Animate slides, consistent with this repo's established convention (see Pagination's windowing algorithm, StatStrip's rebuild) of building parametrized components instead of replicating static per-variant Figma exports. Figma flags several drifts on its own: live score chip purple #6662E3 has no token (mapped to color/brand, matching CarouselTag's own existing token choice); live section bg #F2F4F6 vs its own color/bg-subtle token #F5F6F8 (used the token, not the literal); arrow-disabled-at-ends and no-autoplay behavior are flagged [Guessing] in Figma \u2014 implemented disable-at-ends since it's the safer, more conventional default; autoplay not implemented (opt-in/not requested)."
+    },
+    {
+      "figmaName": "Section/Testimonial Carousel",
+      "nodeId": "2194:2999",
+      "componentDir": "SectionTestimonialCarousel",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. Thin wrapper: SectionHeading + TestimonialCarouselCard (which already has its own internal header/logo-marquee toggles per Figma's 'wraps existing Testimonial Carousel' note)."
     }
   ]
 }
