@@ -1036,6 +1036,30 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. 'Layout Default (left heading) | Centered; filter tabs (Filter Tab) + grid of resource cards with excerpts (Card/Media).' Built with controlled FilterTab state (first filter active by default, click to switch) + a responsive 3/2/1-column ResourceCard grid. `layout` controls SectionHeading's align (left vs center) per Figma's own Default/Centered naming."
+    },
+    {
+      "figmaName": "Image Gallery",
+      "nodeId": "2188:820",
+      "componentDir": "LogoCarousel",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. 'WP Hero \"Image Gallery\": Title, Images, Enable carousel (prev/next arrows), Image Filter = None | Grayscale | Whitescale.' Shared molecule reused by Section/Integrations Carousel and Section/Partners Carousel (same underlying component in Figma, Grayscale=On/Off on the Partners instance). Built as a real paginated carousel (slices `brands` into pages of `perPage`, Prev/Next + a ScrollIndicator page dot track) rather than a static row, since Figma's own arrows/dots imply real paging. 'Whitescale' (white logos for dark backgrounds) not built \u2014 only None/Grayscale, since no dark-background usage was found in this batch; `grayscale` uses a CSS filter approximation per Figma's own 'approximated with exposure; real white artwork preferred' caveat for the (unbuilt) Whitescale option."
+    },
+    {
+      "figmaName": "Section/Integrations Carousel",
+      "nodeId": "2192:958",
+      "componentDir": "SectionIntegrationsCarousel",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + LogoCarousel (carousel enabled)."
+    },
+    {
+      "figmaName": "Section/Partners Carousel",
+      "nodeId": "2192:2005",
+      "componentDir": "SectionPartnersCarousel",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component. SectionHeading + LogoCarousel (carousel enabled), `grayscale` prop matching Figma's Grayscale=On/Off variant."
     }
   ]
 }
