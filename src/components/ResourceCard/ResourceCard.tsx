@@ -12,6 +12,12 @@ export interface ResourceCardProps {
   meta?: string;
   title?: string;
   description?: string;
+  /** Figma `Show score` property (added 2026-10-28, WP Resources Carousel card field) — a label/value stat row, value rendered in the brand color. */
+  showScore?: boolean;
+  scoreLabel?: string;
+  scoreValue?: string;
+  /** Figma `Show tag` property (added 2026-10-28, WP Resources Carousel card field) — a small logo tag pinned over the thumbnail. */
+  showTag?: boolean;
   showLink?: boolean;
   buttonLabel?: string;
   onButtonClick?: () => void;
@@ -27,6 +33,10 @@ export function ResourceCard({
   meta = '24 Jun 2025 • 10 min read',
   title = 'The Best Gym Management Software 2026, Reviewed & Compared',
   description,
+  showScore = false,
+  scoreLabel = 'Revenue',
+  scoreValue = '+44%',
+  showTag = false,
   showLink = true,
   buttonLabel = 'Read More',
   onButtonClick,
@@ -38,13 +48,20 @@ export function ResourceCard({
 
   return (
     <div className={classes}>
-      {imageUrl ? (
-        <img className={styles.thumbnail} src={imageUrl} alt={imageAlt} />
-      ) : (
-        <div className={styles.thumbnail}>
-          <p className={styles.thumbnailLabel}>Image</p>
-        </div>
-      )}
+      <div className={styles.thumbnailWrapper}>
+        {imageUrl ? (
+          <img className={styles.thumbnail} src={imageUrl} alt={imageAlt} />
+        ) : (
+          <div className={styles.thumbnail}>
+            <p className={styles.thumbnailLabel}>Image</p>
+          </div>
+        )}
+        {showTag && (
+          <div className={styles.tag}>
+            <p className={styles.tagLabel}>Logo</p>
+          </div>
+        )}
+      </div>
       <div className={styles.content}>
         {showEyebrow && (
           <div className={styles.metaRow}>
@@ -54,6 +71,12 @@ export function ResourceCard({
         )}
         <p className={styles.title}>{title}</p>
         {description && <p className={styles.description}>{description}</p>}
+        {showScore && (
+          <div className={styles.score}>
+            <span className={styles.scoreLabel}>{scoreLabel}</span>
+            <span className={styles.scoreValue}>{scoreValue}</span>
+          </div>
+        )}
         {showLink && (
           <Button variant="ghost" size="small" className={styles.button} onClick={onButtonClick}>
             {buttonLabel}

@@ -972,6 +972,70 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + ComparisonTableCompact + CtaGroup. 'Theme Auto/Light/Dark via table variant + Color mode' is noted in Figma but not implemented \u2014 this repo has no dark-mode theme yet (separate from the ABC/Glofox brand-color work), so only the Auto/Light case is built."
+    },
+    {
+      "figmaName": "Card/Icon Feature",
+      "nodeId": "1829:4246",
+      "componentDir": "Card",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: 'Show link (exposed Ghost Button = WP card CTA) + State=Hover (brand outline)' added 2026-10-28, used by the new Section/Feature Cards composition. Added `showLink`/`linkLabel`/`onLinkClick` props (default false, preserving existing no-link behavior for every current consumer). Also changed the hardcoded `width: 320px` to `width: 100%; max-width: 320px` so it works correctly in Section/Feature Cards' 3-across flex row."
+    },
+    {
+      "figmaName": "Card/Media",
+      "nodeId": "1829:4218",
+      "componentDir": "ResourceCard",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: 'Show score (Score label/value, value in accent/color) + Show tag (tag image over the thumbnail) = WP Resources Carousel card fields' added 2026-10-28, used by the new Section/Resources (and upcoming Resources Carousel) compositions. Added `showScore`/`scoreLabel`/`scoreValue` (rendered as a label/value row, value in --color-brand) and `showTag`/`showTag`-gated small 'Logo' tag pinned over the thumbnail's top-left corner. Also changed the hardcoded `width: 360px` to `width: 100%; max-width: 360px` so it works correctly in a responsive grid."
+    },
+    {
+      "figmaName": "CTA Group",
+      "nodeId": "2205:19732",
+      "componentDir": "CtaGroup",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: confirmed reused as-is by Section/Feature Cards (no changes needed beyond what was already built for Section/Comparison Table)."
+    },
+    {
+      "figmaName": "Card/Feature Grid",
+      "nodeId": "2189:2495",
+      "componentDir": "FeatureGridCard",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. 'WP Feature Grid item: Image, Heading, Subheading, Copy, Link.' Distinct from the Card family (no icon, image-on-top + heading/subheading/copy/link) and from Card/Media (no eyebrow/meta row, different field names) \u2014 kept as its own component rather than overloading an existing one. 'Card fill = Surface mode (White/Light Grey/Sky/Blush/Lavender)' and 'Link = Button Ghost/Small (no Link-style button in DS yet)' are noted in Figma; only the white/default surface fill was built (matches this repo's convention of a single default surface per card unless a tinted variant is explicitly requested elsewhere)."
+    },
+    {
+      "figmaName": "Filter Tab",
+      "nodeId": "157:16",
+      "componentDir": "FilterTab",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: confirmed unchanged and reused as-is by the new Section/Resources composition \u2014 existing `active`/`children`/`onClick` API already matches Figma's underline-style filter tab exactly."
+    },
+    {
+      "figmaName": "Section/Feature Cards",
+      "nodeId": "2191:596",
+      "componentDir": "SectionFeatureCards",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + a row of Card/Icon Feature (3 default) + CtaGroup."
+    },
+    {
+      "figmaName": "Section/Feature Grid",
+      "nodeId": "2191:642",
+      "componentDir": "SectionFeatureGrid",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + up to 2 rows of 3 Card/Feature Grid (6 total), `showRow2` toggle for a single-row variant."
+    },
+    {
+      "figmaName": "Section/Resources",
+      "nodeId": "2193:2799",
+      "componentDir": "SectionResources",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. 'Layout Default (left heading) | Centered; filter tabs (Filter Tab) + grid of resource cards with excerpts (Card/Media).' Built with controlled FilterTab state (first filter active by default, click to switch) + a responsive 3/2/1-column ResourceCard grid. `layout` controls SectionHeading's align (left vs center) per Figma's own Default/Centered naming."
     }
   ]
 }
