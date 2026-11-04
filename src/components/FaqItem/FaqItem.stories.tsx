@@ -34,3 +34,11 @@ export const CustomContent: Story = {
     answer: 'Yes, all plans are month-to-month with no long-term contract.',
   },
 };
+
+export const Outline: Story = {
+  args: { style: 'outline' },
+};
+
+export const Solid: Story = {
+  args: { style: 'solid', defaultOpen: true },
+};

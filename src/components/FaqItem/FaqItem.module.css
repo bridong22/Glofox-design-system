@@ -6,6 +6,22 @@
   padding: var(--space-4) 0;
   border-bottom: 1px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
+  box-sizing: border-box;
+}
+
+.outline,
+.solid {
+  padding: var(--space-4) var(--space-6);
+  border-bottom: none;
+  border-radius: var(--radius-md);
+}
+
+.outline {
+  border: 1px solid var(--color-border);
+}
+
+.solid {
+  background-color: var(--color-bg-subtle);
 }
 
 .questionRow {

@@ -110,7 +110,7 @@
     {
       "page": "🧱 (Glofox) Page Sections / 🧱 (ABC) Page Sections",
       "nodeId": "2190:8 / 2276:14688",
-      "note": "2026-11-04: new pages, ~30 'Section/*' page-level templates each (FAQ, Testimonial, Pricing Plans, Team, Resources, Comparison Table/Columns, Embed, several carousels, Tabbed Section, 50-50 Text and Image, etc.), composed from existing Foundations atoms (Card family, SectionHeading, Button, StatStrip, PersonCard, etc.) plus a few new shared molecules (CtaGroup, ComparisonTableCompact, Callout, NumberedRow). The ABC page's sections are `instance` nodes of the Glofox page's master components (not independently built per brand) — confirms the dual-brand sync strategy is: build each Section once, let [data-brand=\"abc\"] handle re-theming. Batch 1 (2026-11-04) built 3 of ~30: SectionTeam, SectionImprovementScores, SectionComparisonTable. Batches 2-5 (2026-11-04) built 9 more: SectionFeatureCards, SectionFeatureGrid, SectionResources, SectionIntegrationsCarousel, SectionPartnersCarousel, SectionTestimonialCarousel, SectionQuoteCarousel, SectionResourcesCarousel, SectionServicesCarousel (plus supporting atoms/molecules: LogoCarousel, TestimonialCarouselCard, CardCarousel, CardQuote, and field additions to PersonCard/Card/ResourceCard/ImageTileCard/FeatureGridCard/StatStrip). Batch 6 (2026-11-04) built 3 more: SectionComparisonColumns, SectionNumberedRows, SectionTestimonial (plus the Callout and NumberedRow atoms/molecules they depend on, and an `outline` tone added to CompareCard and an `align='left'` variant added to PullQuote). 15 of ~30 sections built so far. Remaining ~15 sections not yet built: Accordion + Bar Chart (defer, globally 🚧), Accordion + Media, Calculator (defer, globally 🚧), Embed, FAQ, Features Tabs, 50-50 Text and Image, Image and Items List, Large Card List, Plain Text Cards (incl. CompareCard's new Tone=Outline), Plan Cards, Pricing Plans, Services, Small Card List, Tabbed Section. 'Section/Hero + Banner' explicitly needs no new component per Figma's own label ('existing components (reference instances, not new components)')."
+      "note": "2026-11-04: new pages, ~30 'Section/*' page-level templates each (FAQ, Testimonial, Pricing Plans, Team, Resources, Comparison Table/Columns, Embed, several carousels, Tabbed Section, 50-50 Text and Image, etc.), composed from existing Foundations atoms (Card family, SectionHeading, Button, StatStrip, PersonCard, etc.) plus a few new shared molecules (CtaGroup, ComparisonTableCompact, Callout, NumberedRow). The ABC page's sections are `instance` nodes of the Glofox page's master components (not independently built per brand) — confirms the dual-brand sync strategy is: build each Section once, let [data-brand=\"abc\"] handle re-theming. Batch 1 (2026-11-04) built 3 of ~30: SectionTeam, SectionImprovementScores, SectionComparisonTable. Batches 2-5 (2026-11-04) built 9 more: SectionFeatureCards, SectionFeatureGrid, SectionResources, SectionIntegrationsCarousel, SectionPartnersCarousel, SectionTestimonialCarousel, SectionQuoteCarousel, SectionResourcesCarousel, SectionServicesCarousel (plus supporting atoms/molecules: LogoCarousel, TestimonialCarouselCard, CardCarousel, CardQuote, and field additions to PersonCard/Card/ResourceCard/ImageTileCard/FeatureGridCard/StatStrip). Batch 6 (2026-11-04) built 3 more: SectionComparisonColumns, SectionNumberedRows, SectionTestimonial (plus the Callout and NumberedRow atoms/molecules they depend on, and an `outline` tone added to CompareCard and an `align='left'` variant added to PullQuote). Batch 7 (2026-11-04) built 4 more: SectionFaq, SectionTextAndImage (50-50 Text and Image), SectionImageAndItemsList, SectionTabbedSection (plus the shared MediaTextRow molecule they/Accordion+Media depend on, Style=Outline/Solid added to FaqItem, and confirming the existing TabPill atom needed no changes). 19 of ~30 sections built so far. Remaining ~11 sections not yet built: Accordion + Bar Chart (defer, globally 🚧), Accordion + Media, Calculator (defer, globally 🚧), Embed, Features Tabs, Large Card List, Plain Text Cards (incl. CompareCard's new Tone=Outline), Plan Cards, Pricing Plans, Services, Small Card List. 'Section/Hero + Banner' explicitly needs no new component per Figma's own label ('existing components (reference instances, not new components)')."
     }
   ],
   "anomalies": [
@@ -1188,6 +1188,62 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-11-04 NEW component, PROPOSED 2026-10-30. Optional SectionHeading (off by default, matching the confirmed Figma instance) + a square MediaFrame image and a PullQuote (align=left) + optional Subtle-style Callout 'story box' with a link, laid out as two columns that swap sides via `imageAlign` ('left' default = image left/quote right; 'right' = image right/quote left)."
+    },
+    {
+      "figmaName": "FaqItem (Style=Outline/Solid)",
+      "nodeId": "244:18",
+      "componentDir": "FaqItem",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: added `style='outline'|'solid'` per Figma's own changelog ('Style = Divider (rows with hairline) | Outline (WP FAQ Variant=Outline: bordered card) | Solid (WP Variant=Solid: filled color/bg-subtle card)'). Default stays 'divider' (the original bottom-hairline row, unchanged) so existing usages are unaffected; outline/solid replace the hairline with their own card padding/border/radius for use inside Section/FAQ."
+    },
+    {
+      "figmaName": "Section/FAQ",
+      "nodeId": "2191:595",
+      "componentDir": "SectionFaq",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + 1 or 2 columns of FaqItem (4 per column), all sharing one Style=Outline|Solid value per Figma's variant structure. First item defaults open to match the confirmed Figma instance."
+    },
+    {
+      "figmaName": "Media + Text",
+      "nodeId": "2189:2703",
+      "componentDir": "MediaTextRow",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW shared molecule, PROPOSED 2026-10-28. Overline + heading + description + optional checklist (Show list, built from the existing ChecklistItem atom) + CtaGroup, paired with an image on either side (`imageAlign`) and an `align` of left or center. Used by Section/50-50 Text and Image and Section/Image and Items List (and available for Section/Accordion + Media later). Distinct from `NumberedRow` (no number badge) per the identity-preserving component convention."
+    },
+    {
+      "figmaName": "Section/50-50 Text and Image",
+      "nodeId": "2192:819",
+      "componentDir": "SectionTextAndImage",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + 2 (default) or 3 (showRow3) MediaTextRow instances, alternating image side right/left/right by default (matching the confirmed Figma instance's zigzag layout, same pattern as SectionNumberedRows), with a shared `align` (left/center) passed down to every row."
+    },
+    {
+      "figmaName": "Section/Image and Items List",
+      "nodeId": "2192:914",
+      "componentDir": "SectionImageAndItemsList",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + a single left-aligned MediaTextRow with Show list on (3-item checklist) and an `imageAlign` ('left' default, matching the confirmed Figma instance)."
+    },
+    {
+      "figmaName": "Tab Pill",
+      "nodeId": "140:16",
+      "componentDir": "TabPill",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: confirmed reusable as-is for Section/Tabbed Section's wrapping tab row — no changes needed, existing `active`/`children`/`onClick` props already match the Figma Active/Inactive states exactly."
+    },
+    {
+      "figmaName": "Section/Tabbed Section",
+      "nodeId": "2194:2838",
+      "componentDir": "SectionTabbedSection",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED/Updated 2026-10-30. Interactive: SectionHeading size=large (eyebrow off) + a wrapping row of TabPill (10 default labels matching the confirmed Figma instance) + a Tab Panel showing the active tab's heading/description in a brand-subtle text panel alongside an image placeholder, swapped via `useState` on click (same interactive-state pattern as SectionResources' FilterTab and TestimonialCarouselCard's carousel index). `.figma.ts` only extracts the static showHeading/headline props per the established precedent for stateful components (see SectionResources) since the full per-tab content array isn't a single Figma instance property."
     }
   ]
 }

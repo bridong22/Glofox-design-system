@@ -7,9 +7,10 @@ const instance = figma.selectedInstance;
 const question = instance.getString('Question');
 const answer = instance.getString('Answer');
 const state = instance.getEnum('State', { Expanded: 'true', Collapsed: 'false' });
+const style = instance.getEnum('Style', { Divider: 'divider', Outline: 'outline', Solid: 'solid' });
 
 export default {
-  example: figma.code`<FaqItem question="${question}" answer="${answer}" defaultOpen={${state}} />`,
+  example: figma.code`<FaqItem question="${question}" answer="${answer}" defaultOpen={${state}} style="${style}" />`,
   imports: ['import { FaqItem } from "src/components/FaqItem"'],
   id: 'faq-item',
   metadata: { nestable: true },
