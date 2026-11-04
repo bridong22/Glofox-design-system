@@ -17,6 +17,17 @@ type Story = StoryObj<typeof PricingCard>;
 
 export const Default: Story = {};
 
+export const WithOfferNote: Story = {
+  args: {
+    showOfferNote: true,
+    offerNote: (
+      <>
+        *New studios <strong>$99/mo</strong> for your first year
+      </>
+    ),
+  },
+};
+
 export const Popular: Story = {
   args: {
     style: 'popular',
@@ -38,7 +49,7 @@ export const WithAddOnsList: Story = {
     planDescription: 'Advanced tools for scaling fitness brands',
     price: '$650',
     extras: (
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, padding: '0 24px 32px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16, paddingBottom: 32 }}>
         <p
           style={{
             margin: 0,

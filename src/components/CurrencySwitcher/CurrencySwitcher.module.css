@@ -1,0 +1,28 @@
+.switcher {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  background-color: var(--color-bg-muted);
+  border-radius: var(--radius-full);
+}
+
+.option {
+  display: inline-flex;
+  align-items: flex-start;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  color: var(--color-fg-muted);
+}
+
+.selected {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-weight: 600;
+}

@@ -110,7 +110,7 @@
     {
       "page": "🧱 (Glofox) Page Sections / 🧱 (ABC) Page Sections",
       "nodeId": "2190:8 / 2276:14688",
-      "note": "2026-11-04: new pages, ~30 'Section/*' page-level templates each (FAQ, Testimonial, Pricing Plans, Team, Resources, Comparison Table/Columns, Embed, several carousels, Tabbed Section, 50-50 Text and Image, etc.), composed from existing Foundations atoms (Card family, SectionHeading, Button, StatStrip, PersonCard, etc.) plus a few new shared molecules (CtaGroup, ComparisonTableCompact, Callout, NumberedRow). The ABC page's sections are `instance` nodes of the Glofox page's master components (not independently built per brand) — confirms the dual-brand sync strategy is: build each Section once, let [data-brand=\"abc\"] handle re-theming. Batch 1 (2026-11-04) built 3 of ~30: SectionTeam, SectionImprovementScores, SectionComparisonTable. Batches 2-5 (2026-11-04) built 9 more: SectionFeatureCards, SectionFeatureGrid, SectionResources, SectionIntegrationsCarousel, SectionPartnersCarousel, SectionTestimonialCarousel, SectionQuoteCarousel, SectionResourcesCarousel, SectionServicesCarousel (plus supporting atoms/molecules: LogoCarousel, TestimonialCarouselCard, CardCarousel, CardQuote, and field additions to PersonCard/Card/ResourceCard/ImageTileCard/FeatureGridCard/StatStrip). Batch 6 (2026-11-04) built 3 more: SectionComparisonColumns, SectionNumberedRows, SectionTestimonial (plus the Callout and NumberedRow atoms/molecules they depend on, and an `outline` tone added to CompareCard and an `align='left'` variant added to PullQuote). Batch 7 (2026-11-04) built 4 more: SectionFaq, SectionTextAndImage (50-50 Text and Image), SectionImageAndItemsList, SectionTabbedSection (plus the shared MediaTextRow molecule they/Accordion+Media depend on, Style=Outline/Solid added to FaqItem, and confirming the existing TabPill atom needed no changes). Batch 8 (2026-11-04) built 4 more: SectionPlainTextCards, SectionLargeCardList, SectionSmallCardList, SectionServices — all reused existing atoms (CompareCard, PillarCard, FeatureListCard, ImageTileCard) with only minor flexible-width/showLink retrofits, no new atoms needed. Batch 9 (2026-11-04) built 3 more: SectionAccordionMedia, SectionFeaturesTabs, SectionEmbed (plus the new MediaVideo atom for click-to-play video media). 26 of ~30 sections built so far. Remaining ~4 sections not yet built: Accordion + Bar Chart (defer, globally 🚧), Calculator (defer, globally 🚧), Plan Cards, Pricing Plans. 'Section/Hero + Banner' explicitly needs no new component per Figma's own label ('existing components (reference instances, not new components)')."
+      "note": "2026-11-04: new pages, ~30 'Section/*' page-level templates each (FAQ, Testimonial, Pricing Plans, Team, Resources, Comparison Table/Columns, Embed, several carousels, Tabbed Section, 50-50 Text and Image, etc.), composed from existing Foundations atoms (Card family, SectionHeading, Button, StatStrip, PersonCard, etc.) plus a few new shared molecules (CtaGroup, ComparisonTableCompact, Callout, NumberedRow). The ABC page's sections are `instance` nodes of the Glofox page's master components (not independently built per brand) — confirms the dual-brand sync strategy is: build each Section once, let [data-brand=\"abc\"] handle re-theming. Batch 1 (2026-11-04) built 3 of ~30: SectionTeam, SectionImprovementScores, SectionComparisonTable. Batches 2-5 (2026-11-04) built 9 more: SectionFeatureCards, SectionFeatureGrid, SectionResources, SectionIntegrationsCarousel, SectionPartnersCarousel, SectionTestimonialCarousel, SectionQuoteCarousel, SectionResourcesCarousel, SectionServicesCarousel (plus supporting atoms/molecules: LogoCarousel, TestimonialCarouselCard, CardCarousel, CardQuote, and field additions to PersonCard/Card/ResourceCard/ImageTileCard/FeatureGridCard/StatStrip). Batch 6 (2026-11-04) built 3 more: SectionComparisonColumns, SectionNumberedRows, SectionTestimonial (plus the Callout and NumberedRow atoms/molecules they depend on, and an `outline` tone added to CompareCard and an `align='left'` variant added to PullQuote). Batch 7 (2026-11-04) built 4 more: SectionFaq, SectionTextAndImage (50-50 Text and Image), SectionImageAndItemsList, SectionTabbedSection (plus the shared MediaTextRow molecule they/Accordion+Media depend on, Style=Outline/Solid added to FaqItem, and confirming the existing TabPill atom needed no changes). Batch 8 (2026-11-04) built 4 more: SectionPlainTextCards, SectionLargeCardList, SectionSmallCardList, SectionServices — all reused existing atoms (CompareCard, PillarCard, FeatureListCard, ImageTileCard) with only minor flexible-width/showLink retrofits, no new atoms needed. Batch 9 (2026-11-04) built 3 more: SectionAccordionMedia, SectionFeaturesTabs, SectionEmbed (plus the new MediaVideo atom for click-to-play video media). Batch 10 (2026-11-04, FINAL) built the last 2: SectionPlanCards and SectionPricingPlans. These use a newly confirmed Pricing Card design (Figma node 1314:4729, same node as the existing PricingCard but redesigned 2026-11-03) — updated PricingCard in place (left-aligned header, flexible width, capped inner content column, new showOfferNote/offerNote prop) rather than building a parallel component, plus two new supporting pieces: PricingAddOns (add-on list with Add-on/Included status chips) and CurrencySwitcher. 28 of ~30 Page Sections sync is now COMPLETE. Only the 2 globally-deferred sections remain unbuilt: Accordion + Bar Chart and Calculator (both flagged 🚧 across this entire sync effort, per explicit prior scoping — not part of this batch's count). 'Section/Hero + Banner' explicitly needed no new component per Figma's own label ('existing components (reference instances, not new components)')."
     }
   ],
   "anomalies": [
@@ -1324,6 +1324,46 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. `width` (contained=880/wide=1280/full=viewport, matching Figma's 3 width tokens) × `aspect` (16:9/4:3/1:1) via a CSS `aspect-ratio` box instead of literal per-combination pixel sizes, so the embed box stays responsive at any viewport while matching each of the 9 confirmed Figma combinations' proportions. Width=Full also removes the section's horizontal padding and corner radius, matching the confirmed full-bleed instance. WP's 'Custom'/'None' aspect options aren't built — no confirmed usage found for either."
+    },
+    {
+      "figmaName": "Pricing Card",
+      "nodeId": "1314:4729",
+      "componentDir": "PricingCard",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: updated in place to match Figma's 'new design 2026-11-03' (same node ID as the existing component, confirmed by its Code Connect mapping — a redesign, not a new component). Header changed from centered to left-aligned text, card width changed from a fixed 268px to flexible (100%, capped at 400px standalone), and the inner content column (header/price/checklist/extras) now caps at 480px so it reads correctly even when the card itself stretches full-width (Section/Pricing Plans' 'Plan (full width)'). Added `showOfferNote`/`offerNote` (ReactNode, added 2026-11-03 per Figma) for the '*New studios $99/mo...' promo line, and `extras` gained `margin-top: auto` so the add-ons block pins to the bottom when cards in a row are stretched to equal height via `align-items: stretch`."
+    },
+    {
+      "figmaName": "Pricing Add-ons / Add-on Row / Add-on Status",
+      "nodeId": "1316:2344",
+      "componentDir": "PricingAddOns",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW molecule, PROPOSED/rebuilt 2026-11-03. Title + a list of add-on rows, each with a label and a status chip (`status: 'add-on'|'included'`); `type` sets the default status for rows that don't set their own, matching Figma's Type=For purchase|Included. Passed as PricingCard's `extras` slot rather than folded into PricingCard itself, since Figma documents it as a separate, independently-typed component."
+    },
+    {
+      "figmaName": "Currency Switcher",
+      "nodeId": "2189:3388",
+      "componentDir": "CurrencySwitcher",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW atom, PROPOSED 2026-10-28. Interactive segmented control (useState), first option selected by default matching the confirmed Figma instance (USD $ / GBP £ / EUR € / AUD $)."
+    },
+    {
+      "figmaName": "Section/Plan Cards",
+      "nodeId": "2193:1909",
+      "componentDir": "SectionPlanCards",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + optional CurrencySwitcher + a 3-up row of PricingCard (Essential default w/ offer note + for-purchase add-ons, Essential popular w/ for-purchase add-ons, Essential default w/ included add-ons — matching the confirmed Figma instance's 3 cards exactly) + a footnote + an optional compare-plans CtaGroup. Cards use `align-items: stretch` so the default-style side cards match the popular card's height, with PricingCard's `extras` `margin-top: auto` pinning each card's add-ons to the bottom."
+    },
+    {
+      "figmaName": "Section/Pricing Plans",
+      "nodeId": "2193:2191",
+      "componentDir": "SectionPricingPlans",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + a single full-width PricingCard (its content column still capped per the PricingCard update above) + a 2-column row of PricingAddOns (Included | For purchase), matching the confirmed Figma instance's 'Plan (full width)' + 'Add-ons' layout."
     }
   ]
 }

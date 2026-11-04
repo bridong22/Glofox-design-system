@@ -26,11 +26,20 @@ export interface PricingCardProps {
   planDescription?: string;
   price?: string;
   pricePeriod?: string;
+  /**
+   * Figma "Offer note" (added 2026-11-03) — a short promo line rendered
+   * between the price and the CTA button (e.g. an introductory-rate
+   * callout). A ReactNode so callers can bold part of the text, matching
+   * the confirmed Figma instance's mixed-weight copy.
+   */
+  showOfferNote?: boolean;
+  offerNote?: ReactNode;
   buttonLabel?: string;
   onButtonClick?: () => void;
   features?: PricingCardFeature[];
   bannerLabel?: string;
   extras?: ReactNode;
+  className?: string;
 }
 
 export function PricingCard({
@@ -39,16 +48,20 @@ export function PricingCard({
   planDescription = 'Core tools to launch and run your fitness business',
   price = '$275',
   pricePeriod = '/mo',
+  showOfferNote = false,
+  offerNote,
   buttonLabel = 'Book a Demo',
   onButtonClick,
   features = DEFAULT_FEATURES,
   bannerLabel = 'MOST POPULAR',
   extras,
+  className,
 }: PricingCardProps) {
   const isPopular = style === 'popular';
+  const wrapperClasses = [styles.wrapper, className].filter(Boolean).join(' ');
 
   return (
-    <div className={styles.wrapper}>
+    <div className={wrapperClasses}>
       {isPopular && <MostPopularBanner label={bannerLabel} />}
       <div className={`${styles.card} ${isPopular ? styles.popular : ''}`}>
         <div className={styles.top}>
@@ -61,6 +74,7 @@ export function PricingCard({
               <p className={styles.price}>{price}</p>
               <p className={styles.pricePeriod}>{pricePeriod}</p>
             </div>
+            {showOfferNote && offerNote && <p className={styles.offerNote}>{offerNote}</p>}
             <Button size="medium" onClick={onButtonClick} className={styles.button}>
               {buttonLabel}
             </Button>
