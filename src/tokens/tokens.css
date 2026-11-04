@@ -256,3 +256,31 @@
    */
   --container-narrow-max-width: 760px;
 }
+
+/*
+ * ABC brand theme — 2026-11-04. The Figma file was renamed
+ * "ABC-Glofox Website Design System" and its Colour page now carries two
+ * parallel frames, "Color (Glofox)" and "Color (ABC)" — identical in every
+ * token except the brand/CTA color group. Apply `data-brand="abc"` to any
+ * ancestor element (typically <html> or a page-level wrapper) to re-theme
+ * every component for ABC with no component code changes, since all
+ * components already consume the --color-brand-* and --color-cta-* tokens
+ * rather than hardcoded hex. Everything else (fg/bg/border/success/danger/warning/
+ * spacing/radius/typography) is shared between brands and unaffected.
+ *
+ * Note the relationship between brand and cta differs by brand, not just
+ * the hex values: Glofox keeps brand (teal) and cta (orange-red) as
+ * distinct hues, while ABC unifies them — cta equals brand, and
+ * cta-hover is lighter than cta (not darker, as in Glofox).
+ */
+[data-brand='abc'] {
+  --color-brand: #0057d6;
+  --color-brand-hover: #0146aa;
+  --color-brand-subtle: #f0f6fe;
+  --color-brand-alt: #003480;
+
+  --color-cta: #0057d6;
+  --color-cta-hover: #669ae6;
+  --color-cta-subtle: #f0f6fe;
+  --color-cta-pressed: #003480;
+}
