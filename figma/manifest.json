@@ -1,7 +1,7 @@
 {
   "fileKey": "uQ9lsXJuQx9CVTdkJTVtCc",
   "fileName": "Glofox Web Design System",
-  "generatedAt": "2026-10-27",
+  "generatedAt": "2026-11-04",
   "codeConnectGaps": [
     {
       "nodeId": "44:2",
@@ -106,6 +106,11 @@
       "nodeId": "226:8",
       "rule": "Hero image sizing",
       "note": "Two Hero image layouts are documented: NO1 (50/50 split, image caps at max-width 590px / min-width 350px, drops below the title at tablet, never cropped \u2014 only scaled) and NO2 (image sits full-width below the title, matching the page container width at every breakpoint). NOT applied to code: src/components/Hero has no image slot at all currently, so there's nothing yet to size-constrain. Flagging this rather than inventing an image feature that wasn't asked for \u2014 if/when Hero gets an image prop, implement it under one of these two layouts rather than a new one."
+    },
+    {
+      "page": "\ud83e\uddf1 (Glofox) Page Sections / \ud83e\uddf1 (ABC) Page Sections",
+      "nodeId": "2190:8 / 2276:14688",
+      "note": "2026-11-04: new pages, ~30 'Section/*' page-level templates each (FAQ, Testimonial, Pricing Plans, Team, Resources, Comparison Table/Columns, Embed, several carousels, Tabbed Section, 50-50 Text and Image, etc.), composed from existing Foundations atoms (Card family, SectionHeading, Button, StatStrip, PersonCard, etc.) plus a few new shared molecules (CtaGroup, ComparisonTableCompact). The ABC page's sections are `instance` nodes of the Glofox page's master components (not independently built per brand) \u2014 confirms the dual-brand sync strategy is: build each Section once, let [data-brand=\"abc\"] handle re-theming. 2026-11-04 batch built 3 of ~30: SectionTeam, SectionImprovementScores, SectionComparisonTable (plus the CtaGroup and ComparisonTableCompact atoms they depend on, and PersonCard/StatStrip field additions). Remaining ~27 sections not yet built: Accordion + Bar Chart (defer, globally \ud83d\udea7), Accordion + Media, Comparison Columns, Calculator (defer, globally \ud83d\udea7), Embed, FAQ, Feature Cards, Feature Grid, Features Tabs, 50-50 Text and Image, Image and Items List, Integrations Carousel, Large Card List, Numbered Rows, Partners Carousel, Plain Text Cards (incl. a new Tone=Outline on CompareCard), Plan Cards, Pricing Plans, Quote Carousel, Resources Carousel, Resources, Services Carousel, Services, Small Card List, Tabbed Section, Testimonial Carousel, Testimonial. 'Section/Hero + Banner' explicitly needs no new component per Figma's own label ('existing components (reference instances, not new components)')."
     }
   ],
   "anomalies": [
@@ -903,6 +908,70 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-10-27 resync of the '\u2705 Pricing' page (1313:8) \u2014 confirmed unchanged. Direct get_design_context on the Default style (1314:4499) matches PricingCard.tsx's current defaults and structure field-for-field (Essential/$275/mo/8x 'Item 1' features/'Book a Demo', add-ons-via-`extras`-slot pattern) \u2014 no code changes needed. This page was already fully and carefully built out in a prior session, gaps-flagged-not-improvised (price/description color with no matching token, 36px internal gap rounded to spacing/2xl, add-on Badge gradient simplified to a solid color/brand-subtle fill) and that work holds."
+    },
+    {
+      "figmaName": "ABC-Glofox Website Design System (brand)",
+      "nodeId": "104:8 / 2172:10764",
+      "componentDir": "tokens.css",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: the Figma file was renamed 'ABC-Glofox Website Design System' and its Colour page now carries two parallel frames, 'Color (Glofox)' (104:8) and 'Color (ABC)' (2172:10764) \u2014 identical in every token except the brand/CTA color group. Confirmed via get_variable_defs on both frames' Brand/CTA groups: Glofox keeps brand (#00b487 teal) and cta (#d33b1d orange-red) as distinct hues; ABC unifies them \u2014 brand=cta=#0057d6 blue, and cta-hover (#669ae6) is LIGHTER than cta, the opposite of Glofox's darker cta-hover (#b32d13). Implemented as a [data-brand=\"abc\"] CSS override block in tokens.css overriding only --color-brand-*/--color-cta-* \u2014 every component already consumes these tokens, so no component code changes were needed for brand-switching. Added a Storybook toolbar toggle (Brand: Glofox/ABC) to preview any story under either theme. Caught and fixed a self-inflicted bug during this work: a CSS comment containing the literal substring '*/' prematurely closed the comment block, silently corrupting the override rule until the comment was reworded."
+    },
+    {
+      "figmaName": "Card/Person",
+      "nodeId": "1832:5475",
+      "componentDir": "PersonCard",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: 'Show LinkedIn (icon link) + Show bio / Bio = WP Team member fields' added 2026-10-28, used by the new Section/Team composition. Added `showLinkedIn`/`linkedInHref` props (renders the existing `linkedin` lucide icon, already used by Footer's social row). Also added `showBio`/`bio` as aliases for the existing `showIntro`/`intro` props for Code Connect/WP-naming parity, without duplicating the underlying state. Unrelated fix needed to use this card in a responsive grid (Section/Team): changed the card's hardcoded `width: 440px` to `width: 100%; max-width: 440px` \u2014 identical standalone appearance (still caps at 440px), but now shrinks correctly as a flex child in a 3-across row."
+    },
+    {
+      "figmaName": "StatStrip",
+      "nodeId": "42:49",
+      "componentDir": "StatStrip",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: 'Source / Show source = WP Improvement Scores \"Source\"' added 2026-10-28, used by the new Section/Improvement Scores composition. Added `source`/`showSource` fields to the `Stat` type, rendered as a small --color-fg-subtle citation line below the description. Figma also describes the big value's color as 'accent/color (WP Highlights Color \u2192 Accent mode Brand/CTA)' \u2014 a configurable accent rather than a hardcoded brand color; left as --color-brand for now (matches existing behavior) and flagged here since a true accent-mode prop would be a larger follow-up."
+    },
+    {
+      "figmaName": "CTA Group",
+      "nodeId": "2205:19732",
+      "componentDir": "CtaGroup",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28 in Figma. 'WP \"CTAs\" repeater (1-2 buttons)' \u2014 a Primary button plus an optional Outline (WP \"Secondary\") button, reused across several of the new Page Sections. Figma also documents a With Icon + Icon-swap variant for 'Voice Call (phone) / Chat (message-circle)' WP behaviours and a Ghost (WP \"Link\"/\"Text link\") variant \u2014 not built here since no section in this batch used them; extend CtaGroup's buttons with the existing Button component's `withIcon`/`variant=\"ghost\"` props if/when a section needs them. Distinct from the existing CtaRow (a bordered title+description+button contact prompt) \u2014 different shape, kept separate."
+    },
+    {
+      "figmaName": "Comparison Table/Compact",
+      "nodeId": "2127:16355",
+      "componentDir": "ComparisonTableCompact",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-26. 'Compact 2-brand comparison table (featured brand vs one competitor)' \u2014 header row (feature heading + featured-brand wordmark + competitor name(s)), body rows with a highlighted brand-subtle check column vs plain x columns for 1-4 competitors. Distinct from the existing ComparisonTable (a generic N-column text-value data table) \u2014 different shape, kept separate, following this repo's established identity-preserving convention for similarly-named but structurally different components. SIMPLIFICATION: Figma's featured-brand cell uses the real Logo component (brand=Glofox, tone=Inverse); this repo's `Logo` component is specifically for swappable customer/partner marks (Akt, F45, etc.), not a first-party site wordmark, so ComparisonTableCompact renders the featured brand as styled text instead \u2014 following the exact precedent already set by Footer/LpFooter's plain-text 'GLOFOX' wordmark. `featuredBrandName` defaults to 'Glofox' and is caller-overridable (e.g. to 'ABC Fitness')."
+    },
+    {
+      "figmaName": "Section/Team",
+      "nodeId": "2194:2868",
+      "componentDir": "SectionTeam",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + up to 2 rows of 3 Card/Person (6 total), `showRow2` toggle for a single-row variant. First of ~30 'Section/*' templates found on the new \ud83e\uddf1 (Glofox) Page Sections (2190:8) and \ud83e\uddf1 (ABC) Page Sections (2276:14688) pages \u2014 the ABC page's sections are `instance` nodes of these SAME master components (not separate per-brand builds), confirming each Section needs building only once and re-themes automatically via the brand CSS override."
+    },
+    {
+      "figmaName": "Section/Improvement Scores",
+      "nodeId": "2192:915",
+      "componentDir": "SectionImprovementScores",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + a StatStrip row of 3-4 stats (prefix, value, label, description, source), `showScore4` toggle for a 3-stat variant (flattened into passing a 3- or 4-item `scores` array in code, which is more idiomatic than a fixed boolean for a list)."
+    },
+    {
+      "figmaName": "Section/Comparison Table",
+      "nodeId": "2190:298",
+      "componentDir": "SectionComparisonTable",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + ComparisonTableCompact + CtaGroup. 'Theme Auto/Light/Dark via table variant + Color mode' is noted in Figma but not implemented \u2014 this repo has no dark-mode theme yet (separate from the ABC/Glofox brand-color work), so only the Auto/Light case is built."
     }
   ]
 }

@@ -1,0 +1,110 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.headerRow,
+.row {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.headerRow {
+  background-color: var(--color-bg-subtle);
+}
+
+.row[data-stripe='odd'] {
+  background-color: var(--color-bg);
+}
+
+.row[data-stripe='even'] {
+  background-color: var(--color-bg-subtle);
+}
+
+.featureHeadingCell,
+.featureCell {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-1);
+  flex: 1 0 0;
+  min-width: 0;
+  padding: var(--space-4) var(--space-6);
+}
+
+.featureHeadingText {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  color: var(--color-fg);
+}
+
+.headerCell {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 150px;
+  padding: var(--space-4) var(--space-6);
+}
+
+.featuredBrandText {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 700;
+  font-size: var(--font-size-small);
+  color: var(--color-brand);
+}
+
+.competitorText {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-body);
+  color: var(--color-fg);
+  text-align: center;
+}
+
+.featureLabel {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+  color: var(--color-fg);
+}
+
+.featureDescription {
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-tiny);
+  color: var(--color-fg-muted);
+}
+
+.valueCell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 150px;
+  padding: var(--space-4);
+}
+
+.valueCell.highlight {
+  background-color: var(--color-brand-subtle);
+}
+
+.checkIcon {
+  color: var(--color-brand);
+}
+
+.xIcon {
+  color: var(--color-fg-subtle);
+}

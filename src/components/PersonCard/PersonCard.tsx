@@ -1,4 +1,5 @@
 import { Button } from '../Button';
+import { Icon } from '../Icon';
 import styles from './PersonCard.module.css';
 
 export interface PersonCardProps {
@@ -6,8 +7,14 @@ export interface PersonCardProps {
   photoAlt?: string;
   name?: string;
   role?: string;
+  /** Figma `Show bio` / `Bio` properties (added 2026-10-28, WP Team member fields) — an alias for `showIntro`/`intro` kept for Code Connect parity; prefer `showIntro`/`intro` in new code. */
+  showBio?: boolean;
+  bio?: string;
   showIntro?: boolean;
   intro?: string;
+  /** Figma `Show LinkedIn` property (added 2026-10-28, WP Team member field). */
+  showLinkedIn?: boolean;
+  linkedInHref?: string;
   showLink?: boolean;
   linkLabel?: string;
   onLinkClick?: () => void;
@@ -19,13 +26,19 @@ export function PersonCard({
   photoAlt = '',
   name = 'Person Name',
   role = 'Job title, company relationship',
-  showIntro = true,
-  intro = 'One-line intro goes here.',
+  showBio,
+  bio,
+  showIntro,
+  intro,
+  showLinkedIn = false,
+  linkedInHref = '#',
   showLink = true,
   linkLabel = 'Read More',
   onLinkClick,
   className,
 }: PersonCardProps) {
+  const resolvedShowIntro = showIntro ?? showBio ?? true;
+  const resolvedIntro = intro ?? bio ?? 'One-line intro goes here.';
   const classes = [styles.card, className].filter(Boolean).join(' ');
 
   return (
@@ -41,7 +54,12 @@ export function PersonCard({
         <div className={styles.copy}>
           <p className={styles.name}>{name}</p>
           <p className={styles.role}>{role}</p>
-          {showIntro && <p className={styles.intro}>{intro}</p>}
+          {resolvedShowIntro && <p className={styles.intro}>{resolvedIntro}</p>}
+          {showLinkedIn && (
+            <a href={linkedInHref} aria-label={`${name} on LinkedIn`} className={styles.linkedIn}>
+              <Icon name="linkedin" size={20} />
+            </a>
+          )}
         </div>
         {showLink && (
           <Button variant="ghost" size="small" className={styles.link} onClick={onLinkClick}>

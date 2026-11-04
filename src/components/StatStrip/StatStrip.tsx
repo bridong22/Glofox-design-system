@@ -7,6 +7,9 @@ export interface Stat {
   showPrefix?: boolean;
   description?: string;
   showDescription?: boolean;
+  /** Figma `Source` / `Show source` properties (added 2026-10-28, WP Improvement Scores field) — a citation line below the description. */
+  source?: string;
+  showSource?: boolean;
 }
 
 export interface StatStripProps {
@@ -25,6 +28,7 @@ export function StatStrip({ stats = DEFAULT_STATS }: StatStripProps) {
       {stats.map((stat) => {
         const showPrefix = stat.showPrefix ?? Boolean(stat.prefix);
         const showDescription = stat.showDescription ?? Boolean(stat.description);
+        const showSource = stat.showSource ?? Boolean(stat.source);
         return (
           <div className={styles.stat} key={`${stat.value}-${stat.label}`}>
             {showPrefix && stat.prefix && <p className={styles.prefix}>{stat.prefix}</p>}
@@ -33,6 +37,7 @@ export function StatStrip({ stats = DEFAULT_STATS }: StatStripProps) {
             {showDescription && stat.description && (
               <p className={styles.description}>{stat.description}</p>
             )}
+            {showSource && stat.source && <p className={styles.source}>{stat.source}</p>}
           </div>
         );
       })}

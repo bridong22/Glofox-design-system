@@ -53,3 +53,11 @@
   line-height: var(--line-height-tiny);
   color: var(--color-fg-muted);
 }
+
+.source {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-2xs);
+  color: var(--color-fg-subtle);
+}

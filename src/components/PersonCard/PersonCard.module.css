@@ -3,7 +3,8 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-6);
-  width: 440px;
+  width: 100%;
+  max-width: 440px;
   padding: var(--space-4);
   background-color: var(--color-bg);
   border: 1px solid var(--color-border-subtle);
@@ -96,6 +97,16 @@
   line-height: var(--line-height-small);
   color: var(--color-fg-muted);
   word-break: break-word;
+}
+
+.linkedIn {
+  display: flex;
+  color: var(--color-fg-muted);
+  transition: color 0.2s ease;
+}
+
+.linkedIn:hover {
+  color: var(--color-brand);
 }
 
 .link {
