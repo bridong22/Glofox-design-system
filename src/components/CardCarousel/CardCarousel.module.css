@@ -1,0 +1,32 @@
+.cardCarousel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.slides {
+  display: flex;
+  align-items: stretch;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.slides > * {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.arrows {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}

@@ -1076,6 +1076,62 @@
       "assetKey": null,
       "instanceCount": null,
       "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. Thin wrapper: SectionHeading + TestimonialCarouselCard (which already has its own internal header/logo-marquee toggles per Figma's 'wraps existing Testimonial Carousel' note)."
+    },
+    {
+      "figmaName": "(generic, no single Figma node)",
+      "nodeId": null,
+      "componentDir": "CardCarousel",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW internal molecule, not a 1:1 Figma component mapping. Section/Quote Carousel, Section/Resources Carousel, and Section/Services Carousel all repeat the exact same structure in Figma (a row of N cards + a 'Carousel controls' row with a ScrollIndicator dot track and a Prev/Next CarouselArrow pair) with only the card type differing. Extracted into one generic, type-parametrized CardCarousel (items + perPage + renderItem) shared by all three Section components below, rather than duplicating the paging/controls logic three times."
+    },
+    {
+      "figmaName": "Card/Quote",
+      "nodeId": "2189:2508",
+      "componentDir": "CardQuote",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. 'WP Quote Carousel / Testimonial item: Logo, Quote, Headshot, Name, Title/company. Top rule = accent/color.' Top border mapped to --color-brand, following this repo's established convention for Figma's generic 'accent/color' token (see StatStrip, CarouselTag)."
+    },
+    {
+      "figmaName": "Section/Quote Carousel",
+      "nodeId": "2193:2294",
+      "componentDir": "SectionQuoteCarousel",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + CardCarousel of CardQuote."
+    },
+    {
+      "figmaName": "Card/Media",
+      "nodeId": "1829:4218",
+      "componentDir": "ResourceCard",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: confirmed ResourceCard's existing showScore/showTag fields (added in the earlier Section/Resources batch) already cover Section/Resources Carousel's card needs exactly \u2014 no further changes."
+    },
+    {
+      "figmaName": "Section/Resources Carousel",
+      "nodeId": "2193:2362",
+      "componentDir": "SectionResourcesCarousel",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + CardCarousel of ResourceCard (score + tag on by default, matching the confirmed Figma instance)."
+    },
+    {
+      "figmaName": "Card/Image Tile",
+      "nodeId": "1832:5438",
+      "componentDir": "ImageTileCard",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04: '2026-10-28: Show description = WP Services card description' \u2014 added `showDescription`/`description` props (default false, not used by the specific instance sampled for this section but present on the component per Figma's own changelog). Also changed the hardcoded `width: 300px` to `width: 100%; max-width: 300px` for carousel/grid use."
+    },
+    {
+      "figmaName": "Section/Services Carousel",
+      "nodeId": "2193:2800",
+      "componentDir": "SectionServicesCarousel",
+      "assetKey": null,
+      "instanceCount": null,
+      "note": "2026-11-04 NEW component, PROPOSED 2026-10-28. SectionHeading + CardCarousel of ImageTileCard (4 per page, matching the confirmed Figma instance)."
     }
   ]
 }

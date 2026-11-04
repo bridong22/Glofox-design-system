@@ -4,6 +4,9 @@ export interface ImageTileCardProps {
   imageUrl?: string;
   imageAlt?: string;
   caption?: string;
+  /** Figma `Show description` property (added 2026-10-28, WP Services card field). */
+  showDescription?: boolean;
+  description?: string;
   showArrowBadge?: boolean;
   onClick?: () => void;
   className?: string;
@@ -13,6 +16,8 @@ export function ImageTileCard({
   imageUrl,
   imageAlt = '',
   caption = 'Caption or audience name',
+  showDescription = false,
+  description,
   showArrowBadge = true,
   onClick,
   className,
@@ -51,6 +56,7 @@ export function ImageTileCard({
         )}
       </div>
       <p className={styles.caption}>{caption}</p>
+      {showDescription && description && <p className={styles.description}>{description}</p>}
     </div>
   );
 }
