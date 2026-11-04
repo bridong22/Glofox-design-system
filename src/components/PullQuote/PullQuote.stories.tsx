@@ -22,3 +22,12 @@ export const CustomTestimonial: Story = {
     role: 'Founder, Flow Yoga Collective',
   },
 };
+
+export const Left: Story = {
+  args: {
+    align: 'left',
+    quote: '“Our Club is now consistently running at 95 or 96 percent”',
+    name: 'Trey McClain',
+    role: 'CRO, BFit',
+  },
+};

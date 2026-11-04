@@ -4,7 +4,7 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-const tone = instance.getEnum('Tone', { Sky: 'sky', Blush: 'blush' });
+const tone = instance.getEnum('Tone', { Sky: 'sky', Blush: 'blush', Outline: 'outline' });
 const showLabel = instance.getBoolean('Show label');
 
 function readText(layerName: string, fallback: string): string {

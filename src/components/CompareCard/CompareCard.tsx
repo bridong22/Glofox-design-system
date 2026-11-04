@@ -1,8 +1,12 @@
 import styles from './CompareCard.module.css';
 
 export interface CompareCardProps {
-  /** Convention: Blush = the problem/old way, Sky = the solution/new way. */
-  tone?: 'sky' | 'blush';
+  /**
+   * Convention: Blush = the problem/old way, Sky = the solution/new way.
+   * Outline (added 2026-11-04) = plain accent-bordered card used for a
+   * neutral third comparison column or Plain Text Cards' "Outline" tone.
+   */
+  tone?: 'sky' | 'blush' | 'outline';
   showLabel?: boolean;
   label?: string;
   title?: string;
@@ -21,9 +25,8 @@ export function CompareCard({
   bullets = DEFAULT_BULLETS,
   className,
 }: CompareCardProps) {
-  const classes = [styles.card, tone === 'blush' ? styles.blush : styles.sky, className]
-    .filter(Boolean)
-    .join(' ');
+  const toneClass = tone === 'blush' ? styles.blush : tone === 'outline' ? styles.outline : styles.sky;
+  const classes = [styles.card, toneClass, className].filter(Boolean).join(' ');
 
   return (
     <div className={classes}>

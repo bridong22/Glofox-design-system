@@ -21,6 +21,14 @@ export const Blush: Story = {
   },
 };
 
+export const Outline: Story = {
+  args: {
+    tone: 'outline',
+    label: 'Label',
+    title: 'Comparison heading',
+  },
+};
+
 export const Pair: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '24px' }}>

@@ -4,12 +4,13 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
+const align = instance.getEnum('Align', { Center: 'center', Left: 'left' });
 const quote = instance.getString('Quote');
 const name = instance.getString('Name');
 const role = instance.getString('Role');
 
 export default {
-  example: figma.code`<PullQuote quote="${quote}" name="${name}" role="${role}" />`,
+  example: figma.code`<PullQuote align="${align}" quote="${quote}" name="${name}" role="${role}" />`,
   imports: ['import { PullQuote } from "src/components/PullQuote"'],
   id: 'pull-quote',
   metadata: { nestable: true },
