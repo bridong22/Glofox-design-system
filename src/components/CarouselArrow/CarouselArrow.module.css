@@ -6,7 +6,7 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius-full);
-  border: 1px solid #ccd1d9;
+  border: 1px solid var(--color-border);
   background-color: var(--color-bg);
   color: var(--color-fg);
   cursor: pointer;

@@ -15,9 +15,13 @@
   min-width: 0;
   margin: 0;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-small);
-  font-weight: var(--font-weight-small);
-  line-height: var(--line-height-small);
+  /* Figma literal: 14px/Regular/22px line-height. --font-size-tiny matches
+     the 14px + 1.5 line-height pairing exactly, but it's paired with a
+     Semibold (600) weight in tokens.css — ChecklistItem's label is Regular,
+     so font-weight is kept independent at 400 rather than following suit. */
+  font-size: var(--font-size-tiny);
+  font-weight: 400;
+  line-height: var(--line-height-tiny);
   color: var(--color-fg);
   /* Confirmed live feature-list items (Pricing tier cards) run well past one
      line ("ABC Glofox Mobile app for iOS and Android") — nowrap forced these

@@ -3,12 +3,13 @@ import styles from './FilterTab.module.css';
 
 export interface FilterTabProps {
   active?: boolean;
+  disabled?: boolean;
   children: ReactNode;
   onClick?: () => void;
 }
 
 export const FilterTab = forwardRef<HTMLButtonElement, FilterTabProps>(function FilterTab(
-  { active = true, children, onClick },
+  { active = true, disabled = false, children, onClick },
   ref,
 ) {
   return (
@@ -17,6 +18,7 @@ export const FilterTab = forwardRef<HTMLButtonElement, FilterTabProps>(function 
       type="button"
       className={`${styles.filterTab} ${active ? styles.active : styles.inactive}`}
       onClick={onClick}
+      disabled={disabled}
       aria-pressed={active}
     >
       {children}

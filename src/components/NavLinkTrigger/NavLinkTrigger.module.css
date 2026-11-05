@@ -21,10 +21,10 @@
 }
 
 .label {
-  font-size: var(--font-size-tiny);
+  font-size: var(--font-size-nav-link);
   font-weight: 500;
   line-height: normal;
-  color: var(--color-fg-muted);
+  color: var(--color-fg);
   white-space: nowrap;
 }
 

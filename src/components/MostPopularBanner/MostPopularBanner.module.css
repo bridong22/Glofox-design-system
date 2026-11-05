@@ -6,7 +6,7 @@
   /* Figma's spacing/20 (20px) has no matching token in this repo's space
      scale (--space-4 is 16px, --space-6 is 24px) — kept as a literal. */
   padding: var(--space-1) 20px;
-  background-color: var(--color-success);
+  background-color: var(--color-brand);
   border-top-left-radius: var(--radius-md);
   border-top-right-radius: var(--radius-md);
   box-sizing: border-box;

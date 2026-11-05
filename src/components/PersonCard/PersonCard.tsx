@@ -62,7 +62,7 @@ export function PersonCard({
           )}
         </div>
         {showLink && (
-          <Button variant="ghost" size="small" className={styles.link} onClick={onLinkClick}>
+          <Button variant="ghost" size="medium" className={styles.link} onClick={onLinkClick}>
             {linkLabel}
           </Button>
         )}

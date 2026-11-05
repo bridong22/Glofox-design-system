@@ -22,7 +22,7 @@
 }
 
 .popular {
-  border-color: var(--color-success);
+  border-color: var(--color-brand-alt);
   border-top: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

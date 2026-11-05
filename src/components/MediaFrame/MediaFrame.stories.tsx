@@ -11,7 +11,7 @@ const meta: Meta<typeof MediaFrame> = {
   argTypes: {
     ratio: {
       control: 'select',
-      options: ['hero', 'card', 'square'],
+      options: ['hero', 'card', 'square', 'circle'],
     },
   },
 };
@@ -43,6 +43,17 @@ export const Card: Story = {
 
 export const Square: Story = {
   args: { ratio: 'square' },
+  decorators: [
+    (Story) => (
+      <div style={{ width: 300 }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export const Circle: Story = {
+  args: { ratio: 'circle' },
   decorators: [
     (Story) => (
       <div style={{ width: 300 }}>

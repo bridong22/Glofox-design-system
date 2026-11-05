@@ -10,7 +10,7 @@
 
 .icon {
   flex-shrink: 0;
-  color: var(--color-success);
+  color: var(--color-brand);
 }
 
 .text {

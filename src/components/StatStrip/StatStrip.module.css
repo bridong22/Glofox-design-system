@@ -19,8 +19,8 @@
   margin: 0;
   font-family: var(--font-family-base);
   font-weight: 500;
-  font-size: var(--font-size-small);
-  line-height: var(--line-height-small);
+  font-size: var(--font-size-tiny);
+  line-height: var(--line-height-tiny);
   color: var(--color-fg);
   white-space: nowrap;
 }

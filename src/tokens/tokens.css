@@ -163,6 +163,10 @@
   --font-weight-body: 400;
   --line-height-body: 1.8;
 
+  /* Figma's own dedicated nav-link token (--ds-font-size-nav-link), used only
+     by NavBar/NavLinkTrigger idle-state labels — doesn't fit this scale. */
+  --font-size-nav-link: 15px;
+
   /* Figma "medium/regular" */
   --font-size-small: 16px;
   --font-weight-small: 400;

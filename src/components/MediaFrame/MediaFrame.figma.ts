@@ -4,7 +4,12 @@
 import figma from 'figma';
 const instance = figma.selectedInstance;
 
-const ratio = instance.getEnum('Ratio', { Hero: 'hero', Card: 'card', Square: 'square' });
+const ratio = instance.getEnum('Ratio', {
+  Hero: 'hero',
+  'Card-horizontal': 'card',
+  Square: 'square',
+  Ratio4: 'circle',
+});
 
 export default {
   example: figma.code`<MediaFrame ratio="${ratio}" />`,

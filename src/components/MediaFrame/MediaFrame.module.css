@@ -18,6 +18,11 @@
   aspect-ratio: var(--aspect-square);
 }
 
+.mediaFrame[data-ratio='circle'] {
+  aspect-ratio: var(--aspect-square);
+  border-radius: var(--radius-full);
+}
+
 .image {
   display: block;
   width: 100%;

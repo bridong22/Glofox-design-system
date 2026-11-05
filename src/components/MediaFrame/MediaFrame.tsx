@@ -1,6 +1,6 @@
 import styles from './MediaFrame.module.css';
 
-export type MediaFrameRatio = 'hero' | 'card' | 'square';
+export type MediaFrameRatio = 'hero' | 'card' | 'square' | 'circle';
 
 export interface MediaFrameProps {
   /** Aspect ratio variant. Width always fills the parent column; only the height is derived. */

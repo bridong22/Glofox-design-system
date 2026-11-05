@@ -24,8 +24,11 @@
 }
 
 .tag[data-mode='dark'] {
-  background-color: rgba(255, 255, 255, 0.16);
-  --review-tag-muted-star-color: rgba(255, 255, 255, 0.4);
+  /* Confirmed via Figma: DarkMode sits on the same color-bg-subtle pill as
+     LightMode (not a translucent-white on-dark treatment) — only the text
+     and star colors differ, both muted to color-border. */
+  background-color: var(--color-bg-subtle);
+  --review-tag-muted-star-color: var(--color-border);
 }
 
 .tag[data-mode='light'] {
@@ -87,7 +90,7 @@
 }
 
 .tag[data-mode='dark'] .value {
-  color: #fff;
+  color: var(--color-border);
 }
 
 .tag[data-mode='light'] .value {
@@ -104,8 +107,9 @@
 }
 
 .tag[data-mode='dark'] .count {
-  /* Figma "Secondary/Shade - 1" — literal, no matching --color-fg-* token */
-  color: #d2d1d5;
+  /* Confirmed via Figma: DarkMode's reviews text is color-border, same as
+     the rating value — not a separate lighter shade. */
+  color: var(--color-border);
 }
 
 .tag[data-mode='light'] .count {

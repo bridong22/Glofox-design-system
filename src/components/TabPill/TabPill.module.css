@@ -6,22 +6,28 @@
   font-family: var(--font-family-base);
   cursor: pointer;
   background: none;
+  color: var(--color-fg);
+  font-size: var(--font-size-tiny);
+  font-weight: 400;
+  line-height: var(--line-height-tiny);
+}
+
+.tabPill:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
 }
 
 .inactive {
   background-color: var(--color-bg);
-  border: 1px solid #d9dbe0;
-  color: var(--color-fg);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-xs);
-  line-height: var(--line-height-xs);
+  border: 1px solid var(--color-border);
+}
+
+.inactive:not(:disabled):hover {
+  background-color: var(--color-bg-subtle);
+  border-color: var(--color-border-strong);
 }
 
 .active {
   background-color: var(--color-brand-subtle);
   border: 1.5px solid var(--color-brand);
-  color: var(--color-fg);
-  font-size: var(--font-size-2xs);
-  font-weight: var(--font-weight-2xs);
-  line-height: var(--line-height-2xs);
 }

@@ -11,11 +11,10 @@
 
 .button:disabled {
   cursor: not-allowed;
-  opacity: 0.5;
 }
 
 .button:focus-visible {
-  outline: 2px solid var(--color-brand);
+  outline: 2px solid;
   outline-offset: 2px;
 }
 
@@ -35,6 +34,14 @@
   background-color: var(--color-cta-pressed);
 }
 
+.primary:disabled {
+  background-color: var(--color-cta-subtle);
+}
+
+.primary:focus-visible {
+  outline-color: var(--color-cta-subtle);
+}
+
 .outline {
   background-color: transparent;
   color: var(--color-fg);
@@ -44,10 +51,23 @@
 
 .outline:hover:not(:disabled) {
   background-color: var(--color-bg-subtle);
+  border-color: var(--color-cta-hover);
+  color: var(--color-cta-hover);
 }
 
 .outline:active:not(:disabled) {
   background-color: var(--color-bg-muted);
+  border-color: var(--color-cta-hover);
+  color: var(--color-cta-hover);
+}
+
+.outline:disabled {
+  border-color: var(--color-border);
+  color: var(--color-fg-subtle);
+}
+
+.outline:focus-visible {
+  outline-color: var(--color-cta-hover);
 }
 
 .ghost {
@@ -59,11 +79,19 @@
 }
 
 .ghost:hover:not(:disabled) {
-  color: var(--color-brand-hover);
+  color: var(--color-cta-hover);
 }
 
 .ghost:active:not(:disabled) {
   color: var(--color-cta-pressed);
+}
+
+.ghost:disabled {
+  color: var(--color-fg-subtle);
+}
+
+.ghost:focus-visible {
+  outline-color: var(--color-cta-hover);
 }
 
 /* Sizes */
@@ -78,12 +106,22 @@
   line-height: var(--line-height-small);
 }
 
-.large {
-  /* Not bound to --font-size-body in Figma (Button text is SemiBold at every
-     size, body/regular is a separate Regular-weight style) — kept literal so
-     it doesn't move if body/regular's size changes again. */
-  font-size: 18px;
-  line-height: 1.45;
+/*
+ * Large keeps Primary/Outline at the same font size as Medium (only padding
+ * grows) — confirmed via Figma: Variant=Primary/Outline, Size=Large still
+ * binds its label to font-size-medium (16px, this repo's --font-size-small).
+ * Ghost Large alone steps up to font-size-body (20px) — Ghost has no
+ * surrounding button chrome, so its size signal is the text itself.
+ */
+.primary.large,
+.outline.large {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.ghost.large {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
 }
 
 .primary.small,

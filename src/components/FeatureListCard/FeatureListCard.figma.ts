@@ -1,4 +1,4 @@
-// url=https://www.figma.com/design/uQ9lsXJuQx9CVTdkJTVtCc/Glofox-Web-Design-System?node-id=174-8
+// url=https://www.figma.com/design/uQ9lsXJuQx9CVTdkJTVtCc/ABC-Glofox-Website-Design-System?node-id=1829-4246
 // source=src/components/FeatureListCard/FeatureListCard.tsx
 // component=FeatureListCard
 import figma from 'figma';
