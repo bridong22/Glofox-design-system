@@ -142,3 +142,17 @@
 .icon {
   flex-shrink: 0;
 }
+
+.iconHover {
+  display: none;
+}
+
+.ghost:hover:not(:disabled) .iconDefault,
+.ghost:active:not(:disabled) .iconDefault {
+  display: none;
+}
+
+.ghost:hover:not(:disabled) .iconHover,
+.ghost:active:not(:disabled) .iconHover {
+  display: block;
+}
