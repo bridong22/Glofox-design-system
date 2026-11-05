@@ -1,3 +1,4 @@
+import { Icon } from '../Icon';
 import styles from './ImageTileCard.module.css';
 
 export interface ImageTileCardProps {
@@ -51,7 +52,7 @@ export function ImageTileCard({
         )}
         {showArrowBadge && (
           <span className={styles.arrowBadge} aria-hidden="true">
-            ↗
+            <Icon name="arrow-up-right" size={16} />
           </span>
         )}
       </div>
